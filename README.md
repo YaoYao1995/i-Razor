@@ -1,6 +1,6 @@
 # Instruction to reproduce i-Razor
 
-Code to reproduce the experiments in “*i-Razor: A Neural Input Razor for Feature Selection and Dimension Search in Large-Scale Recommender Systems*”.
+Code to reproduce the experiments in “*i-Razor: A Differentiable Neural Input Razor for Feature Selection and Dimension Search in DNN-Based Recommender Systems*”.
 
 Our code is mainly implemented with reference to the Tensorflow implementation of AutoFIS. The URL is: https://github.com/zhuchenxv/AutoFIS 
 
