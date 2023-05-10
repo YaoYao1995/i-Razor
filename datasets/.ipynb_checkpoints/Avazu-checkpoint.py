@@ -27,7 +27,8 @@ class Avazu(Dataset):
                   24, 7]
     feat_min = [0, 7, 14, 3149, 6636, 6660, 10662, 10914, 10942, 112391, 636063, 641988, 641993, 641997, 644414,
                 644422, 644431, 644857, 644861, 644928, 645094, 645154, 645164, 645188]
-    data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Avazu')
+    #data_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'Avazu')
+    data_dir = os.path.join("/workspace/data/avazu", 'Avazu')
     raw_data_dir = os.path.join(data_dir, 'raw')
     feature_data_dir = os.path.join(data_dir, 'feature')
     hdf_data_dir = os.path.join(data_dir, 'hdf')

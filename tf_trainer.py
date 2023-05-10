@@ -4,13 +4,27 @@ from __future__ import print_function
 import datetime
 import os
 import time
-
+import wandb
 import numpy as np
 import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 from sklearn.metrics import roc_auc_score, log_loss
 from grda_tensorflow import GRDA
 from tf_utils import get_optimizer, get_loss
+import logging
+
+def create_logger(logging_dir):
+    """
+    Create a logger that writes to a log file and stdout.
+    """
+    logging.basicConfig(
+        level=logging.INFO,
+        format='[\033[34m%(asctime)s\033[0m] %(message)s',
+        datefmt='%Y-%m-%d %H:%M:%S',
+        handlers=[logging.StreamHandler(), logging.FileHandler(f"{logging_dir}/log.txt")]
+    )
+    logger = logging.getLogger(__name__)
+    return logger
 
 
 class Trainer:
@@ -30,8 +44,8 @@ class Trainer:
                  n_epoch=1, train_per_epoch=10000, test_per_epoch=10000, early_stop_epoch=5,
                  batch_size=2000, learning_rate=1e-2, decay_rate=0.95, learning_rate2=1e-2,decay_rate2=1,
                  logdir=None, load_ckpt=False, ckpt_time=10,grda_c=0.005, grda_mu=0.51,
-                 test_every_epoch=1, retrain_stage=0,global_step=None):
-        print("global_step", global_step)
+                 test_every_epoch=1, retrain_stage=0,global_step=None, writer=None,logger=None):
+        #print("global_step", global_step)
         self.model = model
         self.train_gen = train_gen
         self.test_gen = test_gen
@@ -53,6 +67,8 @@ class Trainer:
         self.epsilon = epsilon
         self.test_every_epoch = test_every_epoch
         self.retrain_stage = retrain_stage
+        self.writer = writer
+        self.logger = logger
 
         self.call_auc = roc_auc_score
         self.call_loss = log_loss
@@ -115,6 +131,9 @@ class Trainer:
                 _l2_loss = 0
         else:
             _, _loss, _l2_loss, outputs = self._run(fetches=[self.model.optimizer1, self.model.loss, self.model.l2_loss, self.model.outputs], feed_dict=feed_dict)
+        # if self.writer is not None:
+        #     self.writer.add_scalar('Train/loss', _loss, self.global_step.eval(self.session))
+        #     self.writer.add_scalar('Train/l2_loss', _l2_loss, self.global_step.eval(self.session))
         return _loss, _l2_loss, outputs
 
     def _watch(self, X, y, training, watch_list):
@@ -164,7 +183,9 @@ class Trainer:
             labels.append(y)
             cnt += 1
             if cnt % 100 == 0:
-                print('evaluated batches:', cnt, time.time() - tic)
+                if self.logger is not None:
+                    self.logger.info(f'evaluated batches: {cnt}, {datetime.timedelta(seconds=int(time.time() - tic))}')
+                #print('evaluated batches:', cnt, time.time() - tic)
                 tic = time.time()
             num += 1
             if num >= int(self.test_per_epoch/self.batch_size):
@@ -183,12 +204,25 @@ class Trainer:
 
     def _epoch_callback(self,):
         tic = time.time()
-        print('running test...')
+        if self.logger is not None:
+            self.logger.info('running test...')
+        #print('running test...')
         labels, preds, loss, auc = self.predict(self.test_gen, self.test_per_epoch)
-        print('test loss = %f, test auc = %f' % (loss, auc))
+        if self.writer is not None:
+            self.writer.add_scalar('Test/test_log_loss', loss, self.global_step.eval(self.session))
+            self.writer.add_scalar('Test/test_auc', auc, self.global_step.eval(self.session))
+            wandb.log({'test_log_loss': loss, 
+                       'test_auc': auc,
+                       })
+        if self.logger is not None:
+            self.logger.info('test loss = %f, test auc = %f' % (loss, auc))
+        #print('test loss = %f, test auc = %f' % (loss, auc))
         toc = time.time()
-        print('evaluated time:', str(datetime.timedelta(seconds=int(toc - tic))))
-        print("analyse_structure")
+        if self.logger is not None:
+            self.logger.info(f'evaluated time: {datetime.timedelta(seconds=int(toc - tic))}')
+            self.logger.info("analyse_structure")
+        #print('evaluated time:', toc - tic)
+        #print("analyse_structure")
         if hasattr(self.model, 'analyse_structure'):
             self.model.analyse_structure(self.session, print_full_weight=True)
         return loss, auc
@@ -201,7 +235,9 @@ class Trainer:
             self.model.analyse_structure(self.session, print_full_weight=False)
         num_of_batches = int(np.ceil(self.train_per_epoch / self.batch_size))
         total_batches = self.n_epoch * num_of_batches
-        print('total batches: %d\tbatch per epoch: %d' % (total_batches, num_of_batches))
+        if self.logger is not None:
+            self.logger.info('total batches: %d\tbatch per epoch: %d' % (total_batches, num_of_batches))
+        #print('total batches: %d\tbatch per epoch: %d' % (total_batches, num_of_batches))
         start_time = time.time()
         tic = time.time()
         epoch = 1
@@ -219,7 +255,9 @@ class Trainer:
         test_every_epoch = self.test_every_epoch
 
         while epoch <= self.n_epoch:
-            print('new iteration')
+            if self.logger is not None:
+                self.logger.info('new iteration')
+            #print('new iteration')
             epoch_batches = 0
 
             for batch_data in self.train_gen:
@@ -245,6 +283,24 @@ class Trainer:
                     moving_auc = self.call_auc(y_true=label_list, y_score=pred_list)
                     elapsed = int(time.time() - start_time)
                     eta = int((total_batches - finished_batches) / finished_batches * elapsed)
+                    if self.writer is not None:
+                        self.writer.add_scalar('Train/loss', avg_loss,  finished_batches)
+                        self.writer.add_scalar('Train/l2_loss', avg_l2, finished_batches)
+                        self.writer.add_scalar('Train/moving_auc', moving_auc, finished_batches)
+                        self.writer.add_scalar('Train/lr', self._learning_rate, finished_batches)
+                        
+                        wandb.log({'lr': self._learning_rate, 
+                                   'train_moving_auc': moving_auc,
+                                   'train_loss': avg_loss,
+                                   'train_l2_loss': avg_l2,
+                       })
+                    if self.logger is not None:
+                        self.logger.info("elapsed : %s, ETA : %s" % (str(datetime.timedelta(seconds=elapsed)),
+                                                      str(datetime.timedelta(seconds=eta))))
+                        self.logger.info('epoch %d / %d, batch %d / %d, global_step = %d, learning_rate = %e, loss = %f, l2 = %f, '
+                          'auc = %f' % (epoch, self.n_epoch, epoch_batches, num_of_batches,
+                                        self.global_step.eval(self.session), self._learning_rate,
+                                        avg_loss, avg_l2, moving_auc))
                     print("elapsed : %s, ETA : %s" % (str(datetime.timedelta(seconds=elapsed)),
                                                       str(datetime.timedelta(seconds=eta))))
                     print('epoch %d / %d, batch %d / %d, global_step = %d, learning_rate = %e, loss = %f, l2 = %f, '

@@ -1,4 +1,4 @@
-from .Criteo import Criteo
+from .Criteo0 import Criteo
 from .Avazu import Avazu
 from .AvazuDemo import AvazuDemo
 from .Criteo_all import Criteo_all
