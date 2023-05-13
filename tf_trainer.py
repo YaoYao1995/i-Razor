@@ -101,6 +101,8 @@ class Trainer:
 
         if opt2 == 'grda':
             opt2 = GRDA(learning_rate=self.learning_rate2, c=grda_c, mu=grda_mu)
+        elif opt2 == 'ftrl':
+            opt2 = tf.train.FtrlOptimizer(learning_rate=self.learning_rate2)
         self.model.compile(loss=loss, optimizer1=opt1, optimizer2=opt2,global_step=self.global_step, pos_weight=pos_weight)
 
         self.session.run(tf.global_variables_initializer())
@@ -182,7 +184,7 @@ class Trainer:
             preds.append(batch_pred)
             labels.append(y)
             cnt += 1
-            if cnt % 100 == 0:
+            if cnt % 1000 == 0:
                 if self.logger is not None:
                     self.logger.info(f'evaluated batches: {cnt}, {datetime.timedelta(seconds=int(time.time() - tic))}')
                 #print('evaluated batches:', cnt, time.time() - tic)
@@ -253,13 +255,13 @@ class Trainer:
         train_opt = 1
 
         test_every_epoch = self.test_every_epoch
-
+        epoch_batches = 0
         while epoch <= self.n_epoch:
             if self.logger is not None:
                 self.logger.info('new iteration')
-            #print('new iteration')
-            epoch_batches = 0
-
+            print('new iteration')
+            
+                                    
             for batch_data in self.train_gen:
                 X, y = batch_data
                 label_list.append(y)
@@ -274,7 +276,7 @@ class Trainer:
                 finished_batches += 1
                 epoch_batches += 1
 
-                epoch_batch_num = 100
+                epoch_batch_num = 1000
                 if epoch_batches % epoch_batch_num == 0:
                     avg_loss /= epoch_batch_num
                     avg_l2 /= epoch_batch_num
@@ -332,21 +334,21 @@ class Trainer:
                     epoch_batches = 0
                     if epoch > self.n_epoch:
                         return
-
-            if epoch_batches % num_of_batches != 0:
-                if hasattr(self.model,"analyse_structure"):
-                    self.model.analyse_structure(self.session, print_full_weight=False)
-                if epoch % test_every_epoch == 0:
-                    l, a = self._epoch_callback()
-                    loss_list.append(l)
-                    auc_list.append(a)
-                if self._learning_rate is not None and self.decay_rate is not None:
-                    self._learning_rate *= self.decay_rate
-                if self._learning_rate2 is not None and self.decay_rate2 is not None:
-                    self._learning_rate2 *= self.decay_rate2
-                epoch += 1
-                epoch_batches = 0
-                if epoch > self.n_epoch:
-                    return
+                        
+            # if epoch_batches % num_of_batches != 0:
+            #     if hasattr(self.model,"analyse_structure"):
+            #         self.model.analyse_structure(self.session, print_full_weight=False)
+            #     if epoch % test_every_epoch == 0:
+            #         l, a = self._epoch_callback()
+            #         loss_list.append(l)
+            #         auc_list.append(a)
+            #     if self._learning_rate is not None and self.decay_rate is not None:
+            #         self._learning_rate *= self.decay_rate
+            #     if self._learning_rate2 is not None and self.decay_rate2 is not None:
+            #         self._learning_rate2 *= self.decay_rate2
+            #     epoch += 1
+            #     epoch_batches = 0
+            #     if epoch > self.n_epoch:
+            #        return
         
 

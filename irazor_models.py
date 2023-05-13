@@ -5,7 +5,7 @@ tf.disable_v2_behavior()
 from abc import abstractmethod
 from itertools import combinations
 import numpy as np
-
+from tf_utils import normal_mlp
 
 import __init__
 from tf_utils import emb_lookup_multi_emb_size, row_col_fetch, row_col_expand, batch_kernel_product, \
@@ -184,16 +184,19 @@ class DNNRetrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss
-
-                self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                
+                if self.l2_weight is not None and self.l2_bias is not None:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
                                                [self.raw_embedding, self.raw_bias])
+                else:
+                    self.l2_loss = None
                 if self.l2_loss is not None:
                     _loss_ += self.l2_loss
                 
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
 
-from tf_utils import normal_mlp
+
 class IrazorPretrain(Model):
     def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
                   target_vec_sizes=[1,2,4,6], temperature=0.50,fid_loss_wt=1e-4,mlp=[], bn=False, ln=False):

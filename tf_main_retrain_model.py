@@ -21,10 +21,16 @@ from glob import glob
 ## for demo test use avazu_demo, otherwise use "avazu" or "criteo"
 #data_name = 'avazu_demo' 
 data_name = 'avazu'
+data_name = 'criteo'
 dataset = as_dataset(data_name)
 backend = 'tf'
-#batch_size = 128
-batch_size = 6144 # 6144
+if "avazu" in data_name:
+    batch_size = 128
+    batch_size = 512 # cur: bs-1024, auc 0.7806, logloss 0.3791, lr 0.01
+else:
+    batch_size = 2048 # cur: bs-4000, auc 0.7927, logloss 0.5493, lr 0.01
+
+
 
 train_data_param = {
     'gen_type': 'train',
@@ -43,22 +49,23 @@ test_data_param = {
     'squeeze_output': True,
 }
 
-def seed_tensorflow(seed=1217):
+def seed_tensorflow(seed=1218):
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
     tf.set_random_seed(seed)
 
 def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5, grda_c=0.005,
-                  grda_mu=0.51, learning_rate2=1e-3, decay_rate2=1.0, retrain_stage=0, writer=None, logger=None):
-    n_ep = ep * 1
+                  grda_mu=0.51, learning_rate2=1e-3, decay_rate2=1.0, retrain_stage=False, writer=None, logger=None):
+    
+    n_ep = ep 
     train_param = {
-        'opt1': 'adam',
-        'opt2': 'adam',
+        'opt1': 'adagrad',
+        'opt2': 'adagrad',
         'loss': 'weight',
         'pos_weight': 1.0,
         'n_epoch': n_ep,
-        'train_per_epoch': dataset.train_size / 1,  # split training data
+        'train_per_epoch': dataset.train_size / ep,  # split training data
         'test_per_epoch': dataset.test_size,
         'early_stop_epoch': int(0.5*ep),
         'batch_size': batch_size,
@@ -71,7 +78,7 @@ def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5
         'ckpt_time': 10000,
         'grda_c': grda_c,
         'grda_mu': grda_mu,
-        'test_every_epoch': max(int(ep / 5),1),
+        'test_every_epoch': 1,
         'retrain_stage': retrain_stage,
         'writer': writer,
         'logger': logger,
@@ -86,8 +93,8 @@ def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5
 import math
 if __name__=="__main__":
     # general parameter
-    learning_rate = 0.01
-    split_epoch = 100
+    
+    split_epoch = 10
     mlp = [700]*5+[1]
     #mlp = [10]*5+[1]
     #feature_result_configs for irazor/Darts/Autodim, here we give the results of iRazor as an example.
@@ -98,11 +105,19 @@ if __name__=="__main__":
     else:
         emb_configs = criteo_emb_configs
     input_size_config =[0] * dataset.max_length
+    print(dataset.max_length)
     for field,dim in emb_configs:
-        input_size_config[field] = dim
+        print(f"field-{field}: dim-{dim}")
+        input_size_config[field-1] = dim
     seed_tensorflow(seed=1217)
-    
-    model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, mlp=mlp, bn=False, ln=True)
+    if "avazu" in data_name:
+        learning_rate = 0.01
+        model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, mlp=mlp, bn=False, ln=True)
+    else:
+        learning_rate = 0.01
+        model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, mlp=mlp, bn=False, ln=False)
+       
+    #model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, mlp=mlp, bn=False, ln=True)
     
      # Setup an experiment folder:
     base_dir = "/workspace/results/"
@@ -121,7 +136,7 @@ if __name__=="__main__":
     logger.info(f"Batchsize: {batch_size}")
     now=datetime.datetime.now()
     time_label = now.strftime("%Y-%m-%d %H:%M:%S")
-    wandb.init(project="irazor", group=model_string_name, tags=str(batch_size), entity="yao-yao", dir="/workspace/wandb/", name=f"BS-{batch_size}-{experiment_index:03d}-{model_string_name}-"+time_label)
+    wandb.init(project="irazor", group=data_name+"-"+model_string_name, tags=str(batch_size), entity="yao-yao", dir="/workspace/wandb/", name=f"{data_name}-BS-{batch_size}-{experiment_index:03d}-{model_string_name}-"+time_label)
     # define a metric we are interested in the minimum of
     wandb.define_metric("test_log_loss", summary="min")
     wandb.define_metric("train_loss", summary="min")
@@ -130,10 +145,10 @@ if __name__=="__main__":
     # define a metric we are interested in the maximum of
     wandb.define_metric("test_auc", summary="max")
     wandb.define_metric("train_moving_auc", summary="max")
-    
+    wandb.log({'batch_size': batch_size,})
     run_one_model(model=model, learning_rate=learning_rate, epsilon=1e-8,
                   decay_rate=None, ep=split_epoch, grda_c=None, grda_mu=None, 
-                  learning_rate2=None,decay_rate2=None, retrain_stage=None,
+                  learning_rate2=None,decay_rate2=None, retrain_stage=True,
                   writer=writer, logger=logger
                  )
     writer.close()
