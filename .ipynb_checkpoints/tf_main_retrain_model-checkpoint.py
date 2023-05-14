@@ -32,6 +32,7 @@ else:
     batch_size = criteo_bs # cur: bs-4000, auc 0.7927, logloss 0.5493, lr 0.01
 
 
+
 train_data_param = {
     'gen_type': 'train',
     'random_sample': True,

@@ -1,14 +1,12 @@
 #encoding=utf-8
 from torch.utils.tensorboard import SummaryWriter
 import wandb
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
-tf.compat.v1.disable_eager_execution()
 import sys
 import time
-import datetime
 import os
 import __init__
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 sys.path.append(__init__.config['data_path']) # add your data path here
 from datasets import as_dataset
 from tf_trainer import Trainer, create_logger
@@ -16,21 +14,13 @@ from irazor_models import *
 import traceback
 import random
 import numpy as np
-
+import datetime
 from glob import glob
-## for demo test use avazu_demo, otherwise use "avazu" or "criteo"
-#data_name = 'avazu_demo' 
+
 data_name = 'avazu'
-#data_name = 'criteo'
 dataset = as_dataset(data_name)
 backend = 'tf'
-if "avazu" in data_name:
-    batch_size = avazu_bs
-    #batch_size = 1024 # cur: bs-1024, auc 0.7806, logloss 0.3791, lr 0.01
-else:
-    #batch_size = 1000
-    batch_size = criteo_bs # cur: bs-4000, auc 0.7927, logloss 0.5493, lr 0.01
-
+batch_size = 128
 
 train_data_param = {
     'gen_type': 'train',
@@ -49,16 +39,15 @@ test_data_param = {
     'squeeze_output': True,
 }
 
-def seed_tensorflow(seed=1218):
+def seed_tensorflow(seed=1217):
     random.seed(seed)
     os.environ['PYTHONHASHSEED'] = str(seed)
     np.random.seed(seed)
-    tf.set_random_seed(seed)
+    tf.compat.v1.set_random_seed(seed)
 
 def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5, grda_c=0.005,
                   grda_mu=0.51, learning_rate2=1e-3, decay_rate2=1.0, retrain_stage=False, writer=None, logger=None):
-    
-    n_ep = ep 
+    n_ep = ep * 2
     train_param = {
         'opt1': 'adagrad',
         'opt2': 'adagrad',
@@ -78,7 +67,7 @@ def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5
         'ckpt_time': 10000,
         'grda_c': grda_c,
         'grda_mu': grda_mu,
-        'test_every_epoch': 1,
+        'test_every_epoch': max(int(ep / 5),1),
         'retrain_stage': retrain_stage,
         'writer': writer,
         'logger': logger,
@@ -93,33 +82,45 @@ def run_one_model(model=None,learning_rate=1e-3,decay_rate=1.0,epsilon=1e-8,ep=5
 import math
 if __name__=="__main__":
     # general parameter
-    
-    split_epoch = 10
+    learning_rate = 0.01
+    split_epoch = 5
     mlp = [700]*5+[1]
-    #mlp = [10]*5+[1]
-    #feature_result_configs for irazor/Darts/Autodim, here we give the results of iRazor as an example.
-    avazu_emb_configs = [[2, 1], [3, 12], [4, 18], [6, 18], [7, 1], [8, 1], [9, 5], [10, 22], [11, 18], [13, 1], [14, 5], [17, 6], [20, 6], [21, 3], [22, 2], [23, 3]]
-    criteo_emb_configs = [[1, 15], [2, 12], [3, 4], [4, 17], [5, 4], [6, 4], [7, 4], [8, 17], [9, 2], [10, 4], [11, 12], [12, 24], [13, 13], [14, 8], [15, 24], [16, 25], [19, 4], [20, 24], [21, 16], [22, 16], [23, 17], [24, 25], [25, 21], [26, 17], [27, 8], [28, 23], [29, 4], [30, 8], [32, 16], [33, 4], [34, 21], [35, 8], [36, 23], [37, 23], [38, 17], [39, 23]]
-    if "avazu" in data_name:
-        emb_configs = avazu_emb_configs
-    else:
-        emb_configs = criteo_emb_configs
-    input_size_config =[0] * dataset.max_length
-    for field,dim in emb_configs:
-        input_size_config[field-1] = dim
     seed_tensorflow(seed=1217)
-    if "avazu" in data_name:
-        learning_rate = 0.01
-        model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, mlp=mlp, bn=False, ln=True)
+    pretrain = True
+    #config = "xDeepFM_config"
+    #config = "DNN_config"
+    config = "FDE_config"
+    if pretrain:
+        model_string_name = "DeepFM_Pretrain"
+        model = DeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=[30]*dataset.max_length, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, target_vec_sizes=[0,1,2,4,8,16,30], fid_loss_wt=1e-4, temperature=0.05,mlp=mlp, bn=False, mode="pretrain")
     else:
-        learning_rate = 0.01
-        model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, mlp=mlp, bn=False, ln=False)
-       
-    #model = DNNRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, mlp=mlp, bn=False, ln=True)
-    
-     # Setup an experiment folder:
+        if config == "DNN_config":
+            model_string_name = "DeepFM_Retrain_DNN"
+            avazu_emb_configs = [[1, 1], [2, 12], [3, 18], [5, 18], [6, 1], [7, 1], [8, 5], [9, 22], [10, 18], [12, 1], [13, 5], [16, 6], [19, 6], [20, 3], [21, 2], [22, 3]]
+        elif config == "DeepFM_config":
+            model_string_name = "DeepFM_Retrain"
+            avazu_emb_configs = []
+        else: 
+            model_string_name = "DeepFM_Retrain_FDE"
+            avazu_emb_configs = [[i, 30] for i in range(dataset.max_length)]
+        emb_configs = avazu_emb_configs
+        input_size_config =[0] * dataset.max_length
+        total_dim = 0
+        total_params = 0
+        total_fieds = 0
+        drop_list = list(range(dataset.max_length))
+        for field,dim in emb_configs:
+            input_size_config[field] = dim
+            total_dim += dim
+            total_params += dim * dataset.feat_sizes[field]
+            total_fieds += 1
+            drop_list.remove(field)
+        print("**"*50)
+        print(f"config-{config}, fileds-{total_fieds}, parms-{total_params}, dim-{total_dim}. Dropfields-{drop_list}.")
+        print("**"*50)
+        model = DeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, temperature=0.05,mlp=mlp, bn=False, mode="retrain")
+    # Setup an experiment folder:
     base_dir = "/home/ubuntu/results/"
-    model_string_name = "retrain_irazor"
     os.makedirs(base_dir + model_string_name, exist_ok=True)
     results_dir = os.path.join(base_dir, model_string_name, data_name)
     os.makedirs(results_dir, exist_ok=True)  # Make results folder (holds all experiment subfolders)
@@ -132,6 +133,8 @@ if __name__=="__main__":
     logger = create_logger(experiment_dir)
     logger.info(f"Experiment directory created at {experiment_dir}")
     logger.info(f"Batchsize: {batch_size}")
+    if not pretrain:
+        logger.info(f"config-{config}, fileds-{total_fieds}, parms-{total_params}, dim-{total_dim}. Dropfields-{drop_list}.")
     now=datetime.datetime.now()
     time_label = now.strftime("%Y-%m-%d %H:%M:%S")
     wandb.init(project="irazor", group=data_name+"-"+model_string_name, tags=str(batch_size), entity="yao-yao", dir="/workspace/wandb/", name=f"{data_name}-BS-{batch_size}-{experiment_index:03d}-{model_string_name}-"+time_label)
@@ -152,3 +155,20 @@ if __name__=="__main__":
     writer.close()
     logger.info("Done!")
     wandb.finish()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1803 @@
+nohup: ignoring input
+2023-05-13 17:11:48.377454: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-13 17:11:49.466977: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Got hdf Avazu data set, getting metadata...
+Initialization finished!
+allocate all embs
+current config:  [0, 1, 12, 18, 0, 18, 1, 1, 5, 22, 18, 0, 1, 5, 0, 0, 6, 0, 0, 6, 3, 2, 3, 0]
+full_emb_for_1_emb_size_1 initialized from: -0.8660254037844386 0.8660254037844386
+full_emb_for_2_emb_size_12 initialized from: -0.043664375559957246 0.043664375559957246
+full_emb_for_3_emb_size_18 initialized from: -0.04137439097129242 0.04137439097129242
+full_emb_for_5_emb_size_18 initialized from: -0.03863337046431279 0.03863337046431279
+full_emb_for_6_emb_size_1 initialized from: -0.15399810070180361 0.15399810070180361
+full_emb_for_7_emb_size_1 initialized from: -0.454858826147342 0.454858826147342
+full_emb_for_8_emb_size_5 initialized from: -0.007690260262421491 0.007690260262421491
+full_emb_for_9_emb_size_22 initialized from: -0.003384829723893765 0.003384829723893765
+full_emb_for_10_emb_size_18 initialized from: -0.03177406356760468 0.03177406356760468
+full_emb_for_12_emb_size_1 initialized from: -1.0954451150103321 1.0954451150103321
+full_emb_for_13_emb_size_5 initialized from: -0.04977239691468088 0.04977239691468088
+full_emb_for_16_emb_size_6 initialized from: -0.11785113019775792 0.11785113019775792
+full_emb_for_19_emb_size_6 initialized from: -0.1867718419094071 0.1867718419094071
+full_emb_for_20_emb_size_3 initialized from: -0.3086066999241838 0.3086066999241838
+full_emb_for_21_emb_size_2 initialized from: -0.7071067811865476 0.7071067811865476
+full_emb_for_22_emb_size_3 initialized from: -0.4714045207910317 0.4714045207910317
+allocate all bias
+current config:  [0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 0]
+full_emb_for_1_emb_size_1 initialized from: -0.8660254037844386 0.8660254037844386
+full_emb_for_2_emb_size_1 initialized from: -0.043740888263985325 0.043740888263985325
+full_emb_for_3_emb_size_1 initialized from: -0.04147509477069983 0.04147509477069983
+full_emb_for_5_emb_size_1 initialized from: -0.038715317938997504 0.038715317938997504
+full_emb_for_6_emb_size_1 initialized from: -0.15399810070180361 0.15399810070180361
+full_emb_for_7_emb_size_1 initialized from: -0.454858826147342 0.454858826147342
+full_emb_for_8_emb_size_1 initialized from: -0.007690411867832244 0.007690411867832244
+full_emb_for_9_emb_size_1 initialized from: -0.003384897591352657 0.003384897591352657
+full_emb_for_10_emb_size_1 initialized from: -0.031819606281476856 0.031819606281476856
+full_emb_for_12_emb_size_1 initialized from: -1.0954451150103321 1.0954451150103321
+full_emb_for_13_emb_size_1 initialized from: -0.04981354813867179 0.04981354813867179
+full_emb_for_16_emb_size_1 initialized from: -0.11853911695403994 0.11853911695403994
+full_emb_for_19_emb_size_1 initialized from: -0.18954720708196904 0.18954720708196904
+full_emb_for_20_emb_size_1 initialized from: -0.31362502409359 0.31362502409359
+full_emb_for_21_emb_size_1 initialized from: -0.7385489458759964 0.7385489458759964
+full_emb_for_22_emb_size_1 initialized from: -0.4898979485566356 0.4898979485566356
+w_0 initialized from: -0.0854357657716761 0.0854357657716761
+(122, 700) (700,)
+relu
+w_1 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_2 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_3 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_4 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_5 initialized from: -0.0925159507394634 0.0925159507394634
+(700, 1) (1,)
+none
+[[34m2023-05-13 17:11:51[0m] Experiment directory created at /home/ubuntu/results/retrain_irazor/avazu/003-[700, 700, 700, 700, 700, 1]-bs-128
+[[34m2023-05-13 17:11:51[0m] Batchsize: 128
+wandb: Currently logged in as: yao-yao. Use `wandb login --relogin` to force relogin
+wandb: WARNING Path /workspace/wandb/wandb/ wasn't writable, using system temp directory.
+wandb: WARNING Path /workspace/wandb/wandb/ wasn't writable, using system temp directory
+wandb: Tracking run with wandb version 0.15.2
+wandb: Run data is saved locally in /tmp/wandb/run-20230513_171152-znlerqq8
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run avazu-BS-128-003-retrain_irazor-2023-05-13 17:11:51
+wandb: ⭐️ View project at https://wandb.ai/yao-yao/irazor
+wandb: 🚀 View run at https://wandb.ai/yao-yao/irazor/runs/znlerqq8
+2023-05-13 17:11:57.566219: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:57.567800: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:57.568601: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:59.114416: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:59.116287: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:59.117925: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-13 17:11:59.119719: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 35869 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:06:00.0, compute capability: 8.0
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling weighted_cross_entropy_with_logits (from tensorflow.python.ops.nn_impl) with targets is deprecated and will be removed in a future version.
+Instructions for updating:
+targets is deprecated, use labels instead
+[[34m2023-05-13 17:11:59[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling weighted_cross_entropy_with_logits (from tensorflow.python.ops.nn_impl) with targets is deprecated and will be removed in a future version.
+Instructions for updating:
+targets is deprecated, use labels instead
+add l2 0.001 Tensor("concat:0", shape=(?, 122), dtype=float32)
+add l2 0.001 Tensor("concat_1:0", shape=(?, 16), dtype=float32)
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+[[34m2023-05-13 17:11:59[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+2023-05-13 17:12:00.080670: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:353] MLIR V1 optimization pass is not enabled
+[[34m2023-05-13 17:12:00[0m] total batches: 252690	batch per epoch: 25269
+[[34m2023-05-13 17:12:00[0m] new iteration
+new iteration
+on disk...
+2023-05-13 17:12:02.116244: I tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:637] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+[[34m2023-05-13 17:12:14[0m] elapsed : 0:00:14, ETA : 0:58:43
+[[34m2023-05-13 17:12:14[0m] epoch 1 / 10, batch 1000 / 25269, global_step = 1000, learning_rate = 1.000000e-02, loss = 0.428208, l2 = 0.088833, auc = 0.695673
+elapsed : 0:00:14, ETA : 0:58:43
+epoch 1 / 10, batch 1000 / 25269, global_step = 1000, learning_rate = 1.000000e-02, loss = 0.428208, l2 = 0.088833, auc = 0.695673
+[[34m2023-05-13 17:12:26[0m] elapsed : 0:00:26, ETA : 0:54:18
+[[34m2023-05-13 17:12:26[0m] epoch 1 / 10, batch 2000 / 25269, global_step = 2000, learning_rate = 1.000000e-02, loss = 0.402569, l2 = 0.037235, auc = 0.733271
+elapsed : 0:00:26, ETA : 0:54:18
+epoch 1 / 10, batch 2000 / 25269, global_step = 2000, learning_rate = 1.000000e-02, loss = 0.402569, l2 = 0.037235, auc = 0.733271
+[[34m2023-05-13 17:12:39[0m] elapsed : 0:00:38, ETA : 0:52:42
+[[34m2023-05-13 17:12:39[0m] epoch 1 / 10, batch 3000 / 25269, global_step = 3000, learning_rate = 1.000000e-02, loss = 0.402382, l2 = 0.021888, auc = 0.740139
+elapsed : 0:00:38, ETA : 0:52:42
+epoch 1 / 10, batch 3000 / 25269, global_step = 3000, learning_rate = 1.000000e-02, loss = 0.402382, l2 = 0.021888, auc = 0.740139
+[[34m2023-05-13 17:12:51[0m] elapsed : 0:00:51, ETA : 0:52:50
+[[34m2023-05-13 17:12:51[0m] epoch 1 / 10, batch 4000 / 25269, global_step = 4000, learning_rate = 1.000000e-02, loss = 0.400241, l2 = 0.014624, auc = 0.742656
+elapsed : 0:00:51, ETA : 0:52:50
+epoch 1 / 10, batch 4000 / 25269, global_step = 4000, learning_rate = 1.000000e-02, loss = 0.400241, l2 = 0.014624, auc = 0.742656
+[[34m2023-05-13 17:13:03[0m] elapsed : 0:01:03, ETA : 0:52:00
+[[34m2023-05-13 17:13:03[0m] epoch 1 / 10, batch 5000 / 25269, global_step = 5000, learning_rate = 1.000000e-02, loss = 0.398777, l2 = 0.010746, auc = 0.745685
+elapsed : 0:01:03, ETA : 0:52:00
+epoch 1 / 10, batch 5000 / 25269, global_step = 5000, learning_rate = 1.000000e-02, loss = 0.398777, l2 = 0.010746, auc = 0.745685
+[[34m2023-05-13 17:13:15[0m] elapsed : 0:01:15, ETA : 0:51:23
+[[34m2023-05-13 17:13:15[0m] epoch 1 / 10, batch 6000 / 25269, global_step = 6000, learning_rate = 1.000000e-02, loss = 0.396280, l2 = 0.008432, auc = 0.748799
+elapsed : 0:01:15, ETA : 0:51:23
+epoch 1 / 10, batch 6000 / 25269, global_step = 6000, learning_rate = 1.000000e-02, loss = 0.396280, l2 = 0.008432, auc = 0.748799
+[[34m2023-05-13 17:13:28[0m] elapsed : 0:01:27, ETA : 0:50:53
+[[34m2023-05-13 17:13:28[0m] epoch 1 / 10, batch 7000 / 25269, global_step = 7000, learning_rate = 1.000000e-02, loss = 0.394261, l2 = 0.006949, auc = 0.751703
+elapsed : 0:01:27, ETA : 0:50:53
+epoch 1 / 10, batch 7000 / 25269, global_step = 7000, learning_rate = 1.000000e-02, loss = 0.394261, l2 = 0.006949, auc = 0.751703
+[[34m2023-05-13 17:13:40[0m] elapsed : 0:01:39, ETA : 0:50:28
+[[34m2023-05-13 17:13:40[0m] epoch 1 / 10, batch 8000 / 25269, global_step = 8000, learning_rate = 1.000000e-02, loss = 0.395317, l2 = 0.006011, auc = 0.751845
+elapsed : 0:01:39, ETA : 0:50:28
+epoch 1 / 10, batch 8000 / 25269, global_step = 8000, learning_rate = 1.000000e-02, loss = 0.395317, l2 = 0.006011, auc = 0.751845
+[[34m2023-05-13 17:13:52[0m] elapsed : 0:01:52, ETA : 0:50:32
+[[34m2023-05-13 17:13:52[0m] epoch 1 / 10, batch 9000 / 25269, global_step = 9000, learning_rate = 1.000000e-02, loss = 0.394679, l2 = 0.005310, auc = 0.750333
+elapsed : 0:01:52, ETA : 0:50:32
+epoch 1 / 10, batch 9000 / 25269, global_step = 9000, learning_rate = 1.000000e-02, loss = 0.394679, l2 = 0.005310, auc = 0.750333
+[[34m2023-05-13 17:14:04[0m] elapsed : 0:02:04, ETA : 0:50:09
+[[34m2023-05-13 17:14:04[0m] epoch 1 / 10, batch 10000 / 25269, global_step = 10000, learning_rate = 1.000000e-02, loss = 0.394184, l2 = 0.004834, auc = 0.752660
+elapsed : 0:02:04, ETA : 0:50:09
+epoch 1 / 10, batch 10000 / 25269, global_step = 10000, learning_rate = 1.000000e-02, loss = 0.394184, l2 = 0.004834, auc = 0.752660
+[[34m2023-05-13 17:14:17[0m] elapsed : 0:02:16, ETA : 0:49:48
+[[34m2023-05-13 17:14:17[0m] epoch 1 / 10, batch 11000 / 25269, global_step = 11000, learning_rate = 1.000000e-02, loss = 0.392953, l2 = 0.004505, auc = 0.753950
+elapsed : 0:02:16, ETA : 0:49:48
+epoch 1 / 10, batch 11000 / 25269, global_step = 11000, learning_rate = 1.000000e-02, loss = 0.392953, l2 = 0.004505, auc = 0.753950
+[[34m2023-05-13 17:14:29[0m] elapsed : 0:02:29, ETA : 0:49:48
+[[34m2023-05-13 17:14:29[0m] epoch 1 / 10, batch 12000 / 25269, global_step = 12000, learning_rate = 1.000000e-02, loss = 0.394966, l2 = 0.004230, auc = 0.754590
+elapsed : 0:02:29, ETA : 0:49:48
+epoch 1 / 10, batch 12000 / 25269, global_step = 12000, learning_rate = 1.000000e-02, loss = 0.394966, l2 = 0.004230, auc = 0.754590
+[[34m2023-05-13 17:14:41[0m] elapsed : 0:02:41, ETA : 0:49:28
+[[34m2023-05-13 17:14:41[0m] epoch 1 / 10, batch 13000 / 25269, global_step = 13000, learning_rate = 1.000000e-02, loss = 0.394457, l2 = 0.003988, auc = 0.751701
+elapsed : 0:02:41, ETA : 0:49:28
+epoch 1 / 10, batch 13000 / 25269, global_step = 13000, learning_rate = 1.000000e-02, loss = 0.394457, l2 = 0.003988, auc = 0.751701
+[[34m2023-05-13 17:14:53[0m] elapsed : 0:02:53, ETA : 0:49:09
+[[34m2023-05-13 17:14:53[0m] epoch 1 / 10, batch 14000 / 25269, global_step = 14000, learning_rate = 1.000000e-02, loss = 0.392060, l2 = 0.003820, auc = 0.756305
+elapsed : 0:02:53, ETA : 0:49:09
+epoch 1 / 10, batch 14000 / 25269, global_step = 14000, learning_rate = 1.000000e-02, loss = 0.392060, l2 = 0.003820, auc = 0.756305
+[[34m2023-05-13 17:15:06[0m] elapsed : 0:03:05, ETA : 0:48:51
+[[34m2023-05-13 17:15:06[0m] epoch 1 / 10, batch 15000 / 25269, global_step = 15000, learning_rate = 1.000000e-02, loss = 0.392356, l2 = 0.003695, auc = 0.757688
+elapsed : 0:03:05, ETA : 0:48:51
+epoch 1 / 10, batch 15000 / 25269, global_step = 15000, learning_rate = 1.000000e-02, loss = 0.392356, l2 = 0.003695, auc = 0.757688
+[[34m2023-05-13 17:15:19[0m] elapsed : 0:03:18, ETA : 0:48:49
+[[34m2023-05-13 17:15:19[0m] epoch 1 / 10, batch 16000 / 25269, global_step = 16000, learning_rate = 1.000000e-02, loss = 0.393485, l2 = 0.003571, auc = 0.755676
+elapsed : 0:03:18, ETA : 0:48:49
+epoch 1 / 10, batch 16000 / 25269, global_step = 16000, learning_rate = 1.000000e-02, loss = 0.393485, l2 = 0.003571, auc = 0.755676
+[[34m2023-05-13 17:15:31[0m] elapsed : 0:03:30, ETA : 0:48:31
+[[34m2023-05-13 17:15:31[0m] epoch 1 / 10, batch 17000 / 25269, global_step = 17000, learning_rate = 1.000000e-02, loss = 0.392834, l2 = 0.003471, auc = 0.756928
+elapsed : 0:03:30, ETA : 0:48:31
+epoch 1 / 10, batch 17000 / 25269, global_step = 17000, learning_rate = 1.000000e-02, loss = 0.392834, l2 = 0.003471, auc = 0.756928
+[[34m2023-05-13 17:15:43[0m] elapsed : 0:03:43, ETA : 0:48:27
+[[34m2023-05-13 17:15:43[0m] epoch 1 / 10, batch 18000 / 25269, global_step = 18000, learning_rate = 1.000000e-02, loss = 0.390384, l2 = 0.003384, auc = 0.758395
+elapsed : 0:03:43, ETA : 0:48:27
+epoch 1 / 10, batch 18000 / 25269, global_step = 18000, learning_rate = 1.000000e-02, loss = 0.390384, l2 = 0.003384, auc = 0.758395
+[[34m2023-05-13 17:15:56[0m] elapsed : 0:03:55, ETA : 0:48:10
+[[34m2023-05-13 17:15:56[0m] epoch 1 / 10, batch 19000 / 25269, global_step = 19000, learning_rate = 1.000000e-02, loss = 0.389178, l2 = 0.003310, auc = 0.758721
+elapsed : 0:03:55, ETA : 0:48:10
+epoch 1 / 10, batch 19000 / 25269, global_step = 19000, learning_rate = 1.000000e-02, loss = 0.389178, l2 = 0.003310, auc = 0.758721
+[[34m2023-05-13 17:16:08[0m] elapsed : 0:04:07, ETA : 0:47:53
+[[34m2023-05-13 17:16:08[0m] epoch 1 / 10, batch 20000 / 25269, global_step = 20000, learning_rate = 1.000000e-02, loss = 0.390304, l2 = 0.003248, auc = 0.759665
+elapsed : 0:04:07, ETA : 0:47:53
+epoch 1 / 10, batch 20000 / 25269, global_step = 20000, learning_rate = 1.000000e-02, loss = 0.390304, l2 = 0.003248, auc = 0.759665
+[[34m2023-05-13 17:16:20[0m] elapsed : 0:04:20, ETA : 0:47:48
+[[34m2023-05-13 17:16:20[0m] epoch 1 / 10, batch 21000 / 25269, global_step = 21000, learning_rate = 1.000000e-02, loss = 0.392541, l2 = 0.003174, auc = 0.756863
+elapsed : 0:04:20, ETA : 0:47:48
+epoch 1 / 10, batch 21000 / 25269, global_step = 21000, learning_rate = 1.000000e-02, loss = 0.392541, l2 = 0.003174, auc = 0.756863
+[[34m2023-05-13 17:16:32[0m] elapsed : 0:04:31, ETA : 0:47:21
+[[34m2023-05-13 17:16:32[0m] epoch 1 / 10, batch 22000 / 25269, global_step = 22000, learning_rate = 1.000000e-02, loss = 0.388119, l2 = 0.003110, auc = 0.761461
+elapsed : 0:04:31, ETA : 0:47:21
+epoch 1 / 10, batch 22000 / 25269, global_step = 22000, learning_rate = 1.000000e-02, loss = 0.388119, l2 = 0.003110, auc = 0.761461
+[[34m2023-05-13 17:16:44[0m] elapsed : 0:04:44, ETA : 0:47:16
+[[34m2023-05-13 17:16:44[0m] epoch 1 / 10, batch 23000 / 25269, global_step = 23000, learning_rate = 1.000000e-02, loss = 0.388430, l2 = 0.003079, auc = 0.763691
+elapsed : 0:04:44, ETA : 0:47:16
+epoch 1 / 10, batch 23000 / 25269, global_step = 23000, learning_rate = 1.000000e-02, loss = 0.388430, l2 = 0.003079, auc = 0.763691
+[[34m2023-05-13 17:16:56[0m] elapsed : 0:04:56, ETA : 0:47:00
+[[34m2023-05-13 17:16:56[0m] epoch 1 / 10, batch 24000 / 25269, global_step = 24000, learning_rate = 1.000000e-02, loss = 0.388890, l2 = 0.003013, auc = 0.760815
+elapsed : 0:04:56, ETA : 0:47:00
+epoch 1 / 10, batch 24000 / 25269, global_step = 24000, learning_rate = 1.000000e-02, loss = 0.388890, l2 = 0.003013, auc = 0.760815
+[[34m2023-05-13 17:17:09[0m] elapsed : 0:05:08, ETA : 0:46:45
+[[34m2023-05-13 17:17:09[0m] epoch 1 / 10, batch 25000 / 25269, global_step = 25000, learning_rate = 1.000000e-02, loss = 0.391742, l2 = 0.002976, auc = 0.760833
+elapsed : 0:05:08, ETA : 0:46:45
+epoch 1 / 10, batch 25000 / 25269, global_step = 25000, learning_rate = 1.000000e-02, loss = 0.391742, l2 = 0.002976, auc = 0.760833
+[[34m2023-05-13 17:17:12[0m] running test...
+on disk...
+[[34m2023-05-13 17:17:15[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:17:17[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:17:20[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:17:22[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:17:25[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:17:27[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:17:30[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:17:32[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:17:34[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:17:37[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:17:39[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:17:42[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:17:44[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:17:47[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:17:49[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:17:52[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:17:54[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:17:56[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:17:59[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:18:01[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:18:04[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:18:06[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:18:09[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:18:11[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:18:14[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:18:16[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:18:19[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:18:21[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:18:23[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:18:25[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:18:27[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:18:30[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:18:32[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:18:34[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:18:36[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:18:39[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:18:41[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:18:43[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:18:45[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:18:48[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:18:50[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:18:52[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:18:54[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:18:56[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:18:59[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:19:01[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:19:03[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:19:06[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:19:08[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:19:10[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:19:12[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:19:15[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:19:17[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:19:19[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:19:21[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:19:23[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:19:26[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:19:28[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:19:30[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:19:33[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:19:35[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:19:36[0m] evaluated batches: 62000, 0:00:01
+[[34m2023-05-13 17:19:38[0m] evaluated batches: 63000, 0:00:01
+[[34m2023-05-13 17:19:42[0m] test loss = 0.390259, test auc = 0.761657
+[[34m2023-05-13 17:19:42[0m] evaluated time: 0:02:30
+[[34m2023-05-13 17:19:42[0m] analyse_structure
+[[34m2023-05-13 17:19:55[0m] elapsed : 0:07:54, ETA : 1:08:05
+[[34m2023-05-13 17:19:55[0m] epoch 2 / 10, batch 1000 / 25269, global_step = 26269, learning_rate = 1.000000e-02, loss = 0.495546, l2 = 0.003718, auc = 0.760765
+elapsed : 0:07:54, ETA : 1:08:05
+epoch 2 / 10, batch 1000 / 25269, global_step = 26269, learning_rate = 1.000000e-02, loss = 0.495546, l2 = 0.003718, auc = 0.760765
+[[34m2023-05-13 17:20:07[0m] elapsed : 0:08:07, ETA : 1:07:05
+[[34m2023-05-13 17:20:07[0m] epoch 2 / 10, batch 2000 / 25269, global_step = 27269, learning_rate = 1.000000e-02, loss = 0.390127, l2 = 0.002920, auc = 0.762596
+elapsed : 0:08:07, ETA : 1:07:05
+epoch 2 / 10, batch 2000 / 25269, global_step = 27269, learning_rate = 1.000000e-02, loss = 0.390127, l2 = 0.002920, auc = 0.762596
+[[34m2023-05-13 17:20:19[0m] elapsed : 0:08:19, ETA : 1:06:01
+[[34m2023-05-13 17:20:19[0m] epoch 2 / 10, batch 3000 / 25269, global_step = 28269, learning_rate = 1.000000e-02, loss = 0.385621, l2 = 0.002880, auc = 0.767219
+elapsed : 0:08:19, ETA : 1:06:01
+epoch 2 / 10, batch 3000 / 25269, global_step = 28269, learning_rate = 1.000000e-02, loss = 0.385621, l2 = 0.002880, auc = 0.767219
+[[34m2023-05-13 17:20:31[0m] elapsed : 0:08:31, ETA : 1:05:00
+[[34m2023-05-13 17:20:31[0m] epoch 2 / 10, batch 4000 / 25269, global_step = 29269, learning_rate = 1.000000e-02, loss = 0.388976, l2 = 0.002860, auc = 0.764305
+elapsed : 0:08:31, ETA : 1:05:00
+epoch 2 / 10, batch 4000 / 25269, global_step = 29269, learning_rate = 1.000000e-02, loss = 0.388976, l2 = 0.002860, auc = 0.764305
+[[34m2023-05-13 17:20:44[0m] elapsed : 0:08:43, ETA : 1:04:03
+[[34m2023-05-13 17:20:44[0m] epoch 2 / 10, batch 5000 / 25269, global_step = 30269, learning_rate = 1.000000e-02, loss = 0.386828, l2 = 0.002818, auc = 0.765091
+elapsed : 0:08:43, ETA : 1:04:03
+epoch 2 / 10, batch 5000 / 25269, global_step = 30269, learning_rate = 1.000000e-02, loss = 0.386828, l2 = 0.002818, auc = 0.765091
+[[34m2023-05-13 17:20:56[0m] elapsed : 0:08:56, ETA : 1:03:15
+[[34m2023-05-13 17:20:56[0m] epoch 2 / 10, batch 6000 / 25269, global_step = 31269, learning_rate = 1.000000e-02, loss = 0.388584, l2 = 0.002793, auc = 0.762725
+elapsed : 0:08:56, ETA : 1:03:15
+epoch 2 / 10, batch 6000 / 25269, global_step = 31269, learning_rate = 1.000000e-02, loss = 0.388584, l2 = 0.002793, auc = 0.762725
+[[34m2023-05-13 17:21:08[0m] elapsed : 0:09:08, ETA : 1:02:23
+[[34m2023-05-13 17:21:08[0m] epoch 2 / 10, batch 7000 / 25269, global_step = 32269, learning_rate = 1.000000e-02, loss = 0.388493, l2 = 0.002763, auc = 0.763518
+elapsed : 0:09:08, ETA : 1:02:23
+epoch 2 / 10, batch 7000 / 25269, global_step = 32269, learning_rate = 1.000000e-02, loss = 0.388493, l2 = 0.002763, auc = 0.763518
+[[34m2023-05-13 17:21:21[0m] elapsed : 0:09:20, ETA : 1:01:33
+[[34m2023-05-13 17:21:21[0m] epoch 2 / 10, batch 8000 / 25269, global_step = 33269, learning_rate = 1.000000e-02, loss = 0.386840, l2 = 0.002742, auc = 0.765351
+elapsed : 0:09:20, ETA : 1:01:33
+epoch 2 / 10, batch 8000 / 25269, global_step = 33269, learning_rate = 1.000000e-02, loss = 0.386840, l2 = 0.002742, auc = 0.765351
+[[34m2023-05-13 17:21:33[0m] elapsed : 0:09:33, ETA : 1:00:52
+[[34m2023-05-13 17:21:33[0m] epoch 2 / 10, batch 9000 / 25269, global_step = 34269, learning_rate = 1.000000e-02, loss = 0.387766, l2 = 0.002723, auc = 0.764723
+elapsed : 0:09:33, ETA : 1:00:52
+epoch 2 / 10, batch 9000 / 25269, global_step = 34269, learning_rate = 1.000000e-02, loss = 0.387766, l2 = 0.002723, auc = 0.764723
+[[34m2023-05-13 17:21:45[0m] elapsed : 0:09:45, ETA : 1:00:06
+[[34m2023-05-13 17:21:45[0m] epoch 2 / 10, batch 10000 / 25269, global_step = 35269, learning_rate = 1.000000e-02, loss = 0.389703, l2 = 0.002701, auc = 0.762288
+elapsed : 0:09:45, ETA : 1:00:06
+epoch 2 / 10, batch 10000 / 25269, global_step = 35269, learning_rate = 1.000000e-02, loss = 0.389703, l2 = 0.002701, auc = 0.762288
+[[34m2023-05-13 17:21:58[0m] elapsed : 0:09:57, ETA : 0:59:22
+[[34m2023-05-13 17:21:58[0m] epoch 2 / 10, batch 11000 / 25269, global_step = 36269, learning_rate = 1.000000e-02, loss = 0.389626, l2 = 0.002675, auc = 0.763839
+elapsed : 0:09:57, ETA : 0:59:22
+epoch 2 / 10, batch 11000 / 25269, global_step = 36269, learning_rate = 1.000000e-02, loss = 0.389626, l2 = 0.002675, auc = 0.763839
+[[34m2023-05-13 17:22:10[0m] elapsed : 0:10:09, ETA : 0:58:40
+[[34m2023-05-13 17:22:10[0m] epoch 2 / 10, batch 12000 / 25269, global_step = 37269, learning_rate = 1.000000e-02, loss = 0.388467, l2 = 0.002658, auc = 0.765212
+elapsed : 0:10:09, ETA : 0:58:40
+epoch 2 / 10, batch 12000 / 25269, global_step = 37269, learning_rate = 1.000000e-02, loss = 0.388467, l2 = 0.002658, auc = 0.765212
+[[34m2023-05-13 17:22:22[0m] elapsed : 0:10:22, ETA : 0:58:05
+[[34m2023-05-13 17:22:22[0m] epoch 2 / 10, batch 13000 / 25269, global_step = 38269, learning_rate = 1.000000e-02, loss = 0.387993, l2 = 0.002645, auc = 0.765762
+elapsed : 0:10:22, ETA : 0:58:05
+epoch 2 / 10, batch 13000 / 25269, global_step = 38269, learning_rate = 1.000000e-02, loss = 0.387993, l2 = 0.002645, auc = 0.765762
+[[34m2023-05-13 17:22:34[0m] elapsed : 0:10:34, ETA : 0:57:25
+[[34m2023-05-13 17:22:34[0m] epoch 2 / 10, batch 14000 / 25269, global_step = 39269, learning_rate = 1.000000e-02, loss = 0.387234, l2 = 0.002635, auc = 0.766543
+elapsed : 0:10:34, ETA : 0:57:25
+epoch 2 / 10, batch 14000 / 25269, global_step = 39269, learning_rate = 1.000000e-02, loss = 0.387234, l2 = 0.002635, auc = 0.766543
+[[34m2023-05-13 17:22:47[0m] elapsed : 0:10:46, ETA : 0:56:47
+[[34m2023-05-13 17:22:47[0m] epoch 2 / 10, batch 15000 / 25269, global_step = 40269, learning_rate = 1.000000e-02, loss = 0.388661, l2 = 0.002617, auc = 0.765407
+elapsed : 0:10:46, ETA : 0:56:47
+epoch 2 / 10, batch 15000 / 25269, global_step = 40269, learning_rate = 1.000000e-02, loss = 0.388661, l2 = 0.002617, auc = 0.765407
+[[34m2023-05-13 17:22:59[0m] elapsed : 0:10:58, ETA : 0:56:10
+[[34m2023-05-13 17:22:59[0m] epoch 2 / 10, batch 16000 / 25269, global_step = 41269, learning_rate = 1.000000e-02, loss = 0.389904, l2 = 0.002597, auc = 0.764581
+elapsed : 0:10:58, ETA : 0:56:10
+epoch 2 / 10, batch 16000 / 25269, global_step = 41269, learning_rate = 1.000000e-02, loss = 0.389904, l2 = 0.002597, auc = 0.764581
+[[34m2023-05-13 17:23:11[0m] elapsed : 0:11:11, ETA : 0:55:40
+[[34m2023-05-13 17:23:11[0m] epoch 2 / 10, batch 17000 / 25269, global_step = 42269, learning_rate = 1.000000e-02, loss = 0.386734, l2 = 0.002575, auc = 0.764210
+elapsed : 0:11:11, ETA : 0:55:40
+epoch 2 / 10, batch 17000 / 25269, global_step = 42269, learning_rate = 1.000000e-02, loss = 0.386734, l2 = 0.002575, auc = 0.764210
+[[34m2023-05-13 17:23:24[0m] elapsed : 0:11:23, ETA : 0:55:05
+[[34m2023-05-13 17:23:24[0m] epoch 2 / 10, batch 18000 / 25269, global_step = 43269, learning_rate = 1.000000e-02, loss = 0.388420, l2 = 0.002569, auc = 0.767219
+elapsed : 0:11:23, ETA : 0:55:05
+epoch 2 / 10, batch 18000 / 25269, global_step = 43269, learning_rate = 1.000000e-02, loss = 0.388420, l2 = 0.002569, auc = 0.767219
+[[34m2023-05-13 17:23:36[0m] elapsed : 0:11:35, ETA : 0:54:32
+[[34m2023-05-13 17:23:36[0m] epoch 2 / 10, batch 19000 / 25269, global_step = 44269, learning_rate = 1.000000e-02, loss = 0.385556, l2 = 0.002558, auc = 0.767132
+elapsed : 0:11:35, ETA : 0:54:32
+epoch 2 / 10, batch 19000 / 25269, global_step = 44269, learning_rate = 1.000000e-02, loss = 0.385556, l2 = 0.002558, auc = 0.767132
+[[34m2023-05-13 17:23:48[0m] elapsed : 0:11:48, ETA : 0:54:04
+[[34m2023-05-13 17:23:48[0m] epoch 2 / 10, batch 20000 / 25269, global_step = 45269, learning_rate = 1.000000e-02, loss = 0.383747, l2 = 0.002540, auc = 0.769662
+elapsed : 0:11:48, ETA : 0:54:04
+epoch 2 / 10, batch 20000 / 25269, global_step = 45269, learning_rate = 1.000000e-02, loss = 0.383747, l2 = 0.002540, auc = 0.769662
+[[34m2023-05-13 17:24:00[0m] elapsed : 0:12:00, ETA : 0:53:32
+[[34m2023-05-13 17:24:00[0m] epoch 2 / 10, batch 21000 / 25269, global_step = 46269, learning_rate = 1.000000e-02, loss = 0.384798, l2 = 0.002533, auc = 0.766677
+elapsed : 0:12:00, ETA : 0:53:32
+epoch 2 / 10, batch 21000 / 25269, global_step = 46269, learning_rate = 1.000000e-02, loss = 0.384798, l2 = 0.002533, auc = 0.766677
+[[34m2023-05-13 17:24:13[0m] elapsed : 0:12:12, ETA : 0:53:01
+[[34m2023-05-13 17:24:13[0m] epoch 2 / 10, batch 22000 / 25269, global_step = 47269, learning_rate = 1.000000e-02, loss = 0.387703, l2 = 0.002521, auc = 0.767062
+elapsed : 0:12:12, ETA : 0:53:01
+epoch 2 / 10, batch 22000 / 25269, global_step = 47269, learning_rate = 1.000000e-02, loss = 0.387703, l2 = 0.002521, auc = 0.767062
+[[34m2023-05-13 17:24:25[0m] elapsed : 0:12:24, ETA : 0:52:30
+[[34m2023-05-13 17:24:25[0m] epoch 2 / 10, batch 23000 / 25269, global_step = 48269, learning_rate = 1.000000e-02, loss = 0.384995, l2 = 0.002519, auc = 0.769103
+elapsed : 0:12:24, ETA : 0:52:30
+epoch 2 / 10, batch 23000 / 25269, global_step = 48269, learning_rate = 1.000000e-02, loss = 0.384995, l2 = 0.002519, auc = 0.769103
+[[34m2023-05-13 17:24:37[0m] elapsed : 0:12:37, ETA : 0:52:05
+[[34m2023-05-13 17:24:37[0m] epoch 2 / 10, batch 24000 / 25269, global_step = 49269, learning_rate = 1.000000e-02, loss = 0.383345, l2 = 0.002496, auc = 0.767328
+elapsed : 0:12:37, ETA : 0:52:05
+epoch 2 / 10, batch 24000 / 25269, global_step = 49269, learning_rate = 1.000000e-02, loss = 0.383345, l2 = 0.002496, auc = 0.767328
+[[34m2023-05-13 17:24:49[0m] elapsed : 0:12:49, ETA : 0:51:36
+[[34m2023-05-13 17:24:49[0m] epoch 2 / 10, batch 25000 / 25269, global_step = 50269, learning_rate = 1.000000e-02, loss = 0.390135, l2 = 0.002492, auc = 0.763977
+elapsed : 0:12:49, ETA : 0:51:36
+epoch 2 / 10, batch 25000 / 25269, global_step = 50269, learning_rate = 1.000000e-02, loss = 0.390135, l2 = 0.002492, auc = 0.763977
+[[34m2023-05-13 17:24:53[0m] running test...
+on disk...
+[[34m2023-05-13 17:24:55[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:24:58[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:25:00[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:25:03[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:25:05[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:25:08[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:25:10[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:25:13[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:25:15[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:25:18[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:25:20[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:25:22[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:25:25[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:25:27[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:25:30[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:25:32[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:25:35[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:25:37[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:25:40[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:25:42[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:25:45[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:25:47[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:25:50[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:25:52[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:25:54[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:25:57[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:25:59[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:26:02[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:26:04[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:26:07[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:26:09[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:26:12[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:26:14[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:26:17[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:26:19[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:26:22[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:26:24[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:26:26[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:26:28[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:26:31[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:26:33[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:26:35[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:26:37[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:26:39[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:26:42[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:26:44[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:26:46[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:26:49[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:26:51[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:26:53[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:26:56[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:26:58[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:27:00[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:27:02[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:27:04[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:27:07[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:27:09[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:27:11[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:27:13[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:27:15[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:27:18[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:27:20[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 17:27:22[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 17:27:27[0m] test loss = 0.386906, test auc = 0.767828
+[[34m2023-05-13 17:27:27[0m] evaluated time: 0:02:34
+[[34m2023-05-13 17:27:27[0m] analyse_structure
+[[34m2023-05-13 17:27:37[0m] elapsed : 0:15:36, ETA : 1:00:53
+[[34m2023-05-13 17:27:37[0m] epoch 3 / 10, batch 1000 / 25269, global_step = 51538, learning_rate = 1.000000e-02, loss = 0.489903, l2 = 0.003144, auc = 0.766830
+elapsed : 0:15:36, ETA : 1:00:53
+epoch 3 / 10, batch 1000 / 25269, global_step = 51538, learning_rate = 1.000000e-02, loss = 0.489903, l2 = 0.003144, auc = 0.766830
+[[34m2023-05-13 17:27:44[0m] elapsed : 0:15:43, ETA : 0:59:52
+[[34m2023-05-13 17:27:44[0m] epoch 3 / 10, batch 2000 / 25269, global_step = 52538, learning_rate = 1.000000e-02, loss = 0.385418, l2 = 0.002473, auc = 0.768223
+elapsed : 0:15:43, ETA : 0:59:52
+epoch 3 / 10, batch 2000 / 25269, global_step = 52538, learning_rate = 1.000000e-02, loss = 0.385418, l2 = 0.002473, auc = 0.768223
+[[34m2023-05-13 17:27:55[0m] elapsed : 0:15:54, ETA : 0:59:08
+[[34m2023-05-13 17:27:55[0m] epoch 3 / 10, batch 3000 / 25269, global_step = 53538, learning_rate = 1.000000e-02, loss = 0.388109, l2 = 0.002452, auc = 0.768615
+elapsed : 0:15:54, ETA : 0:59:08
+epoch 3 / 10, batch 3000 / 25269, global_step = 53538, learning_rate = 1.000000e-02, loss = 0.388109, l2 = 0.002452, auc = 0.768615
+[[34m2023-05-13 17:28:07[0m] elapsed : 0:16:06, ETA : 0:58:29
+[[34m2023-05-13 17:28:07[0m] epoch 3 / 10, batch 4000 / 25269, global_step = 54538, learning_rate = 1.000000e-02, loss = 0.387790, l2 = 0.002442, auc = 0.768290
+elapsed : 0:16:06, ETA : 0:58:29
+epoch 3 / 10, batch 4000 / 25269, global_step = 54538, learning_rate = 1.000000e-02, loss = 0.387790, l2 = 0.002442, auc = 0.768290
+[[34m2023-05-13 17:28:19[0m] elapsed : 0:16:18, ETA : 0:57:51
+[[34m2023-05-13 17:28:19[0m] epoch 3 / 10, batch 5000 / 25269, global_step = 55538, learning_rate = 1.000000e-02, loss = 0.386611, l2 = 0.002419, auc = 0.768550
+elapsed : 0:16:18, ETA : 0:57:51
+epoch 3 / 10, batch 5000 / 25269, global_step = 55538, learning_rate = 1.000000e-02, loss = 0.386611, l2 = 0.002419, auc = 0.768550
+[[34m2023-05-13 17:28:31[0m] elapsed : 0:16:31, ETA : 0:57:18
+[[34m2023-05-13 17:28:31[0m] epoch 3 / 10, batch 6000 / 25269, global_step = 56538, learning_rate = 1.000000e-02, loss = 0.386129, l2 = 0.002433, auc = 0.768401
+elapsed : 0:16:31, ETA : 0:57:18
+epoch 3 / 10, batch 6000 / 25269, global_step = 56538, learning_rate = 1.000000e-02, loss = 0.386129, l2 = 0.002433, auc = 0.768401
+[[34m2023-05-13 17:28:43[0m] elapsed : 0:16:43, ETA : 0:56:41
+[[34m2023-05-13 17:28:43[0m] epoch 3 / 10, batch 7000 / 25269, global_step = 57538, learning_rate = 1.000000e-02, loss = 0.384214, l2 = 0.002416, auc = 0.766284
+elapsed : 0:16:43, ETA : 0:56:41
+epoch 3 / 10, batch 7000 / 25269, global_step = 57538, learning_rate = 1.000000e-02, loss = 0.384214, l2 = 0.002416, auc = 0.766284
+[[34m2023-05-13 17:28:56[0m] elapsed : 0:16:55, ETA : 0:56:06
+[[34m2023-05-13 17:28:56[0m] epoch 3 / 10, batch 8000 / 25269, global_step = 58538, learning_rate = 1.000000e-02, loss = 0.386030, l2 = 0.002403, auc = 0.769364
+elapsed : 0:16:55, ETA : 0:56:06
+epoch 3 / 10, batch 8000 / 25269, global_step = 58538, learning_rate = 1.000000e-02, loss = 0.386030, l2 = 0.002403, auc = 0.769364
+[[34m2023-05-13 17:29:08[0m] elapsed : 0:17:07, ETA : 0:55:31
+[[34m2023-05-13 17:29:08[0m] epoch 3 / 10, batch 9000 / 25269, global_step = 59538, learning_rate = 1.000000e-02, loss = 0.388596, l2 = 0.002402, auc = 0.767422
+elapsed : 0:17:07, ETA : 0:55:31
+epoch 3 / 10, batch 9000 / 25269, global_step = 59538, learning_rate = 1.000000e-02, loss = 0.388596, l2 = 0.002402, auc = 0.767422
+[[34m2023-05-13 17:29:20[0m] elapsed : 0:17:20, ETA : 0:55:01
+[[34m2023-05-13 17:29:20[0m] epoch 3 / 10, batch 10000 / 25269, global_step = 60538, learning_rate = 1.000000e-02, loss = 0.386072, l2 = 0.002395, auc = 0.768030
+elapsed : 0:17:20, ETA : 0:55:01
+epoch 3 / 10, batch 10000 / 25269, global_step = 60538, learning_rate = 1.000000e-02, loss = 0.386072, l2 = 0.002395, auc = 0.768030
+[[34m2023-05-13 17:29:33[0m] elapsed : 0:17:32, ETA : 0:54:27
+[[34m2023-05-13 17:29:33[0m] epoch 3 / 10, batch 11000 / 25269, global_step = 61538, learning_rate = 1.000000e-02, loss = 0.387404, l2 = 0.002386, auc = 0.769330
+elapsed : 0:17:32, ETA : 0:54:27
+epoch 3 / 10, batch 11000 / 25269, global_step = 61538, learning_rate = 1.000000e-02, loss = 0.387404, l2 = 0.002386, auc = 0.769330
+[[34m2023-05-13 17:29:45[0m] elapsed : 0:17:45, ETA : 0:53:58
+[[34m2023-05-13 17:29:45[0m] epoch 3 / 10, batch 12000 / 25269, global_step = 62538, learning_rate = 1.000000e-02, loss = 0.384057, l2 = 0.002389, auc = 0.770911
+elapsed : 0:17:45, ETA : 0:53:58
+epoch 3 / 10, batch 12000 / 25269, global_step = 62538, learning_rate = 1.000000e-02, loss = 0.384057, l2 = 0.002389, auc = 0.770911
+[[34m2023-05-13 17:29:57[0m] elapsed : 0:17:57, ETA : 0:53:26
+[[34m2023-05-13 17:29:57[0m] epoch 3 / 10, batch 13000 / 25269, global_step = 63538, learning_rate = 1.000000e-02, loss = 0.386207, l2 = 0.002377, auc = 0.768925
+elapsed : 0:17:57, ETA : 0:53:26
+epoch 3 / 10, batch 13000 / 25269, global_step = 63538, learning_rate = 1.000000e-02, loss = 0.386207, l2 = 0.002377, auc = 0.768925
+[[34m2023-05-13 17:30:10[0m] elapsed : 0:18:09, ETA : 0:52:54
+[[34m2023-05-13 17:30:10[0m] epoch 3 / 10, batch 14000 / 25269, global_step = 64538, learning_rate = 1.000000e-02, loss = 0.387513, l2 = 0.002372, auc = 0.767392
+elapsed : 0:18:09, ETA : 0:52:54
+epoch 3 / 10, batch 14000 / 25269, global_step = 64538, learning_rate = 1.000000e-02, loss = 0.387513, l2 = 0.002372, auc = 0.767392
+[[34m2023-05-13 17:30:22[0m] elapsed : 0:18:21, ETA : 0:52:24
+[[34m2023-05-13 17:30:22[0m] epoch 3 / 10, batch 15000 / 25269, global_step = 65538, learning_rate = 1.000000e-02, loss = 0.386323, l2 = 0.002354, auc = 0.767325
+elapsed : 0:18:21, ETA : 0:52:24
+epoch 3 / 10, batch 15000 / 25269, global_step = 65538, learning_rate = 1.000000e-02, loss = 0.386323, l2 = 0.002354, auc = 0.767325
+[[34m2023-05-13 17:30:34[0m] elapsed : 0:18:34, ETA : 0:51:56
+[[34m2023-05-13 17:30:34[0m] epoch 3 / 10, batch 16000 / 25269, global_step = 66538, learning_rate = 1.000000e-02, loss = 0.384980, l2 = 0.002355, auc = 0.767475
+elapsed : 0:18:34, ETA : 0:51:56
+epoch 3 / 10, batch 16000 / 25269, global_step = 66538, learning_rate = 1.000000e-02, loss = 0.384980, l2 = 0.002355, auc = 0.767475
+[[34m2023-05-13 17:30:46[0m] elapsed : 0:18:46, ETA : 0:51:26
+[[34m2023-05-13 17:30:46[0m] epoch 3 / 10, batch 17000 / 25269, global_step = 67538, learning_rate = 1.000000e-02, loss = 0.384933, l2 = 0.002349, auc = 0.768828
+elapsed : 0:18:46, ETA : 0:51:26
+epoch 3 / 10, batch 17000 / 25269, global_step = 67538, learning_rate = 1.000000e-02, loss = 0.384933, l2 = 0.002349, auc = 0.768828
+[[34m2023-05-13 17:30:59[0m] elapsed : 0:18:58, ETA : 0:50:57
+[[34m2023-05-13 17:30:59[0m] epoch 3 / 10, batch 18000 / 25269, global_step = 68538, learning_rate = 1.000000e-02, loss = 0.384113, l2 = 0.002342, auc = 0.774520
+elapsed : 0:18:58, ETA : 0:50:57
+epoch 3 / 10, batch 18000 / 25269, global_step = 68538, learning_rate = 1.000000e-02, loss = 0.384113, l2 = 0.002342, auc = 0.774520
+[[34m2023-05-13 17:31:11[0m] elapsed : 0:19:11, ETA : 0:50:31
+[[34m2023-05-13 17:31:11[0m] epoch 3 / 10, batch 19000 / 25269, global_step = 69538, learning_rate = 1.000000e-02, loss = 0.385618, l2 = 0.002333, auc = 0.770190
+elapsed : 0:19:11, ETA : 0:50:31
+epoch 3 / 10, batch 19000 / 25269, global_step = 69538, learning_rate = 1.000000e-02, loss = 0.385618, l2 = 0.002333, auc = 0.770190
+[[34m2023-05-13 17:31:23[0m] elapsed : 0:19:23, ETA : 0:50:03
+[[34m2023-05-13 17:31:23[0m] epoch 3 / 10, batch 20000 / 25269, global_step = 70538, learning_rate = 1.000000e-02, loss = 0.385525, l2 = 0.002323, auc = 0.768954
+elapsed : 0:19:23, ETA : 0:50:03
+epoch 3 / 10, batch 20000 / 25269, global_step = 70538, learning_rate = 1.000000e-02, loss = 0.385525, l2 = 0.002323, auc = 0.768954
+[[34m2023-05-13 17:31:36[0m] elapsed : 0:19:35, ETA : 0:49:35
+[[34m2023-05-13 17:31:36[0m] epoch 3 / 10, batch 21000 / 25269, global_step = 71538, learning_rate = 1.000000e-02, loss = 0.383311, l2 = 0.002323, auc = 0.772268
+elapsed : 0:19:35, ETA : 0:49:35
+epoch 3 / 10, batch 21000 / 25269, global_step = 71538, learning_rate = 1.000000e-02, loss = 0.383311, l2 = 0.002323, auc = 0.772268
+[[34m2023-05-13 17:31:48[0m] elapsed : 0:19:47, ETA : 0:49:07
+[[34m2023-05-13 17:31:48[0m] epoch 3 / 10, batch 22000 / 25269, global_step = 72538, learning_rate = 1.000000e-02, loss = 0.384201, l2 = 0.002317, auc = 0.771733
+elapsed : 0:19:47, ETA : 0:49:07
+epoch 3 / 10, batch 22000 / 25269, global_step = 72538, learning_rate = 1.000000e-02, loss = 0.384201, l2 = 0.002317, auc = 0.771733
+[[34m2023-05-13 17:32:00[0m] elapsed : 0:19:59, ETA : 0:48:40
+[[34m2023-05-13 17:32:00[0m] epoch 3 / 10, batch 23000 / 25269, global_step = 73538, learning_rate = 1.000000e-02, loss = 0.382965, l2 = 0.002307, auc = 0.771957
+elapsed : 0:19:59, ETA : 0:48:40
+epoch 3 / 10, batch 23000 / 25269, global_step = 73538, learning_rate = 1.000000e-02, loss = 0.382965, l2 = 0.002307, auc = 0.771957
+[[34m2023-05-13 17:32:12[0m] elapsed : 0:20:12, ETA : 0:48:16
+[[34m2023-05-13 17:32:12[0m] epoch 3 / 10, batch 24000 / 25269, global_step = 74538, learning_rate = 1.000000e-02, loss = 0.384654, l2 = 0.002299, auc = 0.772070
+elapsed : 0:20:12, ETA : 0:48:16
+epoch 3 / 10, batch 24000 / 25269, global_step = 74538, learning_rate = 1.000000e-02, loss = 0.384654, l2 = 0.002299, auc = 0.772070
+[[34m2023-05-13 17:32:25[0m] elapsed : 0:20:24, ETA : 0:47:50
+[[34m2023-05-13 17:32:25[0m] epoch 3 / 10, batch 25000 / 25269, global_step = 75538, learning_rate = 1.000000e-02, loss = 0.386249, l2 = 0.002294, auc = 0.770903
+elapsed : 0:20:24, ETA : 0:47:50
+epoch 3 / 10, batch 25000 / 25269, global_step = 75538, learning_rate = 1.000000e-02, loss = 0.386249, l2 = 0.002294, auc = 0.770903
+[[34m2023-05-13 17:32:28[0m] running test...
+on disk...
+[[34m2023-05-13 17:32:31[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:32:33[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:32:36[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:32:38[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:32:41[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:32:43[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:32:45[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:32:48[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:32:50[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:32:53[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:32:55[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:32:58[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:33:00[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:33:03[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:33:05[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:33:08[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:33:10[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:33:12[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:33:15[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:33:17[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:33:20[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:33:22[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:33:25[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:33:27[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:33:30[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:33:32[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:33:35[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:33:37[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:33:40[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:33:42[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:33:45[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:33:47[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:33:50[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:33:52[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:33:55[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:33:57[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:34:00[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:34:02[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:34:05[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:34:07[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:34:10[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:34:12[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:34:14[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:34:17[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:34:19[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:34:21[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:34:24[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:34:26[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:34:28[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:34:31[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:34:33[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:34:35[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:34:37[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:34:39[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:34:42[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:34:44[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:34:46[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:34:48[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:34:51[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:34:53[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:34:55[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:34:57[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 17:35:00[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 17:35:04[0m] test loss = 0.384661, test auc = 0.771563
+[[34m2023-05-13 17:35:04[0m] evaluated time: 0:02:36
+[[34m2023-05-13 17:35:04[0m] analyse_structure
+[[34m2023-05-13 17:35:14[0m] elapsed : 0:23:13, ETA : 0:53:09
+[[34m2023-05-13 17:35:14[0m] epoch 4 / 10, batch 1000 / 25269, global_step = 76807, learning_rate = 1.000000e-02, loss = 0.487658, l2 = 0.002911, auc = 0.769527
+elapsed : 0:23:13, ETA : 0:53:09
+epoch 4 / 10, batch 1000 / 25269, global_step = 76807, learning_rate = 1.000000e-02, loss = 0.487658, l2 = 0.002911, auc = 0.769527
+[[34m2023-05-13 17:35:23[0m] elapsed : 0:23:23, ETA : 0:52:33
+[[34m2023-05-13 17:35:23[0m] epoch 4 / 10, batch 2000 / 25269, global_step = 77807, learning_rate = 1.000000e-02, loss = 0.386827, l2 = 0.002295, auc = 0.771211
+elapsed : 0:23:23, ETA : 0:52:33
+epoch 4 / 10, batch 2000 / 25269, global_step = 77807, learning_rate = 1.000000e-02, loss = 0.386827, l2 = 0.002295, auc = 0.771211
+[[34m2023-05-13 17:35:33[0m] elapsed : 0:23:33, ETA : 0:51:57
+[[34m2023-05-13 17:35:33[0m] epoch 4 / 10, batch 3000 / 25269, global_step = 78807, learning_rate = 1.000000e-02, loss = 0.383497, l2 = 0.002287, auc = 0.771338
+elapsed : 0:23:33, ETA : 0:51:57
+epoch 4 / 10, batch 3000 / 25269, global_step = 78807, learning_rate = 1.000000e-02, loss = 0.383497, l2 = 0.002287, auc = 0.771338
+[[34m2023-05-13 17:35:41[0m] elapsed : 0:23:41, ETA : 0:51:18
+[[34m2023-05-13 17:35:41[0m] epoch 4 / 10, batch 4000 / 25269, global_step = 79807, learning_rate = 1.000000e-02, loss = 0.386281, l2 = 0.002276, auc = 0.772879
+elapsed : 0:23:41, ETA : 0:51:18
+epoch 4 / 10, batch 4000 / 25269, global_step = 79807, learning_rate = 1.000000e-02, loss = 0.386281, l2 = 0.002276, auc = 0.772879
+[[34m2023-05-13 17:35:51[0m] elapsed : 0:23:50, ETA : 0:50:41
+[[34m2023-05-13 17:35:51[0m] epoch 4 / 10, batch 5000 / 25269, global_step = 80807, learning_rate = 1.000000e-02, loss = 0.383922, l2 = 0.002273, auc = 0.771718
+elapsed : 0:23:50, ETA : 0:50:41
+epoch 4 / 10, batch 5000 / 25269, global_step = 80807, learning_rate = 1.000000e-02, loss = 0.383922, l2 = 0.002273, auc = 0.771718
+[[34m2023-05-13 17:36:03[0m] elapsed : 0:24:03, ETA : 0:50:14
+[[34m2023-05-13 17:36:03[0m] epoch 4 / 10, batch 6000 / 25269, global_step = 81807, learning_rate = 1.000000e-02, loss = 0.384223, l2 = 0.002273, auc = 0.769584
+elapsed : 0:24:03, ETA : 0:50:14
+epoch 4 / 10, batch 6000 / 25269, global_step = 81807, learning_rate = 1.000000e-02, loss = 0.384223, l2 = 0.002273, auc = 0.769584
+[[34m2023-05-13 17:36:15[0m] elapsed : 0:24:15, ETA : 0:49:45
+[[34m2023-05-13 17:36:15[0m] epoch 4 / 10, batch 7000 / 25269, global_step = 82807, learning_rate = 1.000000e-02, loss = 0.385171, l2 = 0.002265, auc = 0.770638
+elapsed : 0:24:15, ETA : 0:49:45
+epoch 4 / 10, batch 7000 / 25269, global_step = 82807, learning_rate = 1.000000e-02, loss = 0.385171, l2 = 0.002265, auc = 0.770638
+[[34m2023-05-13 17:36:28[0m] elapsed : 0:24:27, ETA : 0:49:16
+[[34m2023-05-13 17:36:28[0m] epoch 4 / 10, batch 8000 / 25269, global_step = 83807, learning_rate = 1.000000e-02, loss = 0.385461, l2 = 0.002262, auc = 0.771239
+elapsed : 0:24:27, ETA : 0:49:16
+epoch 4 / 10, batch 8000 / 25269, global_step = 83807, learning_rate = 1.000000e-02, loss = 0.385461, l2 = 0.002262, auc = 0.771239
+[[34m2023-05-13 17:36:40[0m] elapsed : 0:24:39, ETA : 0:48:47
+[[34m2023-05-13 17:36:40[0m] epoch 4 / 10, batch 9000 / 25269, global_step = 84807, learning_rate = 1.000000e-02, loss = 0.382646, l2 = 0.002265, auc = 0.771105
+elapsed : 0:24:39, ETA : 0:48:47
+epoch 4 / 10, batch 9000 / 25269, global_step = 84807, learning_rate = 1.000000e-02, loss = 0.382646, l2 = 0.002265, auc = 0.771105
+[[34m2023-05-13 17:36:52[0m] elapsed : 0:24:52, ETA : 0:48:21
+[[34m2023-05-13 17:36:52[0m] epoch 4 / 10, batch 10000 / 25269, global_step = 85807, learning_rate = 1.000000e-02, loss = 0.384249, l2 = 0.002257, auc = 0.772256
+elapsed : 0:24:52, ETA : 0:48:21
+epoch 4 / 10, batch 10000 / 25269, global_step = 85807, learning_rate = 1.000000e-02, loss = 0.384249, l2 = 0.002257, auc = 0.772256
+[[34m2023-05-13 17:37:05[0m] elapsed : 0:25:04, ETA : 0:47:54
+[[34m2023-05-13 17:37:05[0m] epoch 4 / 10, batch 11000 / 25269, global_step = 86807, learning_rate = 1.000000e-02, loss = 0.382852, l2 = 0.002244, auc = 0.774218
+elapsed : 0:25:04, ETA : 0:47:54
+epoch 4 / 10, batch 11000 / 25269, global_step = 86807, learning_rate = 1.000000e-02, loss = 0.382852, l2 = 0.002244, auc = 0.774218
+[[34m2023-05-13 17:37:17[0m] elapsed : 0:25:16, ETA : 0:47:26
+[[34m2023-05-13 17:37:17[0m] epoch 4 / 10, batch 12000 / 25269, global_step = 87807, learning_rate = 1.000000e-02, loss = 0.383089, l2 = 0.002245, auc = 0.772581
+elapsed : 0:25:16, ETA : 0:47:26
+epoch 4 / 10, batch 12000 / 25269, global_step = 87807, learning_rate = 1.000000e-02, loss = 0.383089, l2 = 0.002245, auc = 0.772581
+[[34m2023-05-13 17:37:29[0m] elapsed : 0:25:28, ETA : 0:46:59
+[[34m2023-05-13 17:37:29[0m] epoch 4 / 10, batch 13000 / 25269, global_step = 88807, learning_rate = 1.000000e-02, loss = 0.382919, l2 = 0.002232, auc = 0.770483
+elapsed : 0:25:28, ETA : 0:46:59
+epoch 4 / 10, batch 13000 / 25269, global_step = 88807, learning_rate = 1.000000e-02, loss = 0.382919, l2 = 0.002232, auc = 0.770483
+[[34m2023-05-13 17:37:41[0m] elapsed : 0:25:41, ETA : 0:46:34
+[[34m2023-05-13 17:37:41[0m] epoch 4 / 10, batch 14000 / 25269, global_step = 89807, learning_rate = 1.000000e-02, loss = 0.384928, l2 = 0.002233, auc = 0.772481
+elapsed : 0:25:41, ETA : 0:46:34
+epoch 4 / 10, batch 14000 / 25269, global_step = 89807, learning_rate = 1.000000e-02, loss = 0.384928, l2 = 0.002233, auc = 0.772481
+[[34m2023-05-13 17:37:54[0m] elapsed : 0:25:53, ETA : 0:46:08
+[[34m2023-05-13 17:37:54[0m] epoch 4 / 10, batch 15000 / 25269, global_step = 90807, learning_rate = 1.000000e-02, loss = 0.383371, l2 = 0.002229, auc = 0.769236
+elapsed : 0:25:53, ETA : 0:46:08
+epoch 4 / 10, batch 15000 / 25269, global_step = 90807, learning_rate = 1.000000e-02, loss = 0.383371, l2 = 0.002229, auc = 0.769236
+[[34m2023-05-13 17:38:06[0m] elapsed : 0:26:06, ETA : 0:45:44
+[[34m2023-05-13 17:38:06[0m] epoch 4 / 10, batch 16000 / 25269, global_step = 91807, learning_rate = 1.000000e-02, loss = 0.381749, l2 = 0.002220, auc = 0.774206
+elapsed : 0:26:06, ETA : 0:45:44
+epoch 4 / 10, batch 16000 / 25269, global_step = 91807, learning_rate = 1.000000e-02, loss = 0.381749, l2 = 0.002220, auc = 0.774206
+[[34m2023-05-13 17:38:18[0m] elapsed : 0:26:18, ETA : 0:45:18
+[[34m2023-05-13 17:38:18[0m] epoch 4 / 10, batch 17000 / 25269, global_step = 92807, learning_rate = 1.000000e-02, loss = 0.383355, l2 = 0.002219, auc = 0.771106
+elapsed : 0:26:18, ETA : 0:45:18
+epoch 4 / 10, batch 17000 / 25269, global_step = 92807, learning_rate = 1.000000e-02, loss = 0.383355, l2 = 0.002219, auc = 0.771106
+[[34m2023-05-13 17:38:31[0m] elapsed : 0:26:30, ETA : 0:44:53
+[[34m2023-05-13 17:38:31[0m] epoch 4 / 10, batch 18000 / 25269, global_step = 93807, learning_rate = 1.000000e-02, loss = 0.383682, l2 = 0.002211, auc = 0.775354
+elapsed : 0:26:30, ETA : 0:44:53
+epoch 4 / 10, batch 18000 / 25269, global_step = 93807, learning_rate = 1.000000e-02, loss = 0.383682, l2 = 0.002211, auc = 0.775354
+[[34m2023-05-13 17:38:43[0m] elapsed : 0:26:43, ETA : 0:44:29
+[[34m2023-05-13 17:38:43[0m] epoch 4 / 10, batch 19000 / 25269, global_step = 94807, learning_rate = 1.000000e-02, loss = 0.381885, l2 = 0.002216, auc = 0.773405
+elapsed : 0:26:43, ETA : 0:44:29
+epoch 4 / 10, batch 19000 / 25269, global_step = 94807, learning_rate = 1.000000e-02, loss = 0.381885, l2 = 0.002216, auc = 0.773405
+[[34m2023-05-13 17:38:56[0m] elapsed : 0:26:55, ETA : 0:44:04
+[[34m2023-05-13 17:38:56[0m] epoch 4 / 10, batch 20000 / 25269, global_step = 95807, learning_rate = 1.000000e-02, loss = 0.380769, l2 = 0.002209, auc = 0.772879
+elapsed : 0:26:55, ETA : 0:44:04
+epoch 4 / 10, batch 20000 / 25269, global_step = 95807, learning_rate = 1.000000e-02, loss = 0.380769, l2 = 0.002209, auc = 0.772879
+[[34m2023-05-13 17:39:07[0m] elapsed : 0:27:07, ETA : 0:43:39
+[[34m2023-05-13 17:39:07[0m] epoch 4 / 10, batch 21000 / 25269, global_step = 96807, learning_rate = 1.000000e-02, loss = 0.383104, l2 = 0.002205, auc = 0.772885
+elapsed : 0:27:07, ETA : 0:43:39
+epoch 4 / 10, batch 21000 / 25269, global_step = 96807, learning_rate = 1.000000e-02, loss = 0.383104, l2 = 0.002205, auc = 0.772885
+[[34m2023-05-13 17:39:20[0m] elapsed : 0:27:19, ETA : 0:43:15
+[[34m2023-05-13 17:39:20[0m] epoch 4 / 10, batch 22000 / 25269, global_step = 97807, learning_rate = 1.000000e-02, loss = 0.384789, l2 = 0.002203, auc = 0.773478
+elapsed : 0:27:19, ETA : 0:43:15
+epoch 4 / 10, batch 22000 / 25269, global_step = 97807, learning_rate = 1.000000e-02, loss = 0.384789, l2 = 0.002203, auc = 0.773478
+[[34m2023-05-13 17:39:32[0m] elapsed : 0:27:31, ETA : 0:42:51
+[[34m2023-05-13 17:39:32[0m] epoch 4 / 10, batch 23000 / 25269, global_step = 98807, learning_rate = 1.000000e-02, loss = 0.382164, l2 = 0.002205, auc = 0.775821
+elapsed : 0:27:31, ETA : 0:42:51
+epoch 4 / 10, batch 23000 / 25269, global_step = 98807, learning_rate = 1.000000e-02, loss = 0.382164, l2 = 0.002205, auc = 0.775821
+[[34m2023-05-13 17:39:44[0m] elapsed : 0:27:44, ETA : 0:42:28
+[[34m2023-05-13 17:39:44[0m] epoch 4 / 10, batch 24000 / 25269, global_step = 99807, learning_rate = 1.000000e-02, loss = 0.385164, l2 = 0.002192, auc = 0.772964
+elapsed : 0:27:44, ETA : 0:42:28
+epoch 4 / 10, batch 24000 / 25269, global_step = 99807, learning_rate = 1.000000e-02, loss = 0.385164, l2 = 0.002192, auc = 0.772964
+[[34m2023-05-13 17:39:57[0m] elapsed : 0:27:56, ETA : 0:42:05
+[[34m2023-05-13 17:39:57[0m] epoch 4 / 10, batch 25000 / 25269, global_step = 100807, learning_rate = 1.000000e-02, loss = 0.383086, l2 = 0.002196, auc = 0.773251
+elapsed : 0:27:56, ETA : 0:42:05
+epoch 4 / 10, batch 25000 / 25269, global_step = 100807, learning_rate = 1.000000e-02, loss = 0.383086, l2 = 0.002196, auc = 0.773251
+[[34m2023-05-13 17:40:00[0m] running test...
+on disk...
+[[34m2023-05-13 17:40:03[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:40:05[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:40:08[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:40:10[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:40:13[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:40:15[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:40:17[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:40:20[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:40:22[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:40:25[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:40:27[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:40:30[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:40:32[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:40:34[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:40:37[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:40:40[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:40:42[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:40:45[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:40:47[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:40:50[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:40:52[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:40:54[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:40:57[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:40:59[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:41:02[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:41:04[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:41:07[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:41:09[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:41:12[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:41:14[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:41:17[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:41:20[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:41:22[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:41:25[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:41:27[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:41:29[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:41:32[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:41:34[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:41:37[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:41:39[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:41:42[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:41:44[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:41:46[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:41:49[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:41:51[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:41:54[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:41:57[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:41:59[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:42:02[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:42:04[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:42:06[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:42:09[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:42:11[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:42:13[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:42:16[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:42:18[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:42:20[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:42:22[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:42:24[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:42:27[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:42:29[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:42:31[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 17:42:33[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 17:42:38[0m] test loss = 0.382930, test auc = 0.774298
+[[34m2023-05-13 17:42:38[0m] evaluated time: 0:02:38
+[[34m2023-05-13 17:42:38[0m] analyse_structure
+[[34m2023-05-13 17:42:47[0m] elapsed : 0:30:47, ETA : 0:45:25
+[[34m2023-05-13 17:42:47[0m] epoch 5 / 10, batch 1000 / 25269, global_step = 102076, learning_rate = 1.000000e-02, loss = 0.486798, l2 = 0.002777, auc = 0.774850
+elapsed : 0:30:47, ETA : 0:45:25
+epoch 5 / 10, batch 1000 / 25269, global_step = 102076, learning_rate = 1.000000e-02, loss = 0.486798, l2 = 0.002777, auc = 0.774850
+[[34m2023-05-13 17:42:57[0m] elapsed : 0:30:57, ETA : 0:44:55
+[[34m2023-05-13 17:42:57[0m] epoch 5 / 10, batch 2000 / 25269, global_step = 103076, learning_rate = 1.000000e-02, loss = 0.380873, l2 = 0.002180, auc = 0.773719
+elapsed : 0:30:57, ETA : 0:44:55
+epoch 5 / 10, batch 2000 / 25269, global_step = 103076, learning_rate = 1.000000e-02, loss = 0.380873, l2 = 0.002180, auc = 0.773719
+[[34m2023-05-13 17:43:07[0m] elapsed : 0:31:06, ETA : 0:44:24
+[[34m2023-05-13 17:43:07[0m] epoch 5 / 10, batch 3000 / 25269, global_step = 104076, learning_rate = 1.000000e-02, loss = 0.382456, l2 = 0.002174, auc = 0.774745
+elapsed : 0:31:06, ETA : 0:44:24
+epoch 5 / 10, batch 3000 / 25269, global_step = 104076, learning_rate = 1.000000e-02, loss = 0.382456, l2 = 0.002174, auc = 0.774745
+[[34m2023-05-13 17:43:16[0m] elapsed : 0:31:16, ETA : 0:43:55
+[[34m2023-05-13 17:43:16[0m] epoch 5 / 10, batch 4000 / 25269, global_step = 105076, learning_rate = 1.000000e-02, loss = 0.382423, l2 = 0.002180, auc = 0.776975
+elapsed : 0:31:16, ETA : 0:43:55
+epoch 5 / 10, batch 4000 / 25269, global_step = 105076, learning_rate = 1.000000e-02, loss = 0.382423, l2 = 0.002180, auc = 0.776975
+[[34m2023-05-13 17:43:26[0m] elapsed : 0:31:25, ETA : 0:43:25
+[[34m2023-05-13 17:43:26[0m] epoch 5 / 10, batch 5000 / 25269, global_step = 106076, learning_rate = 1.000000e-02, loss = 0.382548, l2 = 0.002171, auc = 0.774857
+elapsed : 0:31:25, ETA : 0:43:25
+epoch 5 / 10, batch 5000 / 25269, global_step = 106076, learning_rate = 1.000000e-02, loss = 0.382548, l2 = 0.002171, auc = 0.774857
+[[34m2023-05-13 17:43:34[0m] elapsed : 0:31:33, ETA : 0:42:54
+[[34m2023-05-13 17:43:34[0m] epoch 5 / 10, batch 6000 / 25269, global_step = 107076, learning_rate = 1.000000e-02, loss = 0.382420, l2 = 0.002177, auc = 0.773634
+elapsed : 0:31:33, ETA : 0:42:54
+epoch 5 / 10, batch 6000 / 25269, global_step = 107076, learning_rate = 1.000000e-02, loss = 0.382420, l2 = 0.002177, auc = 0.773634
+[[34m2023-05-13 17:43:43[0m] elapsed : 0:31:42, ETA : 0:42:25
+[[34m2023-05-13 17:43:43[0m] epoch 5 / 10, batch 7000 / 25269, global_step = 108076, learning_rate = 1.000000e-02, loss = 0.382312, l2 = 0.002171, auc = 0.775218
+elapsed : 0:31:42, ETA : 0:42:25
+epoch 5 / 10, batch 7000 / 25269, global_step = 108076, learning_rate = 1.000000e-02, loss = 0.382312, l2 = 0.002171, auc = 0.775218
+[[34m2023-05-13 17:43:55[0m] elapsed : 0:31:55, ETA : 0:42:01
+[[34m2023-05-13 17:43:55[0m] epoch 5 / 10, batch 8000 / 25269, global_step = 109076, learning_rate = 1.000000e-02, loss = 0.382350, l2 = 0.002157, auc = 0.770860
+elapsed : 0:31:55, ETA : 0:42:01
+epoch 5 / 10, batch 8000 / 25269, global_step = 109076, learning_rate = 1.000000e-02, loss = 0.382350, l2 = 0.002157, auc = 0.770860
+[[34m2023-05-13 17:44:08[0m] elapsed : 0:32:07, ETA : 0:41:36
+[[34m2023-05-13 17:44:08[0m] epoch 5 / 10, batch 9000 / 25269, global_step = 110076, learning_rate = 1.000000e-02, loss = 0.386088, l2 = 0.002162, auc = 0.773831
+elapsed : 0:32:07, ETA : 0:41:36
+epoch 5 / 10, batch 9000 / 25269, global_step = 110076, learning_rate = 1.000000e-02, loss = 0.386088, l2 = 0.002162, auc = 0.773831
+[[34m2023-05-13 17:44:20[0m] elapsed : 0:32:20, ETA : 0:41:13
+[[34m2023-05-13 17:44:20[0m] epoch 5 / 10, batch 10000 / 25269, global_step = 111076, learning_rate = 1.000000e-02, loss = 0.382802, l2 = 0.002157, auc = 0.772339
+elapsed : 0:32:20, ETA : 0:41:13
+epoch 5 / 10, batch 10000 / 25269, global_step = 111076, learning_rate = 1.000000e-02, loss = 0.382802, l2 = 0.002157, auc = 0.772339
+[[34m2023-05-13 17:44:33[0m] elapsed : 0:32:32, ETA : 0:40:49
+[[34m2023-05-13 17:44:33[0m] epoch 5 / 10, batch 11000 / 25269, global_step = 112076, learning_rate = 1.000000e-02, loss = 0.383435, l2 = 0.002157, auc = 0.773332
+elapsed : 0:32:32, ETA : 0:40:49
+epoch 5 / 10, batch 11000 / 25269, global_step = 112076, learning_rate = 1.000000e-02, loss = 0.383435, l2 = 0.002157, auc = 0.773332
+[[34m2023-05-13 17:44:45[0m] elapsed : 0:32:44, ETA : 0:40:24
+[[34m2023-05-13 17:44:45[0m] epoch 5 / 10, batch 12000 / 25269, global_step = 113076, learning_rate = 1.000000e-02, loss = 0.381245, l2 = 0.002147, auc = 0.776337
+elapsed : 0:32:44, ETA : 0:40:24
+epoch 5 / 10, batch 12000 / 25269, global_step = 113076, learning_rate = 1.000000e-02, loss = 0.381245, l2 = 0.002147, auc = 0.776337
+[[34m2023-05-13 17:44:57[0m] elapsed : 0:32:56, ETA : 0:40:01
+[[34m2023-05-13 17:44:57[0m] epoch 5 / 10, batch 13000 / 25269, global_step = 114076, learning_rate = 1.000000e-02, loss = 0.381820, l2 = 0.002142, auc = 0.774356
+elapsed : 0:32:56, ETA : 0:40:01
+epoch 5 / 10, batch 13000 / 25269, global_step = 114076, learning_rate = 1.000000e-02, loss = 0.381820, l2 = 0.002142, auc = 0.774356
+[[34m2023-05-13 17:45:09[0m] elapsed : 0:33:09, ETA : 0:39:38
+[[34m2023-05-13 17:45:09[0m] epoch 5 / 10, batch 14000 / 25269, global_step = 115076, learning_rate = 1.000000e-02, loss = 0.381104, l2 = 0.002139, auc = 0.775075
+elapsed : 0:33:09, ETA : 0:39:38
+epoch 5 / 10, batch 14000 / 25269, global_step = 115076, learning_rate = 1.000000e-02, loss = 0.381104, l2 = 0.002139, auc = 0.775075
+[[34m2023-05-13 17:45:21[0m] elapsed : 0:33:21, ETA : 0:39:15
+[[34m2023-05-13 17:45:21[0m] epoch 5 / 10, batch 15000 / 25269, global_step = 116076, learning_rate = 1.000000e-02, loss = 0.384486, l2 = 0.002132, auc = 0.771724
+elapsed : 0:33:21, ETA : 0:39:15
+epoch 5 / 10, batch 15000 / 25269, global_step = 116076, learning_rate = 1.000000e-02, loss = 0.384486, l2 = 0.002132, auc = 0.771724
+[[34m2023-05-13 17:45:34[0m] elapsed : 0:33:33, ETA : 0:38:51
+[[34m2023-05-13 17:45:34[0m] epoch 5 / 10, batch 16000 / 25269, global_step = 117076, learning_rate = 1.000000e-02, loss = 0.381368, l2 = 0.002132, auc = 0.776248
+elapsed : 0:33:33, ETA : 0:38:51
+epoch 5 / 10, batch 16000 / 25269, global_step = 117076, learning_rate = 1.000000e-02, loss = 0.381368, l2 = 0.002132, auc = 0.776248
+[[34m2023-05-13 17:45:46[0m] elapsed : 0:33:45, ETA : 0:38:28
+[[34m2023-05-13 17:45:46[0m] epoch 5 / 10, batch 17000 / 25269, global_step = 118076, learning_rate = 1.000000e-02, loss = 0.383667, l2 = 0.002134, auc = 0.776730
+elapsed : 0:33:45, ETA : 0:38:28
+epoch 5 / 10, batch 17000 / 25269, global_step = 118076, learning_rate = 1.000000e-02, loss = 0.383667, l2 = 0.002134, auc = 0.776730
+[[34m2023-05-13 17:45:58[0m] elapsed : 0:33:58, ETA : 0:38:06
+[[34m2023-05-13 17:45:58[0m] epoch 5 / 10, batch 18000 / 25269, global_step = 119076, learning_rate = 1.000000e-02, loss = 0.383180, l2 = 0.002136, auc = 0.773302
+elapsed : 0:33:58, ETA : 0:38:06
+epoch 5 / 10, batch 18000 / 25269, global_step = 119076, learning_rate = 1.000000e-02, loss = 0.383180, l2 = 0.002136, auc = 0.773302
+[[34m2023-05-13 17:46:11[0m] elapsed : 0:34:10, ETA : 0:37:44
+[[34m2023-05-13 17:46:11[0m] epoch 5 / 10, batch 19000 / 25269, global_step = 120076, learning_rate = 1.000000e-02, loss = 0.382289, l2 = 0.002121, auc = 0.776575
+elapsed : 0:34:10, ETA : 0:37:44
+epoch 5 / 10, batch 19000 / 25269, global_step = 120076, learning_rate = 1.000000e-02, loss = 0.382289, l2 = 0.002121, auc = 0.776575
+[[34m2023-05-13 17:46:22[0m] elapsed : 0:34:22, ETA : 0:37:21
+[[34m2023-05-13 17:46:22[0m] epoch 5 / 10, batch 20000 / 25269, global_step = 121076, learning_rate = 1.000000e-02, loss = 0.381548, l2 = 0.002126, auc = 0.773788
+elapsed : 0:34:22, ETA : 0:37:21
+epoch 5 / 10, batch 20000 / 25269, global_step = 121076, learning_rate = 1.000000e-02, loss = 0.381548, l2 = 0.002126, auc = 0.773788
+[[34m2023-05-13 17:46:35[0m] elapsed : 0:34:34, ETA : 0:36:59
+[[34m2023-05-13 17:46:35[0m] epoch 5 / 10, batch 21000 / 25269, global_step = 122076, learning_rate = 1.000000e-02, loss = 0.384894, l2 = 0.002124, auc = 0.775536
+elapsed : 0:34:34, ETA : 0:36:59
+epoch 5 / 10, batch 21000 / 25269, global_step = 122076, learning_rate = 1.000000e-02, loss = 0.384894, l2 = 0.002124, auc = 0.775536
+[[34m2023-05-13 17:46:47[0m] elapsed : 0:34:47, ETA : 0:36:37
+[[34m2023-05-13 17:46:47[0m] epoch 5 / 10, batch 22000 / 25269, global_step = 123076, learning_rate = 1.000000e-02, loss = 0.380794, l2 = 0.002120, auc = 0.774467
+elapsed : 0:34:47, ETA : 0:36:37
+epoch 5 / 10, batch 22000 / 25269, global_step = 123076, learning_rate = 1.000000e-02, loss = 0.380794, l2 = 0.002120, auc = 0.774467
+[[34m2023-05-13 17:46:59[0m] elapsed : 0:34:59, ETA : 0:36:15
+[[34m2023-05-13 17:46:59[0m] epoch 5 / 10, batch 23000 / 25269, global_step = 124076, learning_rate = 1.000000e-02, loss = 0.381254, l2 = 0.002115, auc = 0.776196
+elapsed : 0:34:59, ETA : 0:36:15
+epoch 5 / 10, batch 23000 / 25269, global_step = 124076, learning_rate = 1.000000e-02, loss = 0.381254, l2 = 0.002115, auc = 0.776196
+[[34m2023-05-13 17:47:12[0m] elapsed : 0:35:11, ETA : 0:35:53
+[[34m2023-05-13 17:47:12[0m] epoch 5 / 10, batch 24000 / 25269, global_step = 125076, learning_rate = 1.000000e-02, loss = 0.385064, l2 = 0.002115, auc = 0.777132
+elapsed : 0:35:11, ETA : 0:35:53
+epoch 5 / 10, batch 24000 / 25269, global_step = 125076, learning_rate = 1.000000e-02, loss = 0.385064, l2 = 0.002115, auc = 0.777132
+[[34m2023-05-13 17:47:24[0m] elapsed : 0:35:24, ETA : 0:35:33
+[[34m2023-05-13 17:47:24[0m] epoch 5 / 10, batch 25000 / 25269, global_step = 126076, learning_rate = 1.000000e-02, loss = 0.382909, l2 = 0.002103, auc = 0.776737
+elapsed : 0:35:24, ETA : 0:35:33
+epoch 5 / 10, batch 25000 / 25269, global_step = 126076, learning_rate = 1.000000e-02, loss = 0.382909, l2 = 0.002103, auc = 0.776737
+[[34m2023-05-13 17:47:28[0m] running test...
+on disk...
+[[34m2023-05-13 17:47:30[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:47:33[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:47:35[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:47:38[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:47:40[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:47:43[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:47:45[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:47:48[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:47:50[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:47:52[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:47:55[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:47:57[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:48:00[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:48:02[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:48:04[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:48:07[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:48:10[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:48:12[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:48:15[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:48:17[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:48:20[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:48:22[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:48:25[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:48:27[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:48:30[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:48:32[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:48:34[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:48:37[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:48:39[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:48:42[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:48:44[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:48:47[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:48:50[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:48:52[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:48:54[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:48:57[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:48:59[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:49:02[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:49:04[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:49:07[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:49:09[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:49:12[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:49:14[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:49:17[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:49:19[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:49:21[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:49:24[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:49:27[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:49:29[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:49:32[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:49:34[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:49:37[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:49:39[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:49:42[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:49:44[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:49:47[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:49:49[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:49:52[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:49:54[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:49:56[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:49:58[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:50:01[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 17:50:03[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 17:50:08[0m] test loss = 0.381787, test auc = 0.776160
+[[34m2023-05-13 17:50:08[0m] evaluated time: 0:02:40
+[[34m2023-05-13 17:50:08[0m] analyse_structure
+[[34m2023-05-13 17:50:17[0m] elapsed : 0:38:17, ETA : 0:37:40
+[[34m2023-05-13 17:50:17[0m] epoch 6 / 10, batch 1000 / 25269, global_step = 127345, learning_rate = 1.000000e-02, loss = 0.483315, l2 = 0.002672, auc = 0.777032
+elapsed : 0:38:17, ETA : 0:37:40
+epoch 6 / 10, batch 1000 / 25269, global_step = 127345, learning_rate = 1.000000e-02, loss = 0.483315, l2 = 0.002672, auc = 0.777032
+[[34m2023-05-13 17:50:27[0m] elapsed : 0:38:26, ETA : 0:37:14
+[[34m2023-05-13 17:50:27[0m] epoch 6 / 10, batch 2000 / 25269, global_step = 128345, learning_rate = 1.000000e-02, loss = 0.381311, l2 = 0.002111, auc = 0.774405
+elapsed : 0:38:26, ETA : 0:37:14
+epoch 6 / 10, batch 2000 / 25269, global_step = 128345, learning_rate = 1.000000e-02, loss = 0.381311, l2 = 0.002111, auc = 0.774405
+[[34m2023-05-13 17:50:36[0m] elapsed : 0:38:36, ETA : 0:36:48
+[[34m2023-05-13 17:50:36[0m] epoch 6 / 10, batch 3000 / 25269, global_step = 129345, learning_rate = 1.000000e-02, loss = 0.378857, l2 = 0.002104, auc = 0.776903
+elapsed : 0:38:36, ETA : 0:36:48
+epoch 6 / 10, batch 3000 / 25269, global_step = 129345, learning_rate = 1.000000e-02, loss = 0.378857, l2 = 0.002104, auc = 0.776903
+[[34m2023-05-13 17:50:46[0m] elapsed : 0:38:45, ETA : 0:36:22
+[[34m2023-05-13 17:50:46[0m] epoch 6 / 10, batch 4000 / 25269, global_step = 130345, learning_rate = 1.000000e-02, loss = 0.385427, l2 = 0.002097, auc = 0.773744
+elapsed : 0:38:45, ETA : 0:36:22
+epoch 6 / 10, batch 4000 / 25269, global_step = 130345, learning_rate = 1.000000e-02, loss = 0.385427, l2 = 0.002097, auc = 0.773744
+[[34m2023-05-13 17:50:55[0m] elapsed : 0:38:55, ETA : 0:35:57
+[[34m2023-05-13 17:50:55[0m] epoch 6 / 10, batch 5000 / 25269, global_step = 131345, learning_rate = 1.000000e-02, loss = 0.379327, l2 = 0.002098, auc = 0.779040
+elapsed : 0:38:55, ETA : 0:35:57
+epoch 6 / 10, batch 5000 / 25269, global_step = 131345, learning_rate = 1.000000e-02, loss = 0.379327, l2 = 0.002098, auc = 0.779040
+[[34m2023-05-13 17:51:05[0m] elapsed : 0:39:04, ETA : 0:35:31
+[[34m2023-05-13 17:51:05[0m] epoch 6 / 10, batch 6000 / 25269, global_step = 132345, learning_rate = 1.000000e-02, loss = 0.383102, l2 = 0.002098, auc = 0.774635
+elapsed : 0:39:04, ETA : 0:35:31
+epoch 6 / 10, batch 6000 / 25269, global_step = 132345, learning_rate = 1.000000e-02, loss = 0.383102, l2 = 0.002098, auc = 0.774635
+[[34m2023-05-13 17:51:15[0m] elapsed : 0:39:14, ETA : 0:35:06
+[[34m2023-05-13 17:51:15[0m] epoch 6 / 10, batch 7000 / 25269, global_step = 133345, learning_rate = 1.000000e-02, loss = 0.385385, l2 = 0.002087, auc = 0.773467
+elapsed : 0:39:14, ETA : 0:35:06
+epoch 6 / 10, batch 7000 / 25269, global_step = 133345, learning_rate = 1.000000e-02, loss = 0.385385, l2 = 0.002087, auc = 0.773467
+[[34m2023-05-13 17:51:22[0m] elapsed : 0:39:22, ETA : 0:34:40
+[[34m2023-05-13 17:51:22[0m] epoch 6 / 10, batch 8000 / 25269, global_step = 134345, learning_rate = 1.000000e-02, loss = 0.383222, l2 = 0.002092, auc = 0.775182
+elapsed : 0:39:22, ETA : 0:34:40
+epoch 6 / 10, batch 8000 / 25269, global_step = 134345, learning_rate = 1.000000e-02, loss = 0.383222, l2 = 0.002092, auc = 0.775182
+[[34m2023-05-13 17:51:32[0m] elapsed : 0:39:32, ETA : 0:34:16
+[[34m2023-05-13 17:51:32[0m] epoch 6 / 10, batch 9000 / 25269, global_step = 135345, learning_rate = 1.000000e-02, loss = 0.378782, l2 = 0.002089, auc = 0.780350
+elapsed : 0:39:32, ETA : 0:34:16
+epoch 6 / 10, batch 9000 / 25269, global_step = 135345, learning_rate = 1.000000e-02, loss = 0.378782, l2 = 0.002089, auc = 0.780350
+[[34m2023-05-13 17:51:45[0m] elapsed : 0:39:44, ETA : 0:33:54
+[[34m2023-05-13 17:51:45[0m] epoch 6 / 10, batch 10000 / 25269, global_step = 136345, learning_rate = 1.000000e-02, loss = 0.380126, l2 = 0.002079, auc = 0.777804
+elapsed : 0:39:44, ETA : 0:33:54
+epoch 6 / 10, batch 10000 / 25269, global_step = 136345, learning_rate = 1.000000e-02, loss = 0.380126, l2 = 0.002079, auc = 0.777804
+[[34m2023-05-13 17:51:56[0m] elapsed : 0:39:56, ETA : 0:33:32
+[[34m2023-05-13 17:51:56[0m] epoch 6 / 10, batch 11000 / 25269, global_step = 137345, learning_rate = 1.000000e-02, loss = 0.381199, l2 = 0.002077, auc = 0.775511
+elapsed : 0:39:56, ETA : 0:33:32
+epoch 6 / 10, batch 11000 / 25269, global_step = 137345, learning_rate = 1.000000e-02, loss = 0.381199, l2 = 0.002077, auc = 0.775511
+[[34m2023-05-13 17:52:09[0m] elapsed : 0:40:08, ETA : 0:33:10
+[[34m2023-05-13 17:52:09[0m] epoch 6 / 10, batch 12000 / 25269, global_step = 138345, learning_rate = 1.000000e-02, loss = 0.378103, l2 = 0.002074, auc = 0.781401
+elapsed : 0:40:08, ETA : 0:33:10
+epoch 6 / 10, batch 12000 / 25269, global_step = 138345, learning_rate = 1.000000e-02, loss = 0.378103, l2 = 0.002074, auc = 0.781401
+[[34m2023-05-13 17:52:21[0m] elapsed : 0:40:21, ETA : 0:32:49
+[[34m2023-05-13 17:52:21[0m] epoch 6 / 10, batch 13000 / 25269, global_step = 139345, learning_rate = 1.000000e-02, loss = 0.383517, l2 = 0.002073, auc = 0.776264
+elapsed : 0:40:21, ETA : 0:32:49
+epoch 6 / 10, batch 13000 / 25269, global_step = 139345, learning_rate = 1.000000e-02, loss = 0.383517, l2 = 0.002073, auc = 0.776264
+[[34m2023-05-13 17:52:33[0m] elapsed : 0:40:33, ETA : 0:32:27
+[[34m2023-05-13 17:52:33[0m] epoch 6 / 10, batch 14000 / 25269, global_step = 140345, learning_rate = 1.000000e-02, loss = 0.378549, l2 = 0.002079, auc = 0.775106
+elapsed : 0:40:33, ETA : 0:32:27
+epoch 6 / 10, batch 14000 / 25269, global_step = 140345, learning_rate = 1.000000e-02, loss = 0.378549, l2 = 0.002079, auc = 0.775106
+[[34m2023-05-13 17:52:46[0m] elapsed : 0:40:45, ETA : 0:32:06
+[[34m2023-05-13 17:52:46[0m] epoch 6 / 10, batch 15000 / 25269, global_step = 141345, learning_rate = 1.000000e-02, loss = 0.378131, l2 = 0.002078, auc = 0.779718
+elapsed : 0:40:45, ETA : 0:32:06
+epoch 6 / 10, batch 15000 / 25269, global_step = 141345, learning_rate = 1.000000e-02, loss = 0.378131, l2 = 0.002078, auc = 0.779718
+[[34m2023-05-13 17:52:58[0m] elapsed : 0:40:58, ETA : 0:31:45
+[[34m2023-05-13 17:52:58[0m] epoch 6 / 10, batch 16000 / 25269, global_step = 142345, learning_rate = 1.000000e-02, loss = 0.378818, l2 = 0.002064, auc = 0.775918
+elapsed : 0:40:58, ETA : 0:31:45
+epoch 6 / 10, batch 16000 / 25269, global_step = 142345, learning_rate = 1.000000e-02, loss = 0.378818, l2 = 0.002064, auc = 0.775918
+[[34m2023-05-13 17:53:10[0m] elapsed : 0:41:10, ETA : 0:31:24
+[[34m2023-05-13 17:53:10[0m] epoch 6 / 10, batch 17000 / 25269, global_step = 143345, learning_rate = 1.000000e-02, loss = 0.384349, l2 = 0.002068, auc = 0.774401
+elapsed : 0:41:10, ETA : 0:31:24
+epoch 6 / 10, batch 17000 / 25269, global_step = 143345, learning_rate = 1.000000e-02, loss = 0.384349, l2 = 0.002068, auc = 0.774401
+[[34m2023-05-13 17:53:23[0m] elapsed : 0:41:22, ETA : 0:31:02
+[[34m2023-05-13 17:53:23[0m] epoch 6 / 10, batch 18000 / 25269, global_step = 144345, learning_rate = 1.000000e-02, loss = 0.380319, l2 = 0.002059, auc = 0.776105
+elapsed : 0:41:22, ETA : 0:31:02
+epoch 6 / 10, batch 18000 / 25269, global_step = 144345, learning_rate = 1.000000e-02, loss = 0.380319, l2 = 0.002059, auc = 0.776105
+[[34m2023-05-13 17:53:34[0m] elapsed : 0:41:34, ETA : 0:30:41
+[[34m2023-05-13 17:53:34[0m] epoch 6 / 10, batch 19000 / 25269, global_step = 145345, learning_rate = 1.000000e-02, loss = 0.380940, l2 = 0.002063, auc = 0.777407
+elapsed : 0:41:34, ETA : 0:30:41
+epoch 6 / 10, batch 19000 / 25269, global_step = 145345, learning_rate = 1.000000e-02, loss = 0.380940, l2 = 0.002063, auc = 0.777407
+[[34m2023-05-13 17:53:47[0m] elapsed : 0:41:46, ETA : 0:30:21
+[[34m2023-05-13 17:53:47[0m] epoch 6 / 10, batch 20000 / 25269, global_step = 146345, learning_rate = 1.000000e-02, loss = 0.379842, l2 = 0.002072, auc = 0.776758
+elapsed : 0:41:46, ETA : 0:30:21
+epoch 6 / 10, batch 20000 / 25269, global_step = 146345, learning_rate = 1.000000e-02, loss = 0.379842, l2 = 0.002072, auc = 0.776758
+[[34m2023-05-13 17:53:59[0m] elapsed : 0:41:59, ETA : 0:30:00
+[[34m2023-05-13 17:53:59[0m] epoch 6 / 10, batch 21000 / 25269, global_step = 147345, learning_rate = 1.000000e-02, loss = 0.383243, l2 = 0.002064, auc = 0.775058
+elapsed : 0:41:59, ETA : 0:30:00
+epoch 6 / 10, batch 21000 / 25269, global_step = 147345, learning_rate = 1.000000e-02, loss = 0.383243, l2 = 0.002064, auc = 0.775058
+[[34m2023-05-13 17:54:12[0m] elapsed : 0:42:11, ETA : 0:29:40
+[[34m2023-05-13 17:54:12[0m] epoch 6 / 10, batch 22000 / 25269, global_step = 148345, learning_rate = 1.000000e-02, loss = 0.380667, l2 = 0.002052, auc = 0.779003
+elapsed : 0:42:11, ETA : 0:29:40
+epoch 6 / 10, batch 22000 / 25269, global_step = 148345, learning_rate = 1.000000e-02, loss = 0.380667, l2 = 0.002052, auc = 0.779003
+[[34m2023-05-13 17:54:24[0m] elapsed : 0:42:23, ETA : 0:29:19
+[[34m2023-05-13 17:54:24[0m] epoch 6 / 10, batch 23000 / 25269, global_step = 149345, learning_rate = 1.000000e-02, loss = 0.380175, l2 = 0.002054, auc = 0.778650
+elapsed : 0:42:23, ETA : 0:29:19
+epoch 6 / 10, batch 23000 / 25269, global_step = 149345, learning_rate = 1.000000e-02, loss = 0.380175, l2 = 0.002054, auc = 0.778650
+[[34m2023-05-13 17:54:36[0m] elapsed : 0:42:36, ETA : 0:28:59
+[[34m2023-05-13 17:54:36[0m] epoch 6 / 10, batch 24000 / 25269, global_step = 150345, learning_rate = 1.000000e-02, loss = 0.383057, l2 = 0.002051, auc = 0.774759
+elapsed : 0:42:36, ETA : 0:28:59
+epoch 6 / 10, batch 24000 / 25269, global_step = 150345, learning_rate = 1.000000e-02, loss = 0.383057, l2 = 0.002051, auc = 0.774759
+[[34m2023-05-13 17:54:49[0m] elapsed : 0:42:48, ETA : 0:28:39
+[[34m2023-05-13 17:54:49[0m] epoch 6 / 10, batch 25000 / 25269, global_step = 151345, learning_rate = 1.000000e-02, loss = 0.379966, l2 = 0.002052, auc = 0.776424
+elapsed : 0:42:48, ETA : 0:28:39
+epoch 6 / 10, batch 25000 / 25269, global_step = 151345, learning_rate = 1.000000e-02, loss = 0.379966, l2 = 0.002052, auc = 0.776424
+[[34m2023-05-13 17:54:52[0m] running test...
+on disk...
+[[34m2023-05-13 17:54:55[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 17:54:57[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 17:55:00[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 17:55:02[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 17:55:04[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 17:55:07[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 17:55:09[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 17:55:11[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 17:55:14[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 17:55:16[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 17:55:19[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 17:55:21[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 17:55:24[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 17:55:26[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 17:55:29[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 17:55:32[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 17:55:34[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 17:55:36[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 17:55:39[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 17:55:41[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 17:55:44[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 17:55:46[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 17:55:49[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 17:55:51[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 17:55:54[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 17:55:56[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 17:55:59[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 17:56:01[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 17:56:04[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 17:56:06[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 17:56:09[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 17:56:11[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 17:56:14[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 17:56:16[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 17:56:19[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 17:56:21[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 17:56:23[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 17:56:26[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 17:56:28[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 17:56:31[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 17:56:33[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 17:56:36[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 17:56:38[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 17:56:41[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 17:56:43[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 17:56:45[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 17:56:48[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 17:56:51[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 17:56:53[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 17:56:56[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 17:56:58[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 17:57:00[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 17:57:03[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 17:57:05[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 17:57:08[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 17:57:10[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 17:57:13[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 17:57:15[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 17:57:18[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 17:57:20[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 17:57:23[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 17:57:25[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 17:57:28[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 17:57:33[0m] test loss = 0.381276, test auc = 0.777632
+[[34m2023-05-13 17:57:33[0m] evaluated time: 0:02:40
+[[34m2023-05-13 17:57:33[0m] analyse_structure
+[[34m2023-05-13 17:57:42[0m] elapsed : 0:45:42, ETA : 0:29:58
+[[34m2023-05-13 17:57:42[0m] epoch 7 / 10, batch 1000 / 25269, global_step = 152614, learning_rate = 1.000000e-02, loss = 0.484146, l2 = 0.002613, auc = 0.778057
+elapsed : 0:45:42, ETA : 0:29:58
+epoch 7 / 10, batch 1000 / 25269, global_step = 152614, learning_rate = 1.000000e-02, loss = 0.484146, l2 = 0.002613, auc = 0.778057
+[[34m2023-05-13 17:57:52[0m] elapsed : 0:45:51, ETA : 0:29:34
+[[34m2023-05-13 17:57:52[0m] epoch 7 / 10, batch 2000 / 25269, global_step = 153614, learning_rate = 1.000000e-02, loss = 0.381225, l2 = 0.002054, auc = 0.779184
+elapsed : 0:45:51, ETA : 0:29:34
+epoch 7 / 10, batch 2000 / 25269, global_step = 153614, learning_rate = 1.000000e-02, loss = 0.381225, l2 = 0.002054, auc = 0.779184
+[[34m2023-05-13 17:58:01[0m] elapsed : 0:46:01, ETA : 0:29:11
+[[34m2023-05-13 17:58:01[0m] epoch 7 / 10, batch 3000 / 25269, global_step = 154614, learning_rate = 1.000000e-02, loss = 0.380894, l2 = 0.002053, auc = 0.775184
+elapsed : 0:46:01, ETA : 0:29:11
+epoch 7 / 10, batch 3000 / 25269, global_step = 154614, learning_rate = 1.000000e-02, loss = 0.380894, l2 = 0.002053, auc = 0.775184
+[[34m2023-05-13 17:58:11[0m] elapsed : 0:46:10, ETA : 0:28:47
+[[34m2023-05-13 17:58:11[0m] epoch 7 / 10, batch 4000 / 25269, global_step = 155614, learning_rate = 1.000000e-02, loss = 0.380413, l2 = 0.002051, auc = 0.779167
+elapsed : 0:46:10, ETA : 0:28:47
+epoch 7 / 10, batch 4000 / 25269, global_step = 155614, learning_rate = 1.000000e-02, loss = 0.380413, l2 = 0.002051, auc = 0.779167
+[[34m2023-05-13 17:58:21[0m] elapsed : 0:46:20, ETA : 0:28:25
+[[34m2023-05-13 17:58:21[0m] epoch 7 / 10, batch 5000 / 25269, global_step = 156614, learning_rate = 1.000000e-02, loss = 0.380638, l2 = 0.002056, auc = 0.775704
+elapsed : 0:46:20, ETA : 0:28:25
+epoch 7 / 10, batch 5000 / 25269, global_step = 156614, learning_rate = 1.000000e-02, loss = 0.380638, l2 = 0.002056, auc = 0.775704
+[[34m2023-05-13 17:58:30[0m] elapsed : 0:46:30, ETA : 0:28:02
+[[34m2023-05-13 17:58:30[0m] epoch 7 / 10, batch 6000 / 25269, global_step = 157614, learning_rate = 1.000000e-02, loss = 0.378099, l2 = 0.002051, auc = 0.778919
+elapsed : 0:46:30, ETA : 0:28:02
+epoch 7 / 10, batch 6000 / 25269, global_step = 157614, learning_rate = 1.000000e-02, loss = 0.378099, l2 = 0.002051, auc = 0.778919
+[[34m2023-05-13 17:58:40[0m] elapsed : 0:46:39, ETA : 0:27:40
+[[34m2023-05-13 17:58:40[0m] epoch 7 / 10, batch 7000 / 25269, global_step = 158614, learning_rate = 1.000000e-02, loss = 0.382289, l2 = 0.002049, auc = 0.777417
+elapsed : 0:46:39, ETA : 0:27:40
+epoch 7 / 10, batch 7000 / 25269, global_step = 158614, learning_rate = 1.000000e-02, loss = 0.382289, l2 = 0.002049, auc = 0.777417
+[[34m2023-05-13 17:58:49[0m] elapsed : 0:46:49, ETA : 0:27:18
+[[34m2023-05-13 17:58:49[0m] epoch 7 / 10, batch 8000 / 25269, global_step = 159614, learning_rate = 1.000000e-02, loss = 0.381612, l2 = 0.002046, auc = 0.778573
+elapsed : 0:46:49, ETA : 0:27:18
+epoch 7 / 10, batch 8000 / 25269, global_step = 159614, learning_rate = 1.000000e-02, loss = 0.381612, l2 = 0.002046, auc = 0.778573
+[[34m2023-05-13 17:58:59[0m] elapsed : 0:46:58, ETA : 0:26:55
+[[34m2023-05-13 17:58:59[0m] epoch 7 / 10, batch 9000 / 25269, global_step = 160614, learning_rate = 1.000000e-02, loss = 0.380356, l2 = 0.002040, auc = 0.777551
+elapsed : 0:46:58, ETA : 0:26:55
+epoch 7 / 10, batch 9000 / 25269, global_step = 160614, learning_rate = 1.000000e-02, loss = 0.380356, l2 = 0.002040, auc = 0.777551
+[[34m2023-05-13 17:59:06[0m] elapsed : 0:47:05, ETA : 0:26:32
+[[34m2023-05-13 17:59:06[0m] epoch 7 / 10, batch 10000 / 25269, global_step = 161614, learning_rate = 1.000000e-02, loss = 0.378287, l2 = 0.002049, auc = 0.779638
+elapsed : 0:47:05, ETA : 0:26:32
+epoch 7 / 10, batch 10000 / 25269, global_step = 161614, learning_rate = 1.000000e-02, loss = 0.378287, l2 = 0.002049, auc = 0.779638
+[[34m2023-05-13 17:59:17[0m] elapsed : 0:47:17, ETA : 0:26:11
+[[34m2023-05-13 17:59:17[0m] epoch 7 / 10, batch 11000 / 25269, global_step = 162614, learning_rate = 1.000000e-02, loss = 0.379600, l2 = 0.002044, auc = 0.777548
+elapsed : 0:47:17, ETA : 0:26:11
+epoch 7 / 10, batch 11000 / 25269, global_step = 162614, learning_rate = 1.000000e-02, loss = 0.379600, l2 = 0.002044, auc = 0.777548
+[[34m2023-05-13 17:59:30[0m] elapsed : 0:47:29, ETA : 0:25:51
+[[34m2023-05-13 17:59:30[0m] epoch 7 / 10, batch 12000 / 25269, global_step = 163614, learning_rate = 1.000000e-02, loss = 0.380369, l2 = 0.002046, auc = 0.779714
+elapsed : 0:47:29, ETA : 0:25:51
+epoch 7 / 10, batch 12000 / 25269, global_step = 163614, learning_rate = 1.000000e-02, loss = 0.380369, l2 = 0.002046, auc = 0.779714
+[[34m2023-05-13 17:59:42[0m] elapsed : 0:47:41, ETA : 0:25:30
+[[34m2023-05-13 17:59:42[0m] epoch 7 / 10, batch 13000 / 25269, global_step = 164614, learning_rate = 1.000000e-02, loss = 0.381507, l2 = 0.002042, auc = 0.778724
+elapsed : 0:47:41, ETA : 0:25:30
+epoch 7 / 10, batch 13000 / 25269, global_step = 164614, learning_rate = 1.000000e-02, loss = 0.381507, l2 = 0.002042, auc = 0.778724
+[[34m2023-05-13 17:59:54[0m] elapsed : 0:47:54, ETA : 0:25:11
+[[34m2023-05-13 17:59:54[0m] epoch 7 / 10, batch 14000 / 25269, global_step = 165614, learning_rate = 1.000000e-02, loss = 0.379282, l2 = 0.002037, auc = 0.777535
+elapsed : 0:47:54, ETA : 0:25:11
+epoch 7 / 10, batch 14000 / 25269, global_step = 165614, learning_rate = 1.000000e-02, loss = 0.379282, l2 = 0.002037, auc = 0.777535
+[[34m2023-05-13 18:00:06[0m] elapsed : 0:48:06, ETA : 0:24:50
+[[34m2023-05-13 18:00:06[0m] epoch 7 / 10, batch 15000 / 25269, global_step = 166614, learning_rate = 1.000000e-02, loss = 0.380946, l2 = 0.002039, auc = 0.776789
+elapsed : 0:48:06, ETA : 0:24:50
+epoch 7 / 10, batch 15000 / 25269, global_step = 166614, learning_rate = 1.000000e-02, loss = 0.380946, l2 = 0.002039, auc = 0.776789
+[[34m2023-05-13 18:00:19[0m] elapsed : 0:48:18, ETA : 0:24:30
+[[34m2023-05-13 18:00:19[0m] epoch 7 / 10, batch 16000 / 25269, global_step = 167614, learning_rate = 1.000000e-02, loss = 0.381632, l2 = 0.002028, auc = 0.777659
+elapsed : 0:48:18, ETA : 0:24:30
+epoch 7 / 10, batch 16000 / 25269, global_step = 167614, learning_rate = 1.000000e-02, loss = 0.381632, l2 = 0.002028, auc = 0.777659
+[[34m2023-05-13 18:00:31[0m] elapsed : 0:48:30, ETA : 0:24:11
+[[34m2023-05-13 18:00:31[0m] epoch 7 / 10, batch 17000 / 25269, global_step = 168614, learning_rate = 1.000000e-02, loss = 0.379612, l2 = 0.002032, auc = 0.779203
+elapsed : 0:48:30, ETA : 0:24:11
+epoch 7 / 10, batch 17000 / 25269, global_step = 168614, learning_rate = 1.000000e-02, loss = 0.379612, l2 = 0.002032, auc = 0.779203
+[[34m2023-05-13 18:00:42[0m] elapsed : 0:48:42, ETA : 0:23:51
+[[34m2023-05-13 18:00:42[0m] epoch 7 / 10, batch 18000 / 25269, global_step = 169614, learning_rate = 1.000000e-02, loss = 0.380727, l2 = 0.002029, auc = 0.777515
+elapsed : 0:48:42, ETA : 0:23:51
+epoch 7 / 10, batch 18000 / 25269, global_step = 169614, learning_rate = 1.000000e-02, loss = 0.380727, l2 = 0.002029, auc = 0.777515
+[[34m2023-05-13 18:00:55[0m] elapsed : 0:48:54, ETA : 0:23:31
+[[34m2023-05-13 18:00:55[0m] epoch 7 / 10, batch 19000 / 25269, global_step = 170614, learning_rate = 1.000000e-02, loss = 0.380018, l2 = 0.002024, auc = 0.777938
+elapsed : 0:48:54, ETA : 0:23:31
+epoch 7 / 10, batch 19000 / 25269, global_step = 170614, learning_rate = 1.000000e-02, loss = 0.380018, l2 = 0.002024, auc = 0.777938
+[[34m2023-05-13 18:01:07[0m] elapsed : 0:49:06, ETA : 0:23:11
+[[34m2023-05-13 18:01:07[0m] epoch 7 / 10, batch 20000 / 25269, global_step = 171614, learning_rate = 1.000000e-02, loss = 0.380380, l2 = 0.002022, auc = 0.778039
+elapsed : 0:49:06, ETA : 0:23:11
+epoch 7 / 10, batch 20000 / 25269, global_step = 171614, learning_rate = 1.000000e-02, loss = 0.380380, l2 = 0.002022, auc = 0.778039
+[[34m2023-05-13 18:01:20[0m] elapsed : 0:49:19, ETA : 0:22:52
+[[34m2023-05-13 18:01:20[0m] epoch 7 / 10, batch 21000 / 25269, global_step = 172614, learning_rate = 1.000000e-02, loss = 0.381194, l2 = 0.002021, auc = 0.780489
+elapsed : 0:49:19, ETA : 0:22:52
+epoch 7 / 10, batch 21000 / 25269, global_step = 172614, learning_rate = 1.000000e-02, loss = 0.381194, l2 = 0.002021, auc = 0.780489
+[[34m2023-05-13 18:01:32[0m] elapsed : 0:49:32, ETA : 0:22:33
+[[34m2023-05-13 18:01:32[0m] epoch 7 / 10, batch 22000 / 25269, global_step = 173614, learning_rate = 1.000000e-02, loss = 0.381257, l2 = 0.002015, auc = 0.777547
+elapsed : 0:49:32, ETA : 0:22:33
+epoch 7 / 10, batch 22000 / 25269, global_step = 173614, learning_rate = 1.000000e-02, loss = 0.381257, l2 = 0.002015, auc = 0.777547
+[[34m2023-05-13 18:01:44[0m] elapsed : 0:49:44, ETA : 0:22:14
+[[34m2023-05-13 18:01:44[0m] epoch 7 / 10, batch 23000 / 25269, global_step = 174614, learning_rate = 1.000000e-02, loss = 0.378628, l2 = 0.002020, auc = 0.777737
+elapsed : 0:49:44, ETA : 0:22:14
+epoch 7 / 10, batch 23000 / 25269, global_step = 174614, learning_rate = 1.000000e-02, loss = 0.378628, l2 = 0.002020, auc = 0.777737
+[[34m2023-05-13 18:01:57[0m] elapsed : 0:49:56, ETA : 0:21:54
+[[34m2023-05-13 18:01:57[0m] epoch 7 / 10, batch 24000 / 25269, global_step = 175614, learning_rate = 1.000000e-02, loss = 0.379329, l2 = 0.002016, auc = 0.777541
+elapsed : 0:49:56, ETA : 0:21:54
+epoch 7 / 10, batch 24000 / 25269, global_step = 175614, learning_rate = 1.000000e-02, loss = 0.379329, l2 = 0.002016, auc = 0.777541
+[[34m2023-05-13 18:02:09[0m] elapsed : 0:50:09, ETA : 0:21:36
+[[34m2023-05-13 18:02:09[0m] epoch 7 / 10, batch 25000 / 25269, global_step = 176614, learning_rate = 1.000000e-02, loss = 0.381225, l2 = 0.002014, auc = 0.777996
+elapsed : 0:50:09, ETA : 0:21:36
+epoch 7 / 10, batch 25000 / 25269, global_step = 176614, learning_rate = 1.000000e-02, loss = 0.381225, l2 = 0.002014, auc = 0.777996
+[[34m2023-05-13 18:02:12[0m] running test...
+on disk...
+[[34m2023-05-13 18:02:15[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 18:02:18[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 18:02:20[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 18:02:22[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 18:02:25[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 18:02:27[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 18:02:30[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 18:02:32[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 18:02:35[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 18:02:37[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 18:02:40[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 18:02:42[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 18:02:45[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 18:02:47[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 18:02:49[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 18:02:52[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 18:02:55[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 18:02:57[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 18:03:00[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 18:03:02[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 18:03:04[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 18:03:07[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 18:03:09[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 18:03:12[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 18:03:14[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 18:03:17[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 18:03:19[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 18:03:22[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 18:03:24[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 18:03:27[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 18:03:29[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 18:03:32[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 18:03:34[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 18:03:36[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 18:03:39[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 18:03:41[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 18:03:44[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 18:03:46[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 18:03:49[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 18:03:51[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 18:03:54[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 18:03:56[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 18:03:59[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 18:04:01[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 18:04:04[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 18:04:06[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 18:04:09[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 18:04:11[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 18:04:14[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 18:04:16[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 18:04:19[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 18:04:21[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 18:04:24[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 18:04:26[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 18:04:29[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 18:04:31[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 18:04:34[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 18:04:36[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 18:04:39[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 18:04:41[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 18:04:43[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 18:04:46[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 18:04:48[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 18:04:53[0m] test loss = 0.380168, test auc = 0.778990
+[[34m2023-05-13 18:04:53[0m] evaluated time: 0:02:40
+[[34m2023-05-13 18:04:53[0m] analyse_structure
+[[34m2023-05-13 18:05:05[0m] elapsed : 0:53:05, ETA : 0:22:19
+[[34m2023-05-13 18:05:05[0m] epoch 8 / 10, batch 1000 / 25269, global_step = 177883, learning_rate = 1.000000e-02, loss = 0.484665, l2 = 0.002560, auc = 0.777578
+elapsed : 0:53:05, ETA : 0:22:19
+epoch 8 / 10, batch 1000 / 25269, global_step = 177883, learning_rate = 1.000000e-02, loss = 0.484665, l2 = 0.002560, auc = 0.777578
+[[34m2023-05-13 18:05:17[0m] elapsed : 0:53:16, ETA : 0:21:58
+[[34m2023-05-13 18:05:17[0m] epoch 8 / 10, batch 2000 / 25269, global_step = 178883, learning_rate = 1.000000e-02, loss = 0.378230, l2 = 0.002019, auc = 0.780748
+elapsed : 0:53:16, ETA : 0:21:58
+epoch 8 / 10, batch 2000 / 25269, global_step = 178883, learning_rate = 1.000000e-02, loss = 0.378230, l2 = 0.002019, auc = 0.780748
+[[34m2023-05-13 18:05:27[0m] elapsed : 0:53:26, ETA : 0:21:37
+[[34m2023-05-13 18:05:27[0m] epoch 8 / 10, batch 3000 / 25269, global_step = 179883, learning_rate = 1.000000e-02, loss = 0.376010, l2 = 0.002005, auc = 0.779714
+elapsed : 0:53:26, ETA : 0:21:37
+epoch 8 / 10, batch 3000 / 25269, global_step = 179883, learning_rate = 1.000000e-02, loss = 0.376010, l2 = 0.002005, auc = 0.779714
+[[34m2023-05-13 18:05:36[0m] elapsed : 0:53:36, ETA : 0:21:16
+[[34m2023-05-13 18:05:36[0m] epoch 8 / 10, batch 4000 / 25269, global_step = 180883, learning_rate = 1.000000e-02, loss = 0.378178, l2 = 0.002015, auc = 0.778537
+elapsed : 0:53:36, ETA : 0:21:16
+epoch 8 / 10, batch 4000 / 25269, global_step = 180883, learning_rate = 1.000000e-02, loss = 0.378178, l2 = 0.002015, auc = 0.778537
+[[34m2023-05-13 18:05:46[0m] elapsed : 0:53:45, ETA : 0:20:55
+[[34m2023-05-13 18:05:46[0m] epoch 8 / 10, batch 5000 / 25269, global_step = 181883, learning_rate = 1.000000e-02, loss = 0.377929, l2 = 0.002012, auc = 0.781383
+elapsed : 0:53:45, ETA : 0:20:55
+epoch 8 / 10, batch 5000 / 25269, global_step = 181883, learning_rate = 1.000000e-02, loss = 0.377929, l2 = 0.002012, auc = 0.781383
+[[34m2023-05-13 18:05:55[0m] elapsed : 0:53:55, ETA : 0:20:34
+[[34m2023-05-13 18:05:55[0m] epoch 8 / 10, batch 6000 / 25269, global_step = 182883, learning_rate = 1.000000e-02, loss = 0.382000, l2 = 0.002000, auc = 0.776859
+elapsed : 0:53:55, ETA : 0:20:34
+epoch 8 / 10, batch 6000 / 25269, global_step = 182883, learning_rate = 1.000000e-02, loss = 0.382000, l2 = 0.002000, auc = 0.776859
+[[34m2023-05-13 18:06:05[0m] elapsed : 0:54:04, ETA : 0:20:13
+[[34m2023-05-13 18:06:05[0m] epoch 8 / 10, batch 7000 / 25269, global_step = 183883, learning_rate = 1.000000e-02, loss = 0.378531, l2 = 0.002013, auc = 0.780047
+elapsed : 0:54:04, ETA : 0:20:13
+epoch 8 / 10, batch 7000 / 25269, global_step = 183883, learning_rate = 1.000000e-02, loss = 0.378531, l2 = 0.002013, auc = 0.780047
+[[34m2023-05-13 18:06:14[0m] elapsed : 0:54:14, ETA : 0:19:53
+[[34m2023-05-13 18:06:14[0m] epoch 8 / 10, batch 8000 / 25269, global_step = 184883, learning_rate = 1.000000e-02, loss = 0.378289, l2 = 0.001993, auc = 0.780240
+elapsed : 0:54:14, ETA : 0:19:53
+epoch 8 / 10, batch 8000 / 25269, global_step = 184883, learning_rate = 1.000000e-02, loss = 0.378289, l2 = 0.001993, auc = 0.780240
+[[34m2023-05-13 18:06:24[0m] elapsed : 0:54:23, ETA : 0:19:32
+[[34m2023-05-13 18:06:24[0m] epoch 8 / 10, batch 9000 / 25269, global_step = 185883, learning_rate = 1.000000e-02, loss = 0.381213, l2 = 0.001996, auc = 0.781284
+elapsed : 0:54:23, ETA : 0:19:32
+epoch 8 / 10, batch 9000 / 25269, global_step = 185883, learning_rate = 1.000000e-02, loss = 0.381213, l2 = 0.001996, auc = 0.781284
+[[34m2023-05-13 18:06:34[0m] elapsed : 0:54:33, ETA : 0:19:12
+[[34m2023-05-13 18:06:34[0m] epoch 8 / 10, batch 10000 / 25269, global_step = 186883, learning_rate = 1.000000e-02, loss = 0.381151, l2 = 0.001999, auc = 0.778022
+elapsed : 0:54:33, ETA : 0:19:12
+epoch 8 / 10, batch 10000 / 25269, global_step = 186883, learning_rate = 1.000000e-02, loss = 0.381151, l2 = 0.001999, auc = 0.778022
+[[34m2023-05-13 18:06:43[0m] elapsed : 0:54:42, ETA : 0:18:52
+[[34m2023-05-13 18:06:43[0m] epoch 8 / 10, batch 11000 / 25269, global_step = 187883, learning_rate = 1.000000e-02, loss = 0.381980, l2 = 0.001990, auc = 0.778020
+elapsed : 0:54:42, ETA : 0:18:52
+epoch 8 / 10, batch 11000 / 25269, global_step = 187883, learning_rate = 1.000000e-02, loss = 0.381980, l2 = 0.001990, auc = 0.778020
+[[34m2023-05-13 18:06:50[0m] elapsed : 0:54:50, ETA : 0:18:31
+[[34m2023-05-13 18:06:50[0m] epoch 8 / 10, batch 12000 / 25269, global_step = 188883, learning_rate = 1.000000e-02, loss = 0.379418, l2 = 0.001987, auc = 0.780017
+elapsed : 0:54:50, ETA : 0:18:31
+epoch 8 / 10, batch 12000 / 25269, global_step = 188883, learning_rate = 1.000000e-02, loss = 0.379418, l2 = 0.001987, auc = 0.780017
+[[34m2023-05-13 18:07:03[0m] elapsed : 0:55:02, ETA : 0:18:12
+[[34m2023-05-13 18:07:03[0m] epoch 8 / 10, batch 13000 / 25269, global_step = 189883, learning_rate = 1.000000e-02, loss = 0.379527, l2 = 0.001992, auc = 0.779864
+elapsed : 0:55:02, ETA : 0:18:12
+epoch 8 / 10, batch 13000 / 25269, global_step = 189883, learning_rate = 1.000000e-02, loss = 0.379527, l2 = 0.001992, auc = 0.779864
+[[34m2023-05-13 18:07:15[0m] elapsed : 0:55:15, ETA : 0:17:53
+[[34m2023-05-13 18:07:15[0m] epoch 8 / 10, batch 14000 / 25269, global_step = 190883, learning_rate = 1.000000e-02, loss = 0.381542, l2 = 0.001982, auc = 0.777284
+elapsed : 0:55:15, ETA : 0:17:53
+epoch 8 / 10, batch 14000 / 25269, global_step = 190883, learning_rate = 1.000000e-02, loss = 0.381542, l2 = 0.001982, auc = 0.777284
+[[34m2023-05-13 18:07:28[0m] elapsed : 0:55:27, ETA : 0:17:34
+[[34m2023-05-13 18:07:28[0m] epoch 8 / 10, batch 15000 / 25269, global_step = 191883, learning_rate = 1.000000e-02, loss = 0.379585, l2 = 0.001987, auc = 0.778020
+elapsed : 0:55:27, ETA : 0:17:34
+epoch 8 / 10, batch 15000 / 25269, global_step = 191883, learning_rate = 1.000000e-02, loss = 0.379585, l2 = 0.001987, auc = 0.778020
+[[34m2023-05-13 18:07:40[0m] elapsed : 0:55:39, ETA : 0:17:15
+[[34m2023-05-13 18:07:40[0m] epoch 8 / 10, batch 16000 / 25269, global_step = 192883, learning_rate = 1.000000e-02, loss = 0.378539, l2 = 0.001984, auc = 0.779904
+elapsed : 0:55:39, ETA : 0:17:15
+epoch 8 / 10, batch 16000 / 25269, global_step = 192883, learning_rate = 1.000000e-02, loss = 0.378539, l2 = 0.001984, auc = 0.779904
+[[34m2023-05-13 18:07:52[0m] elapsed : 0:55:51, ETA : 0:16:56
+[[34m2023-05-13 18:07:52[0m] epoch 8 / 10, batch 17000 / 25269, global_step = 193883, learning_rate = 1.000000e-02, loss = 0.378650, l2 = 0.001984, auc = 0.779594
+elapsed : 0:55:51, ETA : 0:16:56
+epoch 8 / 10, batch 17000 / 25269, global_step = 193883, learning_rate = 1.000000e-02, loss = 0.378650, l2 = 0.001984, auc = 0.779594
+[[34m2023-05-13 18:08:04[0m] elapsed : 0:56:03, ETA : 0:16:37
+[[34m2023-05-13 18:08:04[0m] epoch 8 / 10, batch 18000 / 25269, global_step = 194883, learning_rate = 1.000000e-02, loss = 0.381142, l2 = 0.001981, auc = 0.780375
+elapsed : 0:56:03, ETA : 0:16:37
+epoch 8 / 10, batch 18000 / 25269, global_step = 194883, learning_rate = 1.000000e-02, loss = 0.381142, l2 = 0.001981, auc = 0.780375
+[[34m2023-05-13 18:08:16[0m] elapsed : 0:56:16, ETA : 0:16:19
+[[34m2023-05-13 18:08:16[0m] epoch 8 / 10, batch 19000 / 25269, global_step = 195883, learning_rate = 1.000000e-02, loss = 0.380615, l2 = 0.001982, auc = 0.778066
+elapsed : 0:56:16, ETA : 0:16:19
+epoch 8 / 10, batch 19000 / 25269, global_step = 195883, learning_rate = 1.000000e-02, loss = 0.380615, l2 = 0.001982, auc = 0.778066
+[[34m2023-05-13 18:08:29[0m] elapsed : 0:56:28, ETA : 0:16:00
+[[34m2023-05-13 18:08:29[0m] epoch 8 / 10, batch 20000 / 25269, global_step = 196883, learning_rate = 1.000000e-02, loss = 0.377840, l2 = 0.001978, auc = 0.781639
+elapsed : 0:56:28, ETA : 0:16:00
+epoch 8 / 10, batch 20000 / 25269, global_step = 196883, learning_rate = 1.000000e-02, loss = 0.377840, l2 = 0.001978, auc = 0.781639
+[[34m2023-05-13 18:08:41[0m] elapsed : 0:56:40, ETA : 0:15:41
+[[34m2023-05-13 18:08:41[0m] epoch 8 / 10, batch 21000 / 25269, global_step = 197883, learning_rate = 1.000000e-02, loss = 0.379148, l2 = 0.001982, auc = 0.778932
+elapsed : 0:56:40, ETA : 0:15:41
+epoch 8 / 10, batch 21000 / 25269, global_step = 197883, learning_rate = 1.000000e-02, loss = 0.379148, l2 = 0.001982, auc = 0.778932
+[[34m2023-05-13 18:08:53[0m] elapsed : 0:56:53, ETA : 0:15:23
+[[34m2023-05-13 18:08:53[0m] epoch 8 / 10, batch 22000 / 25269, global_step = 198883, learning_rate = 1.000000e-02, loss = 0.379894, l2 = 0.001977, auc = 0.777964
+elapsed : 0:56:53, ETA : 0:15:23
+epoch 8 / 10, batch 22000 / 25269, global_step = 198883, learning_rate = 1.000000e-02, loss = 0.379894, l2 = 0.001977, auc = 0.777964
+[[34m2023-05-13 18:09:05[0m] elapsed : 0:57:05, ETA : 0:15:04
+[[34m2023-05-13 18:09:05[0m] epoch 8 / 10, batch 23000 / 25269, global_step = 199883, learning_rate = 1.000000e-02, loss = 0.384176, l2 = 0.001978, auc = 0.778003
+elapsed : 0:57:05, ETA : 0:15:04
+epoch 8 / 10, batch 23000 / 25269, global_step = 199883, learning_rate = 1.000000e-02, loss = 0.384176, l2 = 0.001978, auc = 0.778003
+[[34m2023-05-13 18:09:18[0m] elapsed : 0:57:17, ETA : 0:14:46
+[[34m2023-05-13 18:09:18[0m] epoch 8 / 10, batch 24000 / 25269, global_step = 200883, learning_rate = 1.000000e-02, loss = 0.380706, l2 = 0.001970, auc = 0.778006
+elapsed : 0:57:17, ETA : 0:14:46
+epoch 8 / 10, batch 24000 / 25269, global_step = 200883, learning_rate = 1.000000e-02, loss = 0.380706, l2 = 0.001970, auc = 0.778006
+[[34m2023-05-13 18:09:29[0m] elapsed : 0:57:29, ETA : 0:14:27
+[[34m2023-05-13 18:09:29[0m] epoch 8 / 10, batch 25000 / 25269, global_step = 201883, learning_rate = 1.000000e-02, loss = 0.379105, l2 = 0.001970, auc = 0.778706
+elapsed : 0:57:29, ETA : 0:14:27
+epoch 8 / 10, batch 25000 / 25269, global_step = 201883, learning_rate = 1.000000e-02, loss = 0.379105, l2 = 0.001970, auc = 0.778706
+[[34m2023-05-13 18:09:33[0m] running test...
+on disk...
+[[34m2023-05-13 18:09:35[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 18:09:38[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 18:09:40[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 18:09:43[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 18:09:45[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 18:09:48[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 18:09:50[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 18:09:53[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 18:09:55[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 18:09:58[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 18:10:00[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 18:10:02[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 18:10:05[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 18:10:07[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 18:10:10[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 18:10:13[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 18:10:15[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 18:10:17[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 18:10:20[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 18:10:23[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 18:10:25[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 18:10:27[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 18:10:30[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 18:10:32[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 18:10:35[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 18:10:37[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 18:10:40[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 18:10:42[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 18:10:44[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 18:10:47[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 18:10:49[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 18:10:52[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 18:10:54[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 18:10:57[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 18:10:59[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 18:11:02[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 18:11:04[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 18:11:07[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 18:11:09[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 18:11:12[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 18:11:14[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 18:11:17[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 18:11:19[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 18:11:22[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 18:11:24[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 18:11:27[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 18:11:29[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 18:11:32[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 18:11:34[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 18:11:37[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 18:11:39[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 18:11:42[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 18:11:44[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 18:11:47[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 18:11:49[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 18:11:52[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 18:11:54[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 18:11:56[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 18:11:59[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 18:12:01[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 18:12:04[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 18:12:06[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 18:12:09[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 18:12:13[0m] test loss = 0.379464, test auc = 0.780167
+[[34m2023-05-13 18:12:13[0m] evaluated time: 0:02:40
+[[34m2023-05-13 18:12:13[0m] analyse_structure
+[[34m2023-05-13 18:12:26[0m] elapsed : 1:00:26, ETA : 0:14:44
+[[34m2023-05-13 18:12:26[0m] epoch 9 / 10, batch 1000 / 25269, global_step = 203152, learning_rate = 1.000000e-02, loss = 0.482699, l2 = 0.002500, auc = 0.779811
+elapsed : 1:00:26, ETA : 0:14:44
+epoch 9 / 10, batch 1000 / 25269, global_step = 203152, learning_rate = 1.000000e-02, loss = 0.482699, l2 = 0.002500, auc = 0.779811
+[[34m2023-05-13 18:12:39[0m] elapsed : 1:00:38, ETA : 0:14:24
+[[34m2023-05-13 18:12:39[0m] epoch 9 / 10, batch 2000 / 25269, global_step = 204152, learning_rate = 1.000000e-02, loss = 0.380876, l2 = 0.001974, auc = 0.779779
+elapsed : 1:00:38, ETA : 0:14:24
+epoch 9 / 10, batch 2000 / 25269, global_step = 204152, learning_rate = 1.000000e-02, loss = 0.380876, l2 = 0.001974, auc = 0.779779
+[[34m2023-05-13 18:12:51[0m] elapsed : 1:00:50, ETA : 0:14:05
+[[34m2023-05-13 18:12:51[0m] epoch 9 / 10, batch 3000 / 25269, global_step = 205152, learning_rate = 1.000000e-02, loss = 0.378865, l2 = 0.001972, auc = 0.780793
+elapsed : 1:00:50, ETA : 0:14:05
+epoch 9 / 10, batch 3000 / 25269, global_step = 205152, learning_rate = 1.000000e-02, loss = 0.378865, l2 = 0.001972, auc = 0.780793
+[[34m2023-05-13 18:13:01[0m] elapsed : 1:01:01, ETA : 0:13:46
+[[34m2023-05-13 18:13:01[0m] epoch 9 / 10, batch 4000 / 25269, global_step = 206152, learning_rate = 1.000000e-02, loss = 0.381615, l2 = 0.001967, auc = 0.777785
+elapsed : 1:01:01, ETA : 0:13:46
+epoch 9 / 10, batch 4000 / 25269, global_step = 206152, learning_rate = 1.000000e-02, loss = 0.381615, l2 = 0.001967, auc = 0.777785
+[[34m2023-05-13 18:13:11[0m] elapsed : 1:01:11, ETA : 0:13:26
+[[34m2023-05-13 18:13:11[0m] epoch 9 / 10, batch 5000 / 25269, global_step = 207152, learning_rate = 1.000000e-02, loss = 0.377718, l2 = 0.001961, auc = 0.778419
+elapsed : 1:01:11, ETA : 0:13:26
+epoch 9 / 10, batch 5000 / 25269, global_step = 207152, learning_rate = 1.000000e-02, loss = 0.377718, l2 = 0.001961, auc = 0.778419
+[[34m2023-05-13 18:13:21[0m] elapsed : 1:01:20, ETA : 0:13:07
+[[34m2023-05-13 18:13:21[0m] epoch 9 / 10, batch 6000 / 25269, global_step = 208152, learning_rate = 1.000000e-02, loss = 0.378493, l2 = 0.001960, auc = 0.781531
+elapsed : 1:01:20, ETA : 0:13:07
+epoch 9 / 10, batch 6000 / 25269, global_step = 208152, learning_rate = 1.000000e-02, loss = 0.378493, l2 = 0.001960, auc = 0.781531
+[[34m2023-05-13 18:13:30[0m] elapsed : 1:01:30, ETA : 0:12:48
+[[34m2023-05-13 18:13:30[0m] epoch 9 / 10, batch 7000 / 25269, global_step = 209152, learning_rate = 1.000000e-02, loss = 0.379284, l2 = 0.001965, auc = 0.779665
+elapsed : 1:01:30, ETA : 0:12:48
+epoch 9 / 10, batch 7000 / 25269, global_step = 209152, learning_rate = 1.000000e-02, loss = 0.379284, l2 = 0.001965, auc = 0.779665
+[[34m2023-05-13 18:13:40[0m] elapsed : 1:01:39, ETA : 0:12:28
+[[34m2023-05-13 18:13:40[0m] epoch 9 / 10, batch 8000 / 25269, global_step = 210152, learning_rate = 1.000000e-02, loss = 0.377497, l2 = 0.001961, auc = 0.782761
+elapsed : 1:01:39, ETA : 0:12:28
+epoch 9 / 10, batch 8000 / 25269, global_step = 210152, learning_rate = 1.000000e-02, loss = 0.377497, l2 = 0.001961, auc = 0.782761
+[[34m2023-05-13 18:13:49[0m] elapsed : 1:01:49, ETA : 0:12:09
+[[34m2023-05-13 18:13:49[0m] epoch 9 / 10, batch 9000 / 25269, global_step = 211152, learning_rate = 1.000000e-02, loss = 0.380715, l2 = 0.001960, auc = 0.781725
+elapsed : 1:01:49, ETA : 0:12:09
+epoch 9 / 10, batch 9000 / 25269, global_step = 211152, learning_rate = 1.000000e-02, loss = 0.380715, l2 = 0.001960, auc = 0.781725
+[[34m2023-05-13 18:13:59[0m] elapsed : 1:01:58, ETA : 0:11:50
+[[34m2023-05-13 18:13:59[0m] epoch 9 / 10, batch 10000 / 25269, global_step = 212152, learning_rate = 1.000000e-02, loss = 0.378804, l2 = 0.001958, auc = 0.778515
+elapsed : 1:01:58, ETA : 0:11:50
+epoch 9 / 10, batch 10000 / 25269, global_step = 212152, learning_rate = 1.000000e-02, loss = 0.378804, l2 = 0.001958, auc = 0.778515
+[[34m2023-05-13 18:14:08[0m] elapsed : 1:02:08, ETA : 0:11:31
+[[34m2023-05-13 18:14:08[0m] epoch 9 / 10, batch 11000 / 25269, global_step = 213152, learning_rate = 1.000000e-02, loss = 0.376867, l2 = 0.001955, auc = 0.781591
+elapsed : 1:02:08, ETA : 0:11:31
+epoch 9 / 10, batch 11000 / 25269, global_step = 213152, learning_rate = 1.000000e-02, loss = 0.376867, l2 = 0.001955, auc = 0.781591
+[[34m2023-05-13 18:14:18[0m] elapsed : 1:02:18, ETA : 0:11:12
+[[34m2023-05-13 18:14:18[0m] epoch 9 / 10, batch 12000 / 25269, global_step = 214152, learning_rate = 1.000000e-02, loss = 0.379670, l2 = 0.001954, auc = 0.778588
+elapsed : 1:02:18, ETA : 0:11:12
+epoch 9 / 10, batch 12000 / 25269, global_step = 214152, learning_rate = 1.000000e-02, loss = 0.379670, l2 = 0.001954, auc = 0.778588
+[[34m2023-05-13 18:14:26[0m] elapsed : 1:02:26, ETA : 0:10:53
+[[34m2023-05-13 18:14:26[0m] epoch 9 / 10, batch 13000 / 25269, global_step = 215152, learning_rate = 1.000000e-02, loss = 0.379395, l2 = 0.001955, auc = 0.781083
+elapsed : 1:02:26, ETA : 0:10:53
+epoch 9 / 10, batch 13000 / 25269, global_step = 215152, learning_rate = 1.000000e-02, loss = 0.379395, l2 = 0.001955, auc = 0.781083
+[[34m2023-05-13 18:14:35[0m] elapsed : 1:02:35, ETA : 0:10:34
+[[34m2023-05-13 18:14:35[0m] epoch 9 / 10, batch 14000 / 25269, global_step = 216152, learning_rate = 1.000000e-02, loss = 0.379759, l2 = 0.001954, auc = 0.779380
+elapsed : 1:02:35, ETA : 0:10:34
+epoch 9 / 10, batch 14000 / 25269, global_step = 216152, learning_rate = 1.000000e-02, loss = 0.379759, l2 = 0.001954, auc = 0.779380
+[[34m2023-05-13 18:14:48[0m] elapsed : 1:02:47, ETA : 0:10:16
+[[34m2023-05-13 18:14:48[0m] epoch 9 / 10, batch 15000 / 25269, global_step = 217152, learning_rate = 1.000000e-02, loss = 0.376506, l2 = 0.001957, auc = 0.781121
+elapsed : 1:02:47, ETA : 0:10:16
+epoch 9 / 10, batch 15000 / 25269, global_step = 217152, learning_rate = 1.000000e-02, loss = 0.376506, l2 = 0.001957, auc = 0.781121
+[[34m2023-05-13 18:15:00[0m] elapsed : 1:02:59, ETA : 0:09:58
+[[34m2023-05-13 18:15:00[0m] epoch 9 / 10, batch 16000 / 25269, global_step = 218152, learning_rate = 1.000000e-02, loss = 0.375106, l2 = 0.001954, auc = 0.781982
+elapsed : 1:02:59, ETA : 0:09:58
+epoch 9 / 10, batch 16000 / 25269, global_step = 218152, learning_rate = 1.000000e-02, loss = 0.375106, l2 = 0.001954, auc = 0.781982
+[[34m2023-05-13 18:15:12[0m] elapsed : 1:03:12, ETA : 0:09:40
+[[34m2023-05-13 18:15:12[0m] epoch 9 / 10, batch 17000 / 25269, global_step = 219152, learning_rate = 1.000000e-02, loss = 0.379859, l2 = 0.001958, auc = 0.780210
+elapsed : 1:03:12, ETA : 0:09:40
+epoch 9 / 10, batch 17000 / 25269, global_step = 219152, learning_rate = 1.000000e-02, loss = 0.379859, l2 = 0.001958, auc = 0.780210
+[[34m2023-05-13 18:15:25[0m] elapsed : 1:03:24, ETA : 0:09:22
+[[34m2023-05-13 18:15:25[0m] epoch 9 / 10, batch 18000 / 25269, global_step = 220152, learning_rate = 1.000000e-02, loss = 0.382168, l2 = 0.001956, auc = 0.777553
+elapsed : 1:03:24, ETA : 0:09:22
+epoch 9 / 10, batch 18000 / 25269, global_step = 220152, learning_rate = 1.000000e-02, loss = 0.382168, l2 = 0.001956, auc = 0.777553
+[[34m2023-05-13 18:15:37[0m] elapsed : 1:03:36, ETA : 0:09:04
+[[34m2023-05-13 18:15:37[0m] epoch 9 / 10, batch 19000 / 25269, global_step = 221152, learning_rate = 1.000000e-02, loss = 0.380540, l2 = 0.001955, auc = 0.780677
+elapsed : 1:03:36, ETA : 0:09:04
+epoch 9 / 10, batch 19000 / 25269, global_step = 221152, learning_rate = 1.000000e-02, loss = 0.380540, l2 = 0.001955, auc = 0.780677
+[[34m2023-05-13 18:15:49[0m] elapsed : 1:03:49, ETA : 0:08:46
+[[34m2023-05-13 18:15:49[0m] epoch 9 / 10, batch 20000 / 25269, global_step = 222152, learning_rate = 1.000000e-02, loss = 0.377984, l2 = 0.001951, auc = 0.779504
+elapsed : 1:03:49, ETA : 0:08:46
+epoch 9 / 10, batch 20000 / 25269, global_step = 222152, learning_rate = 1.000000e-02, loss = 0.377984, l2 = 0.001951, auc = 0.779504
+[[34m2023-05-13 18:16:02[0m] elapsed : 1:04:01, ETA : 0:08:28
+[[34m2023-05-13 18:16:02[0m] epoch 9 / 10, batch 21000 / 25269, global_step = 223152, learning_rate = 1.000000e-02, loss = 0.380752, l2 = 0.001942, auc = 0.779785
+elapsed : 1:04:01, ETA : 0:08:28
+epoch 9 / 10, batch 21000 / 25269, global_step = 223152, learning_rate = 1.000000e-02, loss = 0.380752, l2 = 0.001942, auc = 0.779785
+[[34m2023-05-13 18:16:14[0m] elapsed : 1:04:13, ETA : 0:08:10
+[[34m2023-05-13 18:16:14[0m] epoch 9 / 10, batch 22000 / 25269, global_step = 224152, learning_rate = 1.000000e-02, loss = 0.377922, l2 = 0.001946, auc = 0.779680
+elapsed : 1:04:13, ETA : 0:08:10
+epoch 9 / 10, batch 22000 / 25269, global_step = 224152, learning_rate = 1.000000e-02, loss = 0.377922, l2 = 0.001946, auc = 0.779680
+[[34m2023-05-13 18:16:26[0m] elapsed : 1:04:26, ETA : 0:07:52
+[[34m2023-05-13 18:16:26[0m] epoch 9 / 10, batch 23000 / 25269, global_step = 225152, learning_rate = 1.000000e-02, loss = 0.379765, l2 = 0.001936, auc = 0.781405
+elapsed : 1:04:26, ETA : 0:07:52
+epoch 9 / 10, batch 23000 / 25269, global_step = 225152, learning_rate = 1.000000e-02, loss = 0.379765, l2 = 0.001936, auc = 0.781405
+[[34m2023-05-13 18:16:38[0m] elapsed : 1:04:38, ETA : 0:07:35
+[[34m2023-05-13 18:16:38[0m] epoch 9 / 10, batch 24000 / 25269, global_step = 226152, learning_rate = 1.000000e-02, loss = 0.379316, l2 = 0.001943, auc = 0.778385
+elapsed : 1:04:38, ETA : 0:07:35
+epoch 9 / 10, batch 24000 / 25269, global_step = 226152, learning_rate = 1.000000e-02, loss = 0.379316, l2 = 0.001943, auc = 0.778385
+[[34m2023-05-13 18:16:51[0m] elapsed : 1:04:50, ETA : 0:07:17
+[[34m2023-05-13 18:16:51[0m] epoch 9 / 10, batch 25000 / 25269, global_step = 227152, learning_rate = 1.000000e-02, loss = 0.377788, l2 = 0.001950, auc = 0.778553
+elapsed : 1:04:50, ETA : 0:07:17
+epoch 9 / 10, batch 25000 / 25269, global_step = 227152, learning_rate = 1.000000e-02, loss = 0.377788, l2 = 0.001950, auc = 0.778553
+[[34m2023-05-13 18:16:54[0m] running test...
+on disk...
+[[34m2023-05-13 18:16:57[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 18:16:59[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 18:17:02[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 18:17:04[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 18:17:07[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 18:17:09[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 18:17:11[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 18:17:14[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 18:17:16[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 18:17:19[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 18:17:21[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 18:17:24[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 18:17:26[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 18:17:29[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 18:17:31[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 18:17:34[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 18:17:36[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 18:17:39[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 18:17:41[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 18:17:44[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 18:17:46[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 18:17:49[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 18:17:51[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 18:17:53[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 18:17:56[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 18:17:58[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 18:18:01[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 18:18:03[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 18:18:06[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 18:18:08[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 18:18:11[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 18:18:13[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 18:18:16[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 18:18:18[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 18:18:21[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 18:18:23[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 18:18:26[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 18:18:28[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 18:18:31[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 18:18:33[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 18:18:36[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 18:18:38[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 18:18:41[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 18:18:43[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 18:18:46[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 18:18:48[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 18:18:51[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 18:18:53[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 18:18:56[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 18:18:58[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 18:19:01[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 18:19:03[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 18:19:06[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 18:19:08[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 18:19:11[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 18:19:13[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 18:19:16[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 18:19:18[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 18:19:21[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 18:19:23[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 18:19:25[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 18:19:28[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 18:19:30[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 18:19:35[0m] test loss = 0.378900, test auc = 0.781211
+[[34m2023-05-13 18:19:35[0m] evaluated time: 0:02:41
+[[34m2023-05-13 18:19:35[0m] analyse_structure
+[[34m2023-05-13 18:19:47[0m] elapsed : 1:07:47, ETA : 0:07:12
+[[34m2023-05-13 18:19:47[0m] epoch 10 / 10, batch 1000 / 25269, global_step = 228421, learning_rate = 1.000000e-02, loss = 0.479821, l2 = 0.002474, auc = 0.783247
+elapsed : 1:07:47, ETA : 0:07:12
+epoch 10 / 10, batch 1000 / 25269, global_step = 228421, learning_rate = 1.000000e-02, loss = 0.479821, l2 = 0.002474, auc = 0.783247
+[[34m2023-05-13 18:20:00[0m] elapsed : 1:07:59, ETA : 0:06:53
+[[34m2023-05-13 18:20:00[0m] epoch 10 / 10, batch 2000 / 25269, global_step = 229421, learning_rate = 1.000000e-02, loss = 0.378644, l2 = 0.001940, auc = 0.783929
+elapsed : 1:07:59, ETA : 0:06:53
+epoch 10 / 10, batch 2000 / 25269, global_step = 229421, learning_rate = 1.000000e-02, loss = 0.378644, l2 = 0.001940, auc = 0.783929
+[[34m2023-05-13 18:20:12[0m] elapsed : 1:08:12, ETA : 0:06:35
+[[34m2023-05-13 18:20:12[0m] epoch 10 / 10, batch 3000 / 25269, global_step = 230421, learning_rate = 1.000000e-02, loss = 0.376781, l2 = 0.001938, auc = 0.780708
+elapsed : 1:08:12, ETA : 0:06:35
+epoch 10 / 10, batch 3000 / 25269, global_step = 230421, learning_rate = 1.000000e-02, loss = 0.376781, l2 = 0.001938, auc = 0.780708
+[[34m2023-05-13 18:20:24[0m] elapsed : 1:08:24, ETA : 0:06:17
+[[34m2023-05-13 18:20:24[0m] epoch 10 / 10, batch 4000 / 25269, global_step = 231421, learning_rate = 1.000000e-02, loss = 0.377272, l2 = 0.001940, auc = 0.784046
+elapsed : 1:08:24, ETA : 0:06:17
+epoch 10 / 10, batch 4000 / 25269, global_step = 231421, learning_rate = 1.000000e-02, loss = 0.377272, l2 = 0.001940, auc = 0.784046
+[[34m2023-05-13 18:20:36[0m] elapsed : 1:08:36, ETA : 0:05:58
+[[34m2023-05-13 18:20:36[0m] epoch 10 / 10, batch 5000 / 25269, global_step = 232421, learning_rate = 1.000000e-02, loss = 0.381255, l2 = 0.001942, auc = 0.781076
+elapsed : 1:08:36, ETA : 0:05:58
+epoch 10 / 10, batch 5000 / 25269, global_step = 232421, learning_rate = 1.000000e-02, loss = 0.381255, l2 = 0.001942, auc = 0.781076
+[[34m2023-05-13 18:20:46[0m] elapsed : 1:08:46, ETA : 0:05:40
+[[34m2023-05-13 18:20:46[0m] epoch 10 / 10, batch 6000 / 25269, global_step = 233421, learning_rate = 1.000000e-02, loss = 0.377154, l2 = 0.001943, auc = 0.781329
+elapsed : 1:08:46, ETA : 0:05:40
+epoch 10 / 10, batch 6000 / 25269, global_step = 233421, learning_rate = 1.000000e-02, loss = 0.377154, l2 = 0.001943, auc = 0.781329
+[[34m2023-05-13 18:20:56[0m] elapsed : 1:08:55, ETA : 0:05:22
+[[34m2023-05-13 18:20:56[0m] epoch 10 / 10, batch 7000 / 25269, global_step = 234421, learning_rate = 1.000000e-02, loss = 0.383157, l2 = 0.001936, auc = 0.778597
+elapsed : 1:08:55, ETA : 0:05:22
+epoch 10 / 10, batch 7000 / 25269, global_step = 234421, learning_rate = 1.000000e-02, loss = 0.383157, l2 = 0.001936, auc = 0.778597
+[[34m2023-05-13 18:21:06[0m] elapsed : 1:09:05, ETA : 0:05:04
+[[34m2023-05-13 18:21:06[0m] epoch 10 / 10, batch 8000 / 25269, global_step = 235421, learning_rate = 1.000000e-02, loss = 0.377857, l2 = 0.001933, auc = 0.781876
+elapsed : 1:09:05, ETA : 0:05:04
+epoch 10 / 10, batch 8000 / 25269, global_step = 235421, learning_rate = 1.000000e-02, loss = 0.377857, l2 = 0.001933, auc = 0.781876
+[[34m2023-05-13 18:21:15[0m] elapsed : 1:09:15, ETA : 0:04:45
+[[34m2023-05-13 18:21:15[0m] epoch 10 / 10, batch 9000 / 25269, global_step = 236421, learning_rate = 1.000000e-02, loss = 0.380128, l2 = 0.001937, auc = 0.780772
+elapsed : 1:09:15, ETA : 0:04:45
+epoch 10 / 10, batch 9000 / 25269, global_step = 236421, learning_rate = 1.000000e-02, loss = 0.380128, l2 = 0.001937, auc = 0.780772
+[[34m2023-05-13 18:21:25[0m] elapsed : 1:09:24, ETA : 0:04:27
+[[34m2023-05-13 18:21:25[0m] epoch 10 / 10, batch 10000 / 25269, global_step = 237421, learning_rate = 1.000000e-02, loss = 0.379164, l2 = 0.001930, auc = 0.782789
+elapsed : 1:09:24, ETA : 0:04:27
+epoch 10 / 10, batch 10000 / 25269, global_step = 237421, learning_rate = 1.000000e-02, loss = 0.379164, l2 = 0.001930, auc = 0.782789
+[[34m2023-05-13 18:21:34[0m] elapsed : 1:09:34, ETA : 0:04:09
+[[34m2023-05-13 18:21:34[0m] epoch 10 / 10, batch 11000 / 25269, global_step = 238421, learning_rate = 1.000000e-02, loss = 0.379482, l2 = 0.001929, auc = 0.781300
+elapsed : 1:09:34, ETA : 0:04:09
+epoch 10 / 10, batch 11000 / 25269, global_step = 238421, learning_rate = 1.000000e-02, loss = 0.379482, l2 = 0.001929, auc = 0.781300
+[[34m2023-05-13 18:21:44[0m] elapsed : 1:09:43, ETA : 0:03:51
+[[34m2023-05-13 18:21:44[0m] epoch 10 / 10, batch 12000 / 25269, global_step = 239421, learning_rate = 1.000000e-02, loss = 0.381309, l2 = 0.001929, auc = 0.781522
+elapsed : 1:09:43, ETA : 0:03:51
+epoch 10 / 10, batch 12000 / 25269, global_step = 239421, learning_rate = 1.000000e-02, loss = 0.381309, l2 = 0.001929, auc = 0.781522
+[[34m2023-05-13 18:21:53[0m] elapsed : 1:09:53, ETA : 0:03:33
+[[34m2023-05-13 18:21:53[0m] epoch 10 / 10, batch 13000 / 25269, global_step = 240421, learning_rate = 1.000000e-02, loss = 0.379141, l2 = 0.001928, auc = 0.780654
+elapsed : 1:09:53, ETA : 0:03:33
+epoch 10 / 10, batch 13000 / 25269, global_step = 240421, learning_rate = 1.000000e-02, loss = 0.379141, l2 = 0.001928, auc = 0.780654
+[[34m2023-05-13 18:22:03[0m] elapsed : 1:10:02, ETA : 0:03:16
+[[34m2023-05-13 18:22:03[0m] epoch 10 / 10, batch 14000 / 25269, global_step = 241421, learning_rate = 1.000000e-02, loss = 0.381092, l2 = 0.001931, auc = 0.779757
+elapsed : 1:10:02, ETA : 0:03:16
+epoch 10 / 10, batch 14000 / 25269, global_step = 241421, learning_rate = 1.000000e-02, loss = 0.381092, l2 = 0.001931, auc = 0.779757
+[[34m2023-05-13 18:22:10[0m] elapsed : 1:10:09, ETA : 0:02:58
+[[34m2023-05-13 18:22:10[0m] epoch 10 / 10, batch 15000 / 25269, global_step = 242421, learning_rate = 1.000000e-02, loss = 0.381457, l2 = 0.001926, auc = 0.779216
+elapsed : 1:10:09, ETA : 0:02:58
+epoch 10 / 10, batch 15000 / 25269, global_step = 242421, learning_rate = 1.000000e-02, loss = 0.381457, l2 = 0.001926, auc = 0.779216
+[[34m2023-05-13 18:22:21[0m] elapsed : 1:10:20, ETA : 0:02:40
+[[34m2023-05-13 18:22:21[0m] epoch 10 / 10, batch 16000 / 25269, global_step = 243421, learning_rate = 1.000000e-02, loss = 0.378098, l2 = 0.001929, auc = 0.780673
+elapsed : 1:10:20, ETA : 0:02:40
+epoch 10 / 10, batch 16000 / 25269, global_step = 243421, learning_rate = 1.000000e-02, loss = 0.378098, l2 = 0.001929, auc = 0.780673
+[[34m2023-05-13 18:22:33[0m] elapsed : 1:10:33, ETA : 0:02:23
+[[34m2023-05-13 18:22:33[0m] epoch 10 / 10, batch 17000 / 25269, global_step = 244421, learning_rate = 1.000000e-02, loss = 0.375612, l2 = 0.001926, auc = 0.780721
+elapsed : 1:10:33, ETA : 0:02:23
+epoch 10 / 10, batch 17000 / 25269, global_step = 244421, learning_rate = 1.000000e-02, loss = 0.375612, l2 = 0.001926, auc = 0.780721
+[[34m2023-05-13 18:22:45[0m] elapsed : 1:10:45, ETA : 0:02:05
+[[34m2023-05-13 18:22:45[0m] epoch 10 / 10, batch 18000 / 25269, global_step = 245421, learning_rate = 1.000000e-02, loss = 0.380860, l2 = 0.001925, auc = 0.780661
+elapsed : 1:10:45, ETA : 0:02:05
+epoch 10 / 10, batch 18000 / 25269, global_step = 245421, learning_rate = 1.000000e-02, loss = 0.380860, l2 = 0.001925, auc = 0.780661
+[[34m2023-05-13 18:22:58[0m] elapsed : 1:10:57, ETA : 0:01:48
+[[34m2023-05-13 18:22:58[0m] epoch 10 / 10, batch 19000 / 25269, global_step = 246421, learning_rate = 1.000000e-02, loss = 0.379749, l2 = 0.001935, auc = 0.781406
+elapsed : 1:10:57, ETA : 0:01:48
+epoch 10 / 10, batch 19000 / 25269, global_step = 246421, learning_rate = 1.000000e-02, loss = 0.379749, l2 = 0.001935, auc = 0.781406
+[[34m2023-05-13 18:23:10[0m] elapsed : 1:11:10, ETA : 0:01:30
+[[34m2023-05-13 18:23:10[0m] epoch 10 / 10, batch 20000 / 25269, global_step = 247421, learning_rate = 1.000000e-02, loss = 0.378218, l2 = 0.001929, auc = 0.779843
+elapsed : 1:11:10, ETA : 0:01:30
+epoch 10 / 10, batch 20000 / 25269, global_step = 247421, learning_rate = 1.000000e-02, loss = 0.378218, l2 = 0.001929, auc = 0.779843
+[[34m2023-05-13 18:23:23[0m] elapsed : 1:11:22, ETA : 0:01:13
+[[34m2023-05-13 18:23:23[0m] epoch 10 / 10, batch 21000 / 25269, global_step = 248421, learning_rate = 1.000000e-02, loss = 0.377828, l2 = 0.001919, auc = 0.783978
+elapsed : 1:11:22, ETA : 0:01:13
+epoch 10 / 10, batch 21000 / 25269, global_step = 248421, learning_rate = 1.000000e-02, loss = 0.377828, l2 = 0.001919, auc = 0.783978
+[[34m2023-05-13 18:23:35[0m] elapsed : 1:11:34, ETA : 0:00:56
+[[34m2023-05-13 18:23:35[0m] epoch 10 / 10, batch 22000 / 25269, global_step = 249421, learning_rate = 1.000000e-02, loss = 0.379497, l2 = 0.001921, auc = 0.783581
+elapsed : 1:11:34, ETA : 0:00:56
+epoch 10 / 10, batch 22000 / 25269, global_step = 249421, learning_rate = 1.000000e-02, loss = 0.379497, l2 = 0.001921, auc = 0.783581
+[[34m2023-05-13 18:23:47[0m] elapsed : 1:11:46, ETA : 0:00:39
+[[34m2023-05-13 18:23:47[0m] epoch 10 / 10, batch 23000 / 25269, global_step = 250421, learning_rate = 1.000000e-02, loss = 0.379349, l2 = 0.001916, auc = 0.782859
+elapsed : 1:11:46, ETA : 0:00:39
+epoch 10 / 10, batch 23000 / 25269, global_step = 250421, learning_rate = 1.000000e-02, loss = 0.379349, l2 = 0.001916, auc = 0.782859
+[[34m2023-05-13 18:23:59[0m] elapsed : 1:11:58, ETA : 0:00:21
+[[34m2023-05-13 18:23:59[0m] epoch 10 / 10, batch 24000 / 25269, global_step = 251421, learning_rate = 1.000000e-02, loss = 0.377349, l2 = 0.001926, auc = 0.782447
+elapsed : 1:11:58, ETA : 0:00:21
+epoch 10 / 10, batch 24000 / 25269, global_step = 251421, learning_rate = 1.000000e-02, loss = 0.377349, l2 = 0.001926, auc = 0.782447
+[[34m2023-05-13 18:24:11[0m] elapsed : 1:12:11, ETA : 0:00:04
+[[34m2023-05-13 18:24:11[0m] epoch 10 / 10, batch 25000 / 25269, global_step = 252421, learning_rate = 1.000000e-02, loss = 0.378396, l2 = 0.001918, auc = 0.781839
+elapsed : 1:12:11, ETA : 0:00:04
+epoch 10 / 10, batch 25000 / 25269, global_step = 252421, learning_rate = 1.000000e-02, loss = 0.378396, l2 = 0.001918, auc = 0.781839
+[[34m2023-05-13 18:24:15[0m] new iteration
+new iteration
+on disk...
+[[34m2023-05-13 18:24:15[0m] running test...
+on disk...
+[[34m2023-05-13 18:24:18[0m] evaluated batches: 1000, 0:00:02
+[[34m2023-05-13 18:24:20[0m] evaluated batches: 2000, 0:00:02
+[[34m2023-05-13 18:24:23[0m] evaluated batches: 3000, 0:00:02
+[[34m2023-05-13 18:24:25[0m] evaluated batches: 4000, 0:00:02
+[[34m2023-05-13 18:24:28[0m] evaluated batches: 5000, 0:00:02
+[[34m2023-05-13 18:24:30[0m] evaluated batches: 6000, 0:00:02
+[[34m2023-05-13 18:24:33[0m] evaluated batches: 7000, 0:00:02
+[[34m2023-05-13 18:24:35[0m] evaluated batches: 8000, 0:00:02
+[[34m2023-05-13 18:24:37[0m] evaluated batches: 9000, 0:00:02
+[[34m2023-05-13 18:24:40[0m] evaluated batches: 10000, 0:00:02
+[[34m2023-05-13 18:24:42[0m] evaluated batches: 11000, 0:00:02
+[[34m2023-05-13 18:24:45[0m] evaluated batches: 12000, 0:00:02
+[[34m2023-05-13 18:24:47[0m] evaluated batches: 13000, 0:00:02
+[[34m2023-05-13 18:24:50[0m] evaluated batches: 14000, 0:00:02
+[[34m2023-05-13 18:24:52[0m] evaluated batches: 15000, 0:00:02
+[[34m2023-05-13 18:24:55[0m] evaluated batches: 16000, 0:00:02
+[[34m2023-05-13 18:24:57[0m] evaluated batches: 17000, 0:00:02
+[[34m2023-05-13 18:25:00[0m] evaluated batches: 18000, 0:00:02
+[[34m2023-05-13 18:25:02[0m] evaluated batches: 19000, 0:00:02
+[[34m2023-05-13 18:25:05[0m] evaluated batches: 20000, 0:00:02
+[[34m2023-05-13 18:25:07[0m] evaluated batches: 21000, 0:00:02
+[[34m2023-05-13 18:25:10[0m] evaluated batches: 22000, 0:00:02
+[[34m2023-05-13 18:25:12[0m] evaluated batches: 23000, 0:00:02
+[[34m2023-05-13 18:25:14[0m] evaluated batches: 24000, 0:00:02
+[[34m2023-05-13 18:25:17[0m] evaluated batches: 25000, 0:00:02
+[[34m2023-05-13 18:25:19[0m] evaluated batches: 26000, 0:00:02
+[[34m2023-05-13 18:25:22[0m] evaluated batches: 27000, 0:00:02
+[[34m2023-05-13 18:25:24[0m] evaluated batches: 28000, 0:00:02
+[[34m2023-05-13 18:25:27[0m] evaluated batches: 29000, 0:00:02
+[[34m2023-05-13 18:25:29[0m] evaluated batches: 30000, 0:00:02
+[[34m2023-05-13 18:25:32[0m] evaluated batches: 31000, 0:00:02
+[[34m2023-05-13 18:25:34[0m] evaluated batches: 32000, 0:00:02
+[[34m2023-05-13 18:25:37[0m] evaluated batches: 33000, 0:00:02
+[[34m2023-05-13 18:25:39[0m] evaluated batches: 34000, 0:00:02
+[[34m2023-05-13 18:25:42[0m] evaluated batches: 35000, 0:00:02
+[[34m2023-05-13 18:25:44[0m] evaluated batches: 36000, 0:00:02
+[[34m2023-05-13 18:25:47[0m] evaluated batches: 37000, 0:00:02
+[[34m2023-05-13 18:25:49[0m] evaluated batches: 38000, 0:00:02
+[[34m2023-05-13 18:25:52[0m] evaluated batches: 39000, 0:00:02
+[[34m2023-05-13 18:25:54[0m] evaluated batches: 40000, 0:00:02
+[[34m2023-05-13 18:25:57[0m] evaluated batches: 41000, 0:00:02
+[[34m2023-05-13 18:25:59[0m] evaluated batches: 42000, 0:00:02
+[[34m2023-05-13 18:26:02[0m] evaluated batches: 43000, 0:00:02
+[[34m2023-05-13 18:26:04[0m] evaluated batches: 44000, 0:00:02
+[[34m2023-05-13 18:26:07[0m] evaluated batches: 45000, 0:00:02
+[[34m2023-05-13 18:26:09[0m] evaluated batches: 46000, 0:00:02
+[[34m2023-05-13 18:26:12[0m] evaluated batches: 47000, 0:00:02
+[[34m2023-05-13 18:26:14[0m] evaluated batches: 48000, 0:00:02
+[[34m2023-05-13 18:26:17[0m] evaluated batches: 49000, 0:00:02
+[[34m2023-05-13 18:26:19[0m] evaluated batches: 50000, 0:00:02
+[[34m2023-05-13 18:26:21[0m] evaluated batches: 51000, 0:00:02
+[[34m2023-05-13 18:26:24[0m] evaluated batches: 52000, 0:00:02
+[[34m2023-05-13 18:26:26[0m] evaluated batches: 53000, 0:00:02
+[[34m2023-05-13 18:26:29[0m] evaluated batches: 54000, 0:00:02
+[[34m2023-05-13 18:26:31[0m] evaluated batches: 55000, 0:00:02
+[[34m2023-05-13 18:26:34[0m] evaluated batches: 56000, 0:00:02
+[[34m2023-05-13 18:26:36[0m] evaluated batches: 57000, 0:00:02
+[[34m2023-05-13 18:26:39[0m] evaluated batches: 58000, 0:00:02
+[[34m2023-05-13 18:26:41[0m] evaluated batches: 59000, 0:00:02
+[[34m2023-05-13 18:26:44[0m] evaluated batches: 60000, 0:00:02
+[[34m2023-05-13 18:26:46[0m] evaluated batches: 61000, 0:00:02
+[[34m2023-05-13 18:26:49[0m] evaluated batches: 62000, 0:00:02
+[[34m2023-05-13 18:26:51[0m] evaluated batches: 63000, 0:00:02
+[[34m2023-05-13 18:26:56[0m] test loss = 0.378845, test auc = 0.782106
+[[34m2023-05-13 18:26:56[0m] evaluated time: 0:02:40
+[[34m2023-05-13 18:26:56[0m] analyse_structure
+[[34m2023-05-13 18:26:56[0m] Done!
+wandb: Waiting for W&B process to finish... (success).
+wandb: 
+wandb: Run history:
+wandb:       batch_size ▁
+wandb:               lr ▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:         test_auc ▁▃▄▅▆▆▇▇██
+wandb:    test_log_loss █▆▅▄▃▂▂▁▁▁
+wandb:    train_l2_loss █▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:       train_loss ▃▂▂▂█▂▂▂▂▂▂▂▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb: train_moving_auc ▁▄▄▅▅▅▆▆▆▆▆▆▆▆▆▇▇▇▇▇▇██▇▇█▇▇█▇█▇▇▇▇▇████
+wandb: 
+wandb: Run summary:
+wandb: batch_size 128
+wandb:         lr 0.01
+wandb: 
+wandb: 🚀 View run avazu-BS-128-003-retrain_irazor-2023-05-13 17:11:51 at: https://wandb.ai/yao-yao/irazor/runs/znlerqq8
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: /tmp/wandb/run-20230513_171152-znlerqq8/logs

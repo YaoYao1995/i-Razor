@@ -1,0 +1,163 @@
+nohup: ignoring input
+2023-05-14 14:49:55.178066: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-05-14 14:49:56.146899: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/compat/v2_compat.py:107: disable_resource_variables (from tensorflow.python.ops.variable_scope) is deprecated and will be removed in a future version.
+Instructions for updating:
+non-resource variables are not supported in the long term
+Got hdf Avazu data set, getting metadata...
+Initialization finished!
+****************************************************************************************************
+config-FDE_config, fileds-24, parms-19355850, dim-720.
+****************************************************************************************************
+current config:  [30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30]
+full_emb_for_0_emb_size_30 initialized from: -0.4026936331284146 0.4026936331284146
+full_emb_for_1_emb_size_30 initialized from: -0.4026936331284146 0.4026936331284146
+full_emb_for_2_emb_size_30 initialized from: -0.04354003441841081 0.04354003441841081
+full_emb_for_3_emb_size_30 initialized from: -0.04130374597216968 0.04130374597216968
+full_emb_for_4_emb_size_30 initialized from: -0.3333333333333333 0.3333333333333333
+full_emb_for_5_emb_size_30 initialized from: -0.03857583749052298 0.03857583749052298
+full_emb_for_6_emb_size_30 initialized from: -0.14586499149789456 0.14586499149789456
+full_emb_for_7_emb_size_30 initialized from: -0.32163376045133846 0.32163376045133846
+full_emb_for_8_emb_size_30 initialized from: -0.007689312931698267 0.007689312931698267
+full_emb_for_9_emb_size_30 initialized from: -0.0033848038706974777 0.0033848038706974777
+full_emb_for_10_emb_size_30 initialized from: -0.031742033253447585 0.031742033253447585
+full_emb_for_11_emb_size_30 initialized from: -0.4140393356054125 0.4140393356054125
+full_emb_for_12_emb_size_30 initialized from: -0.42008402520840293 0.42008402520840293
+full_emb_for_13_emb_size_30 initialized from: -0.04951749204875514 0.04951749204875514
+full_emb_for_14_emb_size_30 initialized from: -0.39735970711951313 0.39735970711951313
+full_emb_for_15_emb_size_30 initialized from: -0.3922322702763681 0.3922322702763681
+full_emb_for_16_emb_size_30 initialized from: -0.11470786693528089 0.11470786693528089
+full_emb_for_17_emb_size_30 initialized from: -0.42008402520840293 0.42008402520840293
+full_emb_for_18_emb_size_30 initialized from: -0.2487080016869035 0.2487080016869035
+full_emb_for_19_emb_size_30 initialized from: -0.1749635530559413 0.1749635530559413
+full_emb_for_20_emb_size_30 initialized from: -0.2581988897471611 0.2581988897471611
+full_emb_for_21_emb_size_30 initialized from: -0.3872983346207417 0.3872983346207417
+full_emb_for_22_emb_size_30 initialized from: -0.3333333333333333 0.3333333333333333
+full_emb_for_23_emb_size_30 initialized from: -0.4026936331284146 0.4026936331284146
+current config:  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+full_emb_for_0_emb_size_1 initialized from: -0.8660254037844386 0.8660254037844386
+full_emb_for_1_emb_size_1 initialized from: -0.8660254037844386 0.8660254037844386
+full_emb_for_2_emb_size_1 initialized from: -0.043740888263985325 0.043740888263985325
+full_emb_for_3_emb_size_1 initialized from: -0.04147509477069983 0.04147509477069983
+full_emb_for_4_emb_size_1 initialized from: -0.4898979485566356 0.4898979485566356
+full_emb_for_5_emb_size_1 initialized from: -0.038715317938997504 0.038715317938997504
+full_emb_for_6_emb_size_1 initialized from: -0.15399810070180361 0.15399810070180361
+full_emb_for_7_emb_size_1 initialized from: -0.454858826147342 0.454858826147342
+full_emb_for_8_emb_size_1 initialized from: -0.007690411867832244 0.007690411867832244
+full_emb_for_9_emb_size_1 initialized from: -0.003384897591352657 0.003384897591352657
+full_emb_for_10_emb_size_1 initialized from: -0.031819606281476856 0.031819606281476856
+full_emb_for_11_emb_size_1 initialized from: -1.0 1.0
+full_emb_for_12_emb_size_1 initialized from: -1.0954451150103321 1.0954451150103321
+full_emb_for_13_emb_size_1 initialized from: -0.04981354813867179 0.04981354813867179
+full_emb_for_14_emb_size_1 initialized from: -0.816496580927726 0.816496580927726
+full_emb_for_15_emb_size_1 initialized from: -0.7745966692414834 0.7745966692414834
+full_emb_for_16_emb_size_1 initialized from: -0.11853911695403994 0.11853911695403994
+full_emb_for_17_emb_size_1 initialized from: -1.0954451150103321 1.0954451150103321
+full_emb_for_18_emb_size_1 initialized from: -0.2970442628930023 0.2970442628930023
+full_emb_for_19_emb_size_1 initialized from: -0.18954720708196904 0.18954720708196904
+full_emb_for_20_emb_size_1 initialized from: -0.31362502409359 0.31362502409359
+full_emb_for_21_emb_size_1 initialized from: -0.7385489458759964 0.7385489458759964
+full_emb_for_22_emb_size_1 initialized from: -0.4898979485566356 0.4898979485566356
+full_emb_for_23_emb_size_1 initialized from: -0.8660254037844386 0.8660254037844386
+all_bias [<tf.Tensor 'GatherV2_24:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_25:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_26:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_27:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_28:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_29:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_30:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_31:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_32:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_33:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_34:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_35:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_36:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_37:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_38:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_39:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_40:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_41:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_42:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_43:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_44:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_45:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_46:0' shape=(?, 1) dtype=float32>, <tf.Tensor 'GatherV2_47:0' shape=(?, 1) dtype=float32>]
+cin_0_wt_24_new_24 initialized from: -0.1 0.1
+cin_0_bias_24_new_24 initialized from: -0.4803844614152614 0.4803844614152614
+cin_1_wt_24_new_24 initialized from: -0.1 0.1
+cin_1_bias_24_new_24 initialized from: -0.4803844614152614 0.4803844614152614
+cin_2_wt_24_new_24 initialized from: -0.1 0.1
+cin_2_bias_24_new_24 initialized from: -0.4803844614152614 0.4803844614152614
+cin_pooling_in_72_out1 initialized from: -0.28669108954049793 0.28669108954049793
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling reduce_sum_v1 (from tensorflow.python.ops.math_ops) with keep_dims is deprecated and will be removed in a future version.
+Instructions for updating:
+keep_dims is deprecated, use keepdims instead
+w_0 initialized from: -0.06500270850261591 0.06500270850261591
+(720, 700) (700,)
+relu
+w_1 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_2 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_3 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_4 initialized from: -0.06546536707079771 0.06546536707079771
+(700, 700) (700,)
+relu
+w_5 initialized from: -0.0925159507394634 0.0925159507394634
+(700, 1) (1,)
+none
+mlp output Tensor("hidden_5/add:0", shape=(?, 1), dtype=float32) bias_sum Tensor("Sum_3:0", shape=(?, 1), dtype=float32)
+lgits Tensor("Sum_4:0", shape=(?,), dtype=float32)
+[[34m2023-05-14 14:49:58[0m] Experiment directory created at /home/ubuntu/results/xDeepFM_Retrain_FDE/avazu/000-[700, 700, 700, 700, 700, 1]-bs-128
+[[34m2023-05-14 14:49:58[0m] Batchsize: 128
+wandb: Currently logged in as: yao-yao. Use `wandb login --relogin` to force relogin
+wandb: WARNING Path /workspace/wandb/wandb/ wasn't writable, using system temp directory.
+wandb: WARNING Path /workspace/wandb/wandb/ wasn't writable, using system temp directory
+wandb: Tracking run with wandb version 0.15.2
+wandb: Run data is saved locally in /tmp/wandb/run-20230514_144959-czeirpmu
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run avazu-BS-128-000-xDeepFM_Retrain_FDE-2023-05-14 14:49:58
+wandb: ⭐️ View project at https://wandb.ai/yao-yao/irazor
+wandb: 🚀 View run at https://wandb.ai/yao-yao/irazor/runs/czeirpmu
+2023-05-14 14:50:04.322645: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:04.325337: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:04.327105: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:06.323017: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:06.324200: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:06.325058: I tensorflow/compiler/xla/stream_executor/cuda/cuda_gpu_executor.cc:996] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero. See more at https://github.com/torvalds/linux/blob/v6.0/Documentation/ABI/testing/sysfs-bus-pci#L344-L355
+2023-05-14 14:50:06.325848: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1635] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 34566 MB memory:  -> device: 0, name: NVIDIA A100-SXM4-40GB, pci bus id: 0000:06:00.0, compute capability: 8.0
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling weighted_cross_entropy_with_logits (from tensorflow.python.ops.nn_impl) with targets is deprecated and will be removed in a future version.
+Instructions for updating:
+targets is deprecated, use labels instead
+[[34m2023-05-14 14:50:06[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling weighted_cross_entropy_with_logits (from tensorflow.python.ops.nn_impl) with targets is deprecated and will be removed in a future version.
+Instructions for updating:
+targets is deprecated, use labels instead
+add l2 0.001 Tensor("concat:0", shape=(?, 720), dtype=float32)
+add l2 0.001 Tensor("concat_1:0", shape=(?, 24), dtype=float32)
+WARNING:tensorflow:From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+[[34m2023-05-14 14:50:07[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+2023-05-14 14:50:07.502275: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:353] MLIR V1 optimization pass is not enabled
+[[34m2023-05-14 14:50:07[0m] total batches: 505370	batch per epoch: 50537
+[[34m2023-05-14 14:50:07[0m] new iteration
+new iteration
+on disk...
+2023-05-14 14:50:09.925050: I tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:637] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+[[34m2023-05-14 14:50:42[0m] elapsed : 0:00:34, ETA : 4:45:48
+[[34m2023-05-14 14:50:42[0m] epoch 1 / 10, batch 1000 / 50537, global_step = 1000, learning_rate = 1.000000e-02, loss = 0.671928, l2 = 0.908658, auc = 0.696110
+elapsed : 0:00:34, ETA : 4:45:48
+epoch 1 / 10, batch 1000 / 50537, global_step = 1000, learning_rate = 1.000000e-02, loss = 0.671928, l2 = 0.908658, auc = 0.696110
+[[34m2023-05-14 14:51:15[0m] elapsed : 0:01:07, ETA : 4:41:02
+[[34m2023-05-14 14:51:15[0m] epoch 1 / 10, batch 2000 / 50537, global_step = 2000, learning_rate = 1.000000e-02, loss = 0.403540, l2 = 0.430702, auc = 0.730701
+elapsed : 0:01:07, ETA : 4:41:02
+epoch 1 / 10, batch 2000 / 50537, global_step = 2000, learning_rate = 1.000000e-02, loss = 0.403540, l2 = 0.430702, auc = 0.730701
+[[34m2023-05-14 14:51:48[0m] elapsed : 0:01:40, ETA : 4:39:05
+[[34m2023-05-14 14:51:48[0m] epoch 1 / 10, batch 3000 / 50537, global_step = 3000, learning_rate = 1.000000e-02, loss = 0.403457, l2 = 0.232325, auc = 0.737303
+elapsed : 0:01:40, ETA : 4:39:05
+epoch 1 / 10, batch 3000 / 50537, global_step = 3000, learning_rate = 1.000000e-02, loss = 0.403457, l2 = 0.232325, auc = 0.737303
+[[34m2023-05-14 14:52:21[0m] elapsed : 0:02:13, ETA : 4:37:50
+[[34m2023-05-14 14:52:21[0m] epoch 1 / 10, batch 4000 / 50537, global_step = 4000, learning_rate = 1.000000e-02, loss = 0.401577, l2 = 0.134385, auc = 0.739286
+elapsed : 0:02:13, ETA : 4:37:50
+epoch 1 / 10, batch 4000 / 50537, global_step = 4000, learning_rate = 1.000000e-02, loss = 0.401577, l2 = 0.134385, auc = 0.739286
+[[34m2023-05-14 14:52:53[0m] elapsed : 0:02:45, ETA : 4:35:12
+[[34m2023-05-14 14:52:53[0m] epoch 1 / 10, batch 5000 / 50537, global_step = 5000, learning_rate = 1.000000e-02, loss = 0.400454, l2 = 0.081988, auc = 0.741839
+elapsed : 0:02:45, ETA : 4:35:12
+epoch 1 / 10, batch 5000 / 50537, global_step = 5000, learning_rate = 1.000000e-02, loss = 0.400454, l2 = 0.081988, auc = 0.741839
+[[34m2023-05-14 14:53:26[0m] elapsed : 0:03:18, ETA : 4:34:39
+[[34m2023-05-14 14:53:26[0m] epoch 1 / 10, batch 6000 / 50537, global_step = 6000, learning_rate = 1.000000e-02, loss = 0.398201, l2 = 0.052454, auc = 0.744769
+elapsed : 0:03:18, ETA : 4:34:39
+epoch 1 / 10, batch 6000 / 50537, global_step = 6000, learning_rate = 1.000000e-02, loss = 0.398201, l2 = 0.052454, auc = 0.744769
+[[34m2023-05-14 14:53:58[0m] elapsed : 0:03:50, ETA : 4:32:55
+[[34m2023-05-14 14:53:58[0m] epoch 1 / 10, batch 7000 / 50537, global_step = 7000, learning_rate = 1.000000e-02, loss = 0.396325, l2 = 0.035106, auc = 0.747477
+elapsed : 0:03:50, ETA : 4:32:55
+epoch 1 / 10, batch 7000 / 50537, global_step = 7000, learning_rate = 1.000000e-02, loss = 0.396325, l2 = 0.035106, auc = 0.747477
+[[34m2023-05-14 14:54:31[0m] elapsed : 0:04:23, ETA : 4:32:31
+[[34m2023-05-14 14:54:31[0m] epoch 1 / 10, batch 8000 / 50537, global_step = 8000, learning_rate = 1.000000e-02, loss = 0.397546, l2 = 0.024613, auc = 0.747383
+elapsed : 0:04:23, ETA : 4:32:31
+epoch 1 / 10, batch 8000 / 50537, global_step = 8000, learning_rate = 1.000000e-02, loss = 0.397546, l2 = 0.024613, auc = 0.747383

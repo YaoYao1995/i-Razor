@@ -1,0 +1,20 @@
+[[34m2023-05-13 13:54:36[0m] Experiment directory created at ~/results/retrain_irazor/criteo/000-retrain_irazor
+[[34m2023-05-13 13:54:36[0m] Batchsize: 500
+[[34m2023-05-13 13:54:43[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/util/dispatch.py:1176: calling weighted_cross_entropy_with_logits (from tensorflow.python.ops.nn_impl) with targets is deprecated and will be removed in a future version.
+Instructions for updating:
+targets is deprecated, use labels instead
+[[34m2023-05-13 13:54:44[0m] From /home/ubuntu/miniconda3/envs/irazor/lib/python3.11/site-packages/tensorflow/python/training/adagrad.py:138: calling Constant.__init__ (from tensorflow.python.ops.init_ops) with dtype is deprecated and will be removed in a future version.
+Instructions for updating:
+Call initializer instance with the dtype argument instead of passing it to the constructor
+[[34m2023-05-13 13:54:45[0m] total batches: 173770	batch per epoch: 17377
+[[34m2023-05-13 13:54:45[0m] new iteration
+[[34m2023-05-13 13:55:45[0m] elapsed : 0:00:59, ETA : 2:49:53
+[[34m2023-05-13 13:55:45[0m] epoch 1 / 10, batch 1000 / 17377, global_step = 1000, learning_rate = 1.000000e-02, loss = 0.624789, l2 = 0.505067, auc = 0.743320
+[[34m2023-05-13 13:56:44[0m] elapsed : 0:01:58, ETA : 2:48:54
+[[34m2023-05-13 13:56:44[0m] epoch 1 / 10, batch 2000 / 17377, global_step = 2000, learning_rate = 1.000000e-02, loss = 0.578802, l2 = 0.082412, auc = 0.763783
+[[34m2023-05-13 13:57:44[0m] elapsed : 0:02:58, ETA : 2:48:52
+[[34m2023-05-13 13:57:44[0m] epoch 1 / 10, batch 3000 / 17377, global_step = 3000, learning_rate = 1.000000e-02, loss = 0.573862, l2 = 0.033422, auc = 0.768943
+[[34m2023-05-13 13:58:44[0m] elapsed : 0:03:58, ETA : 2:48:21
+[[34m2023-05-13 13:58:44[0m] epoch 1 / 10, batch 4000 / 17377, global_step = 4000, learning_rate = 1.000000e-02, loss = 0.571565, l2 = 0.020872, auc = 0.771060
+[[34m2023-05-13 13:59:45[0m] elapsed : 0:05:00, ETA : 2:48:46
+[[34m2023-05-13 13:59:45[0m] epoch 1 / 10, batch 5000 / 17377, global_step = 5000, learning_rate = 1.000000e-02, loss = 0.567858, l2 = 0.016542, auc = 0.775101
