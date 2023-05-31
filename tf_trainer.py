@@ -180,6 +180,7 @@ class Trainer:
         num = 0
         for batch_data in gen:
             X, y = batch_data
+            #print(X[0])
             batch_loss, batch_pred = self._predict(X, y)
             preds.append(batch_pred)
             labels.append(y)
@@ -217,7 +218,7 @@ class Trainer:
                        'test_auc': auc,
                        })
         if self.logger is not None:
-            self.logger.info('test loss = %f, test auc = %f' % (loss, auc))
+            self.logger.critical('test loss = %f, test auc = %f' % (loss, auc))
         #print('test loss = %f, test auc = %f' % (loss, auc))
         toc = time.time()
         if self.logger is not None:
@@ -291,6 +292,10 @@ class Trainer:
                         self.writer.add_scalar('Train/moving_auc', moving_auc, finished_batches)
                         self.writer.add_scalar('Train/lr', self._learning_rate, finished_batches)
                         
+                        # logits, probs = self.session.run(["nas_chioce_logits:0", "nas_choice_prob:0"])
+                        # self.writer.add_histogram('Hist/nas_choice_logits', logits, finished_batches)
+                        # self.writer.add_histogram('Hist/nas_choice_prob', probs, finished_batches)
+                        
                         wandb.log({'lr': self._learning_rate, 
                                    'train_moving_auc': moving_auc,
                                    'train_loss': avg_loss,
@@ -334,21 +339,3 @@ class Trainer:
                     epoch_batches = 0
                     if epoch > self.n_epoch:
                         return
-                        
-            # if epoch_batches % num_of_batches != 0:
-            #     if hasattr(self.model,"analyse_structure"):
-            #         self.model.analyse_structure(self.session, print_full_weight=False, logger=self.logger)
-            #     if epoch % test_every_epoch == 0:
-            #         l, a = self._epoch_callback()
-            #         loss_list.append(l)
-            #         auc_list.append(a)
-            #     if self._learning_rate is not None and self.decay_rate is not None:
-            #         self._learning_rate *= self.decay_rate
-            #     if self._learning_rate2 is not None and self.decay_rate2 is not None:
-            #         self._learning_rate2 *= self.decay_rate2
-            #     epoch += 1
-            #     epoch_batches = 0
-            #     if epoch > self.n_epoch:
-            #        return
-        
-
