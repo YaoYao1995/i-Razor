@@ -49,10 +49,12 @@ def generate_pairs(ranges=range(1, 100), mask=None, order=2):
     return res
 
 def alloc_emb_for_irazor(embed_list, target_vec_sizes=[0, 1, 2, 6], temp=1.0, feature_num=[],training=None):
-    print(embed_list)
+    #print(embed_list)
     print("search space", target_vec_sizes)
     sum_feature_num = sum(feature_num)
-    feature_proportion = [ _*1.0 /sum_feature_num for _ in feature_num ]
+    #feature_proportion = [ _*1.0 /sum_feature_num for _ in feature_num ]
+    #feature_proportion = [ 1.0 / len(feature_num)] * len(feature_num)
+    feature_proportion = [ 0.01] * len(feature_num)
     max_size = max(target_vec_sizes)
     masks = []
     mask_valid_sizes = []
@@ -70,27 +72,62 @@ def alloc_emb_for_irazor(embed_list, target_vec_sizes=[0, 1, 2, 6], temp=1.0, fe
     import numpy as np
     masks = np.concatenate(masks, axis=0) # ops  * max_size
     total_mask = tf.constant(masks, name="masks", dtype=tf.float32) # ops*max_size
+    print("masks", masks)
     fid_proportion = []
     used_embs = []
     for i in range(len(embed_list)):
         vec = embed_list[i]
-        after_bn_vec = tf.layers.batch_normalization(vec, axis=-1, training=training,
-                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='training')
+        after_bn_vec = tf.layers.batch_normalization(vec, axis=-1, 
+                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='prune_bn')
         used_embs.append(after_bn_vec)
+        #used_embs.append(vec)
     fid_proportion_vec = tf.constant([feature_proportion], dtype=tf.float32)  # 1* input_features
     embedding = tf.stack(used_embs, axis=1,
                         name="bn_embeds")  # BN * input_features * emb
-    logits = get_variable(init_type="zero",shape=[len(embed_list), len(target_vec_sizes)], name="nas_chioce_logits")
+    logits = get_variable(init_type="zero",shape=[len(embed_list), len(target_vec_sizes)], name="nas_chioce_logits")  # input_features * ops
 
     choice_probs = tf.nn.softmax(logits / temp, axis=1,
-                                    name="nas_choice_prob")  # inputs_features * 3
+                                    name="nas_choice_prob")  # inputs_features * ops
 
     fid_loss = tf.squeeze(tf.matmul(fid_proportion_vec, tf.matmul(choice_probs, mask_size_vec)), name="fid_loss")
-    choice_matrix = tf.matmul(choice_probs, total_mask,
+    choice_matrix = tf.matmul(choice_probs, total_mask, # 
                                 name= "choice_probs")  # input_features * emb
     output_embs = tf.expand_dims(choice_matrix, axis=0) * embedding # bs * input_features * emb 
-
+    print("output_embs: ",output_embs)
+    print("choice_probs: ",choice_probs)
+    print("logits: ",logits)
     return tf.layers.flatten(output_embs), logits, fid_loss
+
+def alloc_emb_for_autofield(embed_list, target_vec_sizes=[0, 30], temp=1.0, training=None):
+    #print(embed_list)
+    max_size = max(target_vec_sizes)
+    masks = []
+    mask_valid_sizes = []
+    for i, mask_size in enumerate(target_vec_sizes):
+        if i > 0:
+            cur_mask = [[1.0] * max_size]
+        else:
+            cur_mask = [[0.0] * max_size]
+        masks.append(cur_mask)  # 1* emb
+    import numpy as np
+    masks = np.concatenate(masks, axis=0) # ops  * max_size
+    total_mask = tf.constant(masks, name="masks", dtype=tf.float32) # 2*max_size
+    print("masks", masks)
+    used_embs = []
+    for i in range(len(embed_list)):
+        vec = embed_list[i]
+        after_bn_vec = tf.layers.batch_normalization(vec, axis=-1, training=training,
+                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='prune_bn')
+        used_embs.append(after_bn_vec)
+       
+    embedding = tf.stack(used_embs, axis=1, name="bn_embeds")  # BN * input_features * emb
+    logits = get_variable(init_type="zero",shape=[len(embed_list), 2], name="nas_chioce_logits")  # input_features * ops
+
+    choice_probs = tf.nn.softmax(logits / temp, axis=1, name="nas_choice_prob")  # inputs_features * 2
+
+    choice_matrix = tf.matmul(choice_probs, total_mask, name= "choice_probs")  # input_features * emb
+    output_embs = tf.expand_dims(choice_matrix, axis=0) * embedding # bs * input_features * emb 
+    return tf.layers.flatten(output_embs)
 
 def alloc_emb_for_autodim(embed_list, target_vec_sizes=[1, 2,4, 6], training=None, global_step=None):
     max_size = max(target_vec_sizes)
@@ -105,7 +142,7 @@ def alloc_emb_for_autodim(embed_list, target_vec_sizes=[1, 2,4, 6], training=Non
     for i in range(len(embed_list)):
         vec = embed_list[i]
         after_bn_vec = tf.layers.batch_normalization(vec, axis=-1, training=training,
-                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='training')
+                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='prune_bn')
         used_embs.append(after_bn_vec)
 
     embedding = tf.stack(used_embs, axis=1,
@@ -114,7 +151,7 @@ def alloc_emb_for_autodim(embed_list, target_vec_sizes=[1, 2,4, 6], training=Non
     u = tf.random_uniform([len(embed_list), len(target_vec_sizes)], minval=0, maxval=1.0)
     gumbel_noise = -tf.log(-tf.log(u))
     cur_progress = tf.cast(global_step, tf.float32)
-    temp  = tf.maximum(0.01, 1-0.00005*cur_progress)
+    temp  = tf.minimum(tf.maximum(0.01, 1-0.00005*cur_progress),0.2)
     
     choice_probs = tf.nn.softmax(logits, axis=1, name="nas_choice_prob")
     used_logits = (tf.log(choice_probs) + gumbel_noise) /temp
@@ -123,6 +160,26 @@ def alloc_emb_for_autodim(embed_list, target_vec_sizes=[1, 2,4, 6], training=Non
     choice_matrix = tf.matmul(used_choice_probs, total_mask,
                                 name= "choice_probs")  # input_features * emb
     output_embs = tf.expand_dims(choice_matrix, axis=0) * embedding # bs * input_features * emb 
+
+    return tf.layers.flatten(output_embs)
+
+def alloc_emb_for_adafs(embed_list, target_vec_sizes=[30], training=None, temp=1.0):
+    max_size = max(target_vec_sizes)
+    used_embs = []
+    for i in range(len(embed_list)):
+        vec = embed_list[i]
+        after_bn_vec = tf.layers.batch_normalization(vec, axis=-1, training=training,
+                                                reuse=tf.AUTO_REUSE, scale=False, center=False, name='prune_bn')
+        used_embs.append(after_bn_vec)
+
+    embedding = tf.stack(used_embs, axis=1, name="bn_embeds")  # BN * input_features * emb
+    logits = get_variable(init_type="zero",shape=[len(embed_list), 1], name="nas_chioce_logits")
+    choice_probs = tf.nn.softmax(logits / temp, axis=0, name="nas_choice_prob")  # inputs_features * 1
+
+    # choice_matrix = tf.tile(choice_probs, multiples=[1, max_size], name= "choice_probs")  # input_features * emb
+    # output_embs = tf.expand_dims(choice_matrix, axis=0) * embedding # bs * input_features * emb 
+    
+    output_embs = tf.expand_dims(choice_probs, axis=0) * embedding # bs * input_features * emb 
 
     return tf.layers.flatten(output_embs)
 
@@ -186,19 +243,81 @@ class DNNRetrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss
-                
-                if self.l2_weight is not None and self.l2_bias is not None:
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
+                                               [self.raw_embedding, self.raw_bias])
+                    _loss_ += self.l2_loss * 0
+                else:
                     self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
                                                [self.raw_embedding, self.raw_bias])
-                else:
-                    self.l2_loss = None
-                if self.l2_loss is not None:
                     _loss_ += self.l2_loss
                 
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
 
+class AdafsPretrain(Model):
+    def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
+                  target_vec_sizes=[1,2,4,6], temperature=0.50, mlp=[], bn=False, ln=False):
+        self.l2_weight = l2_weight
+        self.l2_bias = l2_bias
+        self.num_inputs = num_inputs
+        self.search_space = target_vec_sizes
+        self.inputs, self.labels, self.training = create_placeholder(num_inputs, tf, True)
+        assert num_inputs == len(input_emb_size_config) and num_inputs == len(input_feature_min) and num_inputs==len(input_feat_num)
 
+        all_embs = emb_lookup_multi_emb_size(self.inputs, input_feature_min,input_emb_size_config,input_feat_num)
+        #print("all_embs:",all_embs)
+        self.raw_embedding = tf.concat(all_embs, axis=1)
+        
+        emb_feature_for_concat = alloc_emb_for_adafs(embed_list=all_embs, target_vec_sizes=target_vec_sizes, temp=temperature,training=self.training)
+        all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1]*len(input_emb_size_config), input_feat_num)
+
+        self.raw_bias = tf.concat(all_bias, axis=1)
+        bias_sum = tf.add_n(all_bias) # bs *1
+        output, self.layer_kernels, _ = normal_mlp(init="xavier", layer_sizes=mlp, layer_acts=["relu"]*(len(mlp)-1)+["none"], h=emb_feature_for_concat, node_in=int(emb_feature_for_concat.shape[1]), batch_norm=bn, layer_norm=ln, training=self.training)
+        print("mlp output", output,"bias_sum",bias_sum) # bs*1
+        self.logits = tf.reduce_sum(output+bias_sum, axis=1,keep_dims=False) # bs
+        print("lgits", self.logits)
+        self.outputs = tf.nn.sigmoid(self.logits)
+
+
+    def compile(self, loss=None, optimizer1=None, optimizer2=None, global_step=None, pos_weight=1.0):
+        update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
+        with tf.control_dependencies(update_ops):
+            with tf.name_scope('loss'):
+                self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
+                _loss_ = self.loss
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
+                                               [self.raw_embedding, self.raw_bias])
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
+                    _loss_ += self.l2_loss
+                all_variable = [v for v in tf.trainable_variables()]
+                self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
+                self.optimizer2 = None
+                
+                
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
+        probs = sess.run(["nas_choice_prob:0"])[0]
+        print("cur_nas_choice_prob:")
+        probs = np.around(probs,4)
+        for i in range(len(probs)):
+            print(f"feature-{round(i,2)}: {probs[i][0]}")
+        if logger is not None:
+            logger.info(f"cur_nas_choice_prob = {np.around(probs,4)}")
+        self.gen_suggested_emb_size(probs, topK=[11, 12, 16, 20], logger=logger)
+    
+    def gen_suggested_emb_size(self, data, topK=[15, 18, 20, 22], logger=None):
+        assert self.num_inputs == data.shape[0]
+        rank = np.argsort(np.squeeze(data))
+        for K in topK:
+            #print(f"Selected_fields:{rank[-K:]}, Droped_fields:{rank[:-K]}.")
+            if logger is not None:
+                logger.info(f"Top-{K}. Selected_fields:{np.sort(rank[-K:])}, Droped_fields:{np.sort(rank[:-K])}.")
+                
 class IrazorPretrain(Model):
     def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
                   target_vec_sizes=[1,2,4,6], temperature=0.50,fid_loss_wt=1e-4,mlp=[], bn=False, ln=False):
@@ -210,10 +329,11 @@ class IrazorPretrain(Model):
         assert num_inputs == len(input_emb_size_config) and num_inputs == len(input_feature_min) and num_inputs==len(input_feat_num)
 
         all_embs = emb_lookup_multi_emb_size(self.inputs, input_feature_min,input_emb_size_config,input_feat_num)
+        print("all_embs:",all_embs)
         self.raw_embedding = tf.concat(all_embs, axis=1)
         
         emb_feature_for_concat, nas_logits, fid_loss = alloc_emb_for_irazor(embed_list=all_embs, 
-        target_vec_sizes=target_vec_sizes,temp=temperature,feature_num=input_feat_num,training=self.training)
+        target_vec_sizes=target_vec_sizes,temp=temperature,feature_num=input_feat_num, training=self.training)
         self.fid_loss = fid_loss * fid_loss_wt
         all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1]*len(input_emb_size_config), input_feat_num)
         print("all_bias", all_bias)
@@ -232,6 +352,7 @@ class IrazorPretrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss + self.fid_loss
+                #_loss_ = self.loss
 
                 self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
                                                [self.raw_embedding, self.raw_bias])
@@ -240,12 +361,17 @@ class IrazorPretrain(Model):
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
                 self.optimizer2 = None
-    def analyse_structure(self, sess, print_full_weight=False, epoch=None):
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
         probs = sess.run(["nas_choice_prob:0"])[0]
-        print("cur_nas_choice_prob=", probs)
-        self.gen_suggested_emb_size(probs, cpts=[0.3,0.4,0.5,0.6,0.7,0.8])
+        print("cur_nas_choice_prob:")
+        probs = np.around(probs,4)
+        for i in range(len(probs)):
+            print(f"feature-{round(i,2)}: {probs[i]}")
+        if logger is not None:
+            logger.info(f"cur_nas_choice_prob = {np.around(probs,4)}")
+        self.gen_suggested_emb_size(probs, cpts=[0.1, 0.3, 0.45, 0.6, 0.7, 0.8], logger=logger)
     
-    def gen_suggested_emb_size(self, data, cpts=[0.3,0.4,0.5,0.6]):
+    def gen_suggested_emb_size(self, data, cpts=[0.3,0.4,0.5,0.6], logger=None):
         import pandas as pd
         assert self.num_inputs == data.shape[0]
         size_dims = []
@@ -293,7 +419,73 @@ class IrazorPretrain(Model):
             selected_dims = df[["field",cpt_col]].to_numpy().tolist()
             total_dim = sum(_[1] for _ in selected_dims)
             print(cpt_col," selects total dims = ",total_dim,"selected_dims=", selected_dims)
+            if logger is not None:
+                logger.info(f"CPT-{cpt_col} selects total dims = {total_dim}, selected_dims = {selected_dims}")
 
+class autofieldPretrain(Model):
+    def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
+                  target_vec_sizes=[1,2,4,6], temperature=0.50, mlp=[], bn=False, ln=False):
+        self.l2_weight = l2_weight
+        self.l2_bias = l2_bias
+        self.num_inputs = num_inputs
+        self.search_space = target_vec_sizes
+        self.inputs, self.labels, self.training = create_placeholder(num_inputs, tf, True)
+        assert num_inputs == len(input_emb_size_config) and num_inputs == len(input_feature_min) and num_inputs==len(input_feat_num)
+
+        all_embs = emb_lookup_multi_emb_size(self.inputs, input_feature_min,input_emb_size_config,input_feat_num)
+        print("all_embs:",all_embs)
+        self.raw_embedding = tf.concat(all_embs, axis=1)
+        
+        emb_feature_for_concat = alloc_emb_for_autofield(embed_list=all_embs, target_vec_sizes=[0, max(target_vec_sizes)], temp=temperature, training=self.training)
+        
+        all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1]*len(input_emb_size_config), input_feat_num)
+        
+        self.raw_bias = tf.concat(all_bias, axis=1)
+        bias_sum = tf.add_n(all_bias) # bs *1
+        output, self.layer_kernels, _ = normal_mlp(init="xavier", layer_sizes=mlp, layer_acts=["relu"]*(len(mlp)-1)+["none"], h=emb_feature_for_concat, node_in=int(emb_feature_for_concat.shape[1]), batch_norm=bn, layer_norm=ln, training=self.training)
+        print("mlp output", output,"bias_sum",bias_sum) # bs*1
+        self.logits = tf.reduce_sum(output+bias_sum, axis=1,keep_dims=False) # bs
+        print("lgits", self.logits)
+        self.outputs = tf.nn.sigmoid(self.logits)
+
+    def compile(self, loss=None, optimizer1=None, optimizer2=None, global_step=None, pos_weight=1.0):
+        update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
+        with tf.control_dependencies(update_ops):
+            with tf.name_scope('loss'):
+                self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
+                _loss_ = self.loss
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
+                                               [self.raw_embedding, self.raw_bias])
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
+                    _loss_ += self.l2_loss
+                all_variable = [v for v in tf.trainable_variables()]
+                self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
+                self.optimizer2 = None
+                
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
+        probs = sess.run(["nas_choice_prob:0"])[0]
+        print("cur_nas_choice_prob:")
+        probs = np.around(probs,4)
+        data = []
+        for i in range(len(probs)):
+            print(f"feature-{round(i,2)}: {probs[i]}")
+            data.append(probs[i][1])
+        if logger is not None:
+            logger.info(f"cur_nas_choice_prob = {np.around(probs,4)}")
+        self.gen_suggested_emb_size(data, topK=[11, 12, 16, 20], logger=logger)
+    
+    def gen_suggested_emb_size(self, data, topK=[15, 18, 20, 22], logger=None):
+        assert self.num_inputs == len(data)
+        rank = np.argsort(data)
+        for K in topK:
+            #print(f"Top-{K}. Selected_fields:{rank[-K:]}, Droped_fields:{rank[:-K]}.")
+            if logger is not None:
+                logger.info(f"Top-{K}. Selected_fields:{np.sort(rank[-K:])}, Droped_fields:{np.sort(rank[:-K])}.")
+    
 class AutoDimPretrain(Model):
     def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
                   target_vec_sizes=[0,1,2,4,6], global_step=None,mlp=[], bn=False, ln=False):
@@ -308,7 +500,7 @@ class AutoDimPretrain(Model):
         self.raw_embedding = tf.concat(all_embs, axis=1)
         
         emb_feature_for_concat = alloc_emb_for_autodim(embed_list=all_embs, 
-        target_vec_sizes=target_vec_sizes,global_step=global_step)
+        target_vec_sizes=target_vec_sizes,global_step=global_step,training=self.training )
         all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1]*len(input_emb_size_config), input_feat_num)
         print("all_bias", all_bias)
         self.raw_bias = tf.concat(all_bias, axis=1)
@@ -335,15 +527,20 @@ class AutoDimPretrain(Model):
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
                 self.optimizer2 = None
 
-    def analyse_structure(self, sess, print_full_weight=False, epoch=None):
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
         probs = sess.run(["nas_choice_prob:0"])[0]
-        print("cur_nas_choice_prob=", probs)
+        print("cur_nas_choice_prob=",  np.around(probs,4))
+        if logger is not None:
+            logger.info(f"cur_nas_choice_prob = {np.around(probs,4)}")
         argmax_dims = np.argmax(probs, axis=1).tolist()
         field_emb_sizes = []
         for i in range(self.num_inputs):
             field_embed_size = self.search_space[argmax_dims[i]]
             field_emb_sizes.append((i, field_embed_size))
         print("autodim selected sizes=", field_emb_sizes)
+        if logger is not None:
+            logger.info(f"autodim selected sizes={field_emb_sizes}")
+        
 
 class DARTSPretrain(Model):
     def __init__(self, init='xavier', num_inputs=None, input_emb_size_config=[], input_feature_min=[],input_feat_num=[], l2_weight=None, l2_bias=None,
@@ -386,15 +583,19 @@ class DARTSPretrain(Model):
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
                 self.optimizer2 = None
 
-    def analyse_structure(self, sess, print_full_weight=False, epoch=None):
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
         probs = sess.run(["nas_choice_prob:0"])[0]
         print("cur_nas_choice_prob=", probs)
+        if logger is not None:
+            logger.info(f"cur_nas_choice_prob = {probs}")
         argmax_dims = np.argmax(probs, axis=1).tolist()
         field_emb_sizes = []
         for i in range(self.num_inputs):
             field_embed_size = self.search_space[argmax_dims[i]]
             field_emb_sizes.append((i, field_embed_size))
-        print("autodim selected sizes=", field_emb_sizes)
+        print("DARTS selected sizes=", field_emb_sizes)
+        if logger is not None:
+            logger.info(f"autodim selected sizes={field_emb_sizes}")
         
    
 class AutoFIS(Model):
@@ -469,7 +670,7 @@ class AutoFIS(Model):
         else:
             self.logits, self.outputs = output([l, fm_out, h, ])
 
-    def analyse_structure(self, sess, print_full_weight=False, epoch=None):
+    def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
         import numpy as np
         wts, mask = sess.run(["edge_weight/normed_wts:0", "edge_weight/unpruned_mask:0"])
         if print_full_weight:
@@ -483,6 +684,10 @@ class AutoFIS(Model):
         zeros_ = np.zeros_like(mask, dtype=np.float32)
         zeros_[mask == 0] = 1
         print("masked edge_num", sum(zeros_))
+        if logger is not None:
+            logger.info(f"wts: {wts[:10]}")
+            logger.info(f"mask: {mask[:10]}")
+            logger.info(f"masked edge_num: {sum(zeros_)}")
         if self.third_prune:
             wts, mask = sess.run(["third_edge_weight/third_normed_wts:0", "third_edge_weight/third_unpruned_mask:0"])
             if print_full_weight:
@@ -491,11 +696,17 @@ class AutoFIS(Model):
                     outline += str(wts[j]) + ","
                 outline += "\n"
                 print("third log avg auc all third weights for(epoch:%s)" % (epoch), outline)
+                if logger is not None:
+                    logger.info(f"third log avg auc all third weights for {epoch}, {outline}")
             print("third wts", wts[:10])
             print("third mask", mask[:10])
             zeros_ = np.zeros_like(mask, dtype=np.float32)
             zeros_[mask == 0] = 1
             print("third masked edge_num", sum(zeros_))
+            if logger is not None:
+                logger.info(f"third wts: {wts[:10]}")
+                logger.info(f"third mask: {mask[:10]}")
+                logger.info(f"third masked edge_num: {sum(zeros_)}")
 
     def compile(self, loss=None, optimizer1=None, optimizer2=None, global_step=None, pos_weight=1.0):
         update_ops = tf.get_collection(tf.GraphKeys.UPDATE_OPS)
@@ -568,7 +779,7 @@ class PNNPretrainAndRetrain(Model):
                     self.interaction_base_embs.append(raw_emb)
             self.fid_loss=None
 
-        all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1]*len(input_emb_size_config), input_feat_num)
+        all_bias = emb_lookup_multi_emb_size(self.inputs, input_feature_min,[1 if ele>0 else 0 for ele in input_emb_size_config], input_feat_num)
         print("all_bias", all_bias)
         self.raw_bias = tf.concat(all_bias, axis=1)
         self.build_structure()
@@ -616,9 +827,12 @@ class PNNPretrainAndRetrain(Model):
         if self.mode == "pretrain":
             probs = sess.run(["nas_choice_prob:0"])[0]
             #print("cur_nas_choice_prob=", probs)
+            probs = np.around(probs,4)
+            for i in range(len(probs)):
+                print(f"feature-{round(i,2)}: {probs[i]}")
             if logger is not None:
                 logger.info(f"cur_nas_choice_prob = {probs}")
-            self.gen_suggested_emb_size(data=probs, cpts=[0.3], logger=logger)
+            self.gen_suggested_emb_size(data=probs, cpts=[0.1,0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9], logger=logger)
         else:
             pass
     
