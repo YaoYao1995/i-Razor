@@ -98,15 +98,27 @@ if __name__=="__main__":
     mlp = [700]*5+[1]
     #mlp = [10]*5+[1]
     #feature_result_configs for irazor/Darts/Autodim, here we give the results of iRazor as an example.
-    avazu_emb_configs = [[2, 1], [3, 12], [4, 18], [6, 18], [7, 1], [8, 1], [9, 5], [10, 22], [11, 18], [13, 1], [14, 5], [17, 6], [20, 6], [21, 3], [22, 2], [23, 3]]
-    criteo_emb_configs = [[1, 15], [2, 12], [3, 4], [4, 17], [5, 4], [6, 4], [7, 4], [8, 17], [9, 2], [10, 4], [11, 12], [12, 24], [13, 13], [14, 8], [15, 24], [16, 25], [19, 4], [20, 24], [21, 16], [22, 16], [23, 17], [24, 25], [25, 21], [26, 17], [27, 8], [28, 23], [29, 4], [30, 8], [32, 16], [33, 4], [34, 21], [35, 8], [36, 23], [37, 23], [38, 17], [39, 23]]
+    avazu_emb_configs = [[1, 1], [2, 12], [3, 18], [5, 18], [6, 1], [7, 1], [8, 5], [9, 22], [10, 18], [12, 1], [13, 5], [16, 6], [19, 6], [20, 3], [21, 2], [22, 3]]
+    criteo_emb_configs = [[0, 15], [1, 12], [2, 4], [3, 17], [4, 4], [5, 4], [6, 4], [7, 17], [8, 2], [9, 4], [10, 12], [11, 24], [12, 13], [13, 8], [14, 24], [15, 25], [18, 4], [19, 24], [20, 16], [21, 16], [22, 17], [23, 25], [24, 21], [25, 17], [26, 8], [27, 23], [28, 4], [29, 8], [31, 16], [32, 4], [33, 21], [34, 8], [35, 23], [36, 23], [37, 17], [38, 23]]
     if "avazu" in data_name:
         emb_configs = avazu_emb_configs
     else:
         emb_configs = criteo_emb_configs
     input_size_config =[0] * dataset.max_length
+    total_dim = 0
+    total_params = 0
+    total_fieds = 0
+    drop_list = list(range(dataset.max_length))
     for field,dim in emb_configs:
-        input_size_config[field-1] = dim
+        input_size_config[field] = dim
+        total_dim += dim
+        total_params += dim * dataset.feat_sizes[field]
+        if dim >0:
+            total_fieds += 1
+            drop_list.remove(field)
+    print("**"*50)
+    print(f"fileds-{total_fieds}, parms-{total_params}, dim-{total_dim}. Dropfields-{drop_list}.")
+    print("**"*50)
     seed_tensorflow(seed=1217)
     if "avazu" in data_name:
         learning_rate = 0.01
