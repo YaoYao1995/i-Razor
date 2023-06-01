@@ -352,15 +352,18 @@ class IrazorPretrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss + self.fid_loss
-                #_loss_ = self.loss
-
-                self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
                                                [self.raw_embedding, self.raw_bias])
-                if self.l2_loss is not None:
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
                     _loss_ += self.l2_loss
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
                 self.optimizer2 = None
+                
     def analyse_structure(self, sess, print_full_weight=False, epoch=None, writer=None, logger=None):
         probs = sess.run(["nas_choice_prob:0"])[0]
         print("cur_nas_choice_prob:")
@@ -518,10 +521,13 @@ class AutoDimPretrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss
-
-                self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
                                                [self.raw_embedding, self.raw_bias])
-                if self.l2_loss is not None:
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
                     _loss_ += self.l2_loss
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
@@ -574,10 +580,13 @@ class DARTSPretrain(Model):
             with tf.name_scope('loss'):
                 self.loss = tf.reduce_mean(loss(logits=self.logits, targets=self.labels, pos_weight=pos_weight))
                 _loss_ = self.loss
-
-                self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
                                                [self.raw_embedding, self.raw_bias])
-                if self.l2_loss is not None:
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
                     _loss_ += self.l2_loss
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
@@ -815,9 +824,13 @@ class PNNPretrainAndRetrain(Model):
                 _loss_ = self.loss 
                 if self.fid_loss is not None:
                     _loss_ += self.fid_loss
-                self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                if not self.l2_weight:
+                    self.l2_loss = get_l2_loss([1e-6, 1e-6],
                                                [self.raw_embedding, self.raw_bias])
-                if self.l2_loss is not None:
+                    _loss_ += self.l2_loss * 0
+                else:
+                    self.l2_loss = get_l2_loss([self.l2_weight, self.l2_bias],
+                                               [self.raw_embedding, self.raw_bias])
                     _loss_ += self.l2_loss
                 all_variable = [v for v in tf.trainable_variables()]
                 self.optimizer1 = optimizer1.minimize(loss=_loss_, var_list=all_variable, global_step=global_step)
