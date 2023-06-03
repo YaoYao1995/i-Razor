@@ -92,14 +92,14 @@ if __name__=="__main__":
     config = "FDE_config"
     if pretrain:
         model_string_name = "xDeepFM_Pretrain"
-        model = xDeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=[30]*dataset.max_length, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, target_vec_sizes=[0,1,2,4,8,16,30], fid_loss_wt=1e-4, temperature=0.05,mlp=mlp, bn=False, mode="pretrain", cin_layers=[24, 24, 24])
+        model = xDeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=[30]*dataset.max_length, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, target_vec_sizes=[0,1,2,4,8,16,30], fid_loss_wt=1e-4, temperature=0.05,mlp=mlp, bn=False, mode="pretrain", cin_layers=[32, 32, 32])
     else:
         if config == "DNN_config":
             model_string_name = "xDeepFM_Retrain_DNN"
             avazu_emb_configs = [[1, 1], [2, 12], [3, 18], [5, 18], [6, 1], [7, 1], [8, 5], [9, 22], [10, 18], [12, 1], [13, 5], [16, 6], [19, 6], [20, 3], [21, 2], [22, 3]]
         elif config == "xDeepFM_config":
             model_string_name = "xDeepFM_Retrain"
-            avazu_emb_configs = [[0, 6], [1, 4], [2, 10], [3, 3], [4, 3], [5, 22], [6, 3], [7, 5], [8, 2], [10, 2], [11, 4], [12, 3], [13, 2], [14, 3], [15, 6], [16, 3], [17, 4], [18, 2], [19, 6], [20, 2], [21, 16], [22, 2], [23, 5]]
+            avazu_emb_configs = []
         else: 
             model_string_name = "xDeepFM_Retrain_FDE"
             avazu_emb_configs = [[i, 30] for i in range(dataset.max_length)]
@@ -118,7 +118,7 @@ if __name__=="__main__":
         print("**"*50)
         print(f"config-{config}, fileds-{total_fieds}, parms-{total_params}, dim-{total_dim}. Dropfields-{drop_list}.")
         print("**"*50)
-        model = xDeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, temperature=0.05,mlp=mlp, bn=False, mode="retrain", cin_layers=[len(emb_configs), len(emb_configs), len(emb_configs)])
+        model = xDeepFMPretrainAndRetrain(init='xavier', num_inputs=dataset.max_length, input_emb_size_config=input_size_config, input_feature_min=dataset.feat_min, input_feat_num=dataset.feat_sizes, l2_weight=0.001, l2_bias=0.001, temperature=0.05,mlp=mlp, bn=True, mode="retrain", cin_layers=[32, 32, 32])
     # Setup an experiment folder:
     base_dir = "/home/ubuntu/results/"
     os.makedirs(base_dir + model_string_name, exist_ok=True)
